@@ -16,6 +16,9 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) {
+
+    Registration.SReg();
+
         Button btn1 = new Button("OK");
         btn1.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -35,7 +38,4 @@ public class Main extends Application {
         stage.show();                   // отображение окна на экране
     }
 
-    public static String retString(){
-        return "HelloWorld!";
-    }
 }
