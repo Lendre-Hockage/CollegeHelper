@@ -20,5 +20,17 @@
         </dependency>
     </dependencies>
 
+<!--    <build>-->
+<!--    <resources>-->
+<!--    <resource>-->
+<!--        <directory>${basedir}</directory>-->
+<!--        <includes>-->
+<!--            <include>${project.basedir}/src/main/java/</include>-->
+<!--        </includes>-->
+<!--    </resource>-->
+<!--    </resources>-->
+<!--    </build>-->
+
+
 
 </project>

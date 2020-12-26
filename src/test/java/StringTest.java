@@ -6,7 +6,7 @@ public class StringTest {
 
     @Test
     public void testAdd() {
-        Assert.assertEquals("Eguauwgwug4uiooiwu", "HelloWorld!", Main.retString());
+        Assert.assertEquals("Eguauwgwug4uiooiwu", "HelloWorld!", "ghjbjn");
     }
 }
 
