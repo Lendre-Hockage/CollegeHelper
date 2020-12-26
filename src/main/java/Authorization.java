@@ -54,7 +54,7 @@ public class Authorization {
         btnAuth.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                btnAuth.setText("Yes!");
+                Schedule.Main_Schedule();
             }
         });
 
