@@ -1,0 +1,57 @@
+/*
+#welcome-text {
+    -fx-font-size: 45px;
+    -fx-font-family: "Arial";
+    -fx-fill: white;
+}
+
+#Label {
+    -fx-font-size: 20px;
+    -fx-font-family: "Arial";
+    -fx-text-fill: "#4d4b4d";
+}
+
+#arrow {
+    -fx-border-radius: 43;
+    -fx-background-radius: 43;
+    -fx-font-size: 35;
+    -fx-background-color:"b295c1";
+    -fx-text-fill: "white";
+}
+
+#field {
+    -fx-border-color: "#d7bdda" "#d7bdda" "#4d4b4d" "#d7bdda";
+    -fx-background-color: "#d7bdda";
+}
+
+
+#avtor {
+     -fx-border-color:  "#b295c1"  "#b295c1" white "#b295c1";
+    -fx-background-color:"#b295c1" ;
+    -fx-font-size: 12px;
+    -fx-font-family: "Arial";
+    -fx-text-fill: "white";
+
+}
+
+#faces:selected .radio .dot {
+     -fx-font-size: 12px;
+     -fx-font-family: "Arial";
+  /*  -fx-text-fill: "#4d4b4d";   я не знаю, нужно ли менятьцвет точки внутри RadioButton.
+                                     я считаю, что это колхоз, поэтому не стала менять
+     -fx-background-color:"#b295c1" ;
+     -fx-background-insets:0;
+   -fx-focus-color: -fx-control-inner-background ;
+        -fx-faint-focus-color: -fx-control-inner-background ;
+
+}
+
+#arrow:hover {
+    -fx-background-color: white;
+    -fx-text-fill: "b295c1";
+    -fx-border-color: "b295c1" ;
+}
+
+#avtor:hover {
+    -fx-border-color: white white white white;
+}*/
