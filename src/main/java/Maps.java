@@ -9,10 +9,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 
@@ -27,16 +24,13 @@ public class Maps {
         grid.setVgap(10);
         grid.setPadding(new Insets(130, 60, 30, 30));
         grid.setGridLinesVisible(true);
-
-
-        Image inpstr = new Image("1этаж.jpeg");
-        ImageView first_floor = new ImageView(new Image("1этаж.jpeg"));
-        GridPane.setHalignment(first_floor, HPos.CENTER);
-        GridPane.setValignment(first_floor, VPos.BOTTOM);
-        grid.getChildren().add(first_floor);
+        grid.getColumnConstraints().add(new ColumnConstraints(800));
+        grid.getRowConstraints().add(new RowConstraints(500));
+        grid.getColumnConstraints().add(new ColumnConstraints(50));
 
 
         ToggleGroup group= new ToggleGroup();
+
 
         RadioButton first = new RadioButton("1");
         first.setToggleGroup(group);
@@ -59,6 +53,30 @@ public class Maps {
         floors.setSpacing(25);
         floors.getChildren().addAll(first, second, third, fourth);
         grid.add(floors, 1, 0);
+
+        first.setOnAction(event -> {
+            grid.getChildren().clear();
+            grid.getChildren().addAll(new ImageView("1этаж.jpeg"), floors);
+        });
+
+
+        second.setOnAction(event -> {
+            grid.getChildren().clear();
+            grid.getChildren().addAll(new ImageView("2этаж.jpeg"), floors);
+        });
+
+
+
+        third.setOnAction(event -> {
+            grid.getChildren().clear();
+            grid.getChildren().addAll(new ImageView("3этаж.jpeg"), floors);
+        });
+
+
+        fourth.setOnAction(event -> {
+            grid.getChildren().clear();
+            grid.getChildren().addAll(new ImageView("4этаж.jpeg"), floors);
+        });
 
 
 
