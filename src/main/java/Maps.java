@@ -22,29 +22,29 @@ public class Maps {
 
         grid.setHgap(0);
         grid.setVgap(10);
-        grid.setPadding(new Insets(130, 60, 30, 30));
+        grid.setPadding(new Insets(130, 30, 30, 30));
         grid.setGridLinesVisible(true);
         grid.getColumnConstraints().add(new ColumnConstraints(800));
         grid.getRowConstraints().add(new RowConstraints(500));
-        grid.getColumnConstraints().add(new ColumnConstraints(50));
+        grid.getColumnConstraints().add(new ColumnConstraints(100));
 
 
         ToggleGroup group= new ToggleGroup();
 
 
-        RadioButton first = new RadioButton("1");
+        RadioButton first = new RadioButton("1 этаж");
         first.setToggleGroup(group);
         first.setId("floors");
 
-        RadioButton second = new RadioButton("2");
+        RadioButton second = new RadioButton("2 этаж");
         second.setToggleGroup(group);
         second.setId("floors");
 
-        RadioButton third = new RadioButton("3");
+        RadioButton third = new RadioButton("3 этаж");
         third.setToggleGroup(group);
         third.setId("floors");
 
-        RadioButton fourth = new RadioButton("4");
+        RadioButton fourth = new RadioButton("4 этаж");
         fourth.setToggleGroup(group);
         fourth.setId("floors");
 
