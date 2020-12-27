@@ -13,7 +13,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) {
-    Registration.SReg();
+    Maps.Map();
     }
 
 }
