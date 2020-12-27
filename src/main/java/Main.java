@@ -1,13 +1,15 @@
 import java.lang.String;
 
+import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.control.*;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 public class Main extends Application {
     public static void main(String[] args) {
@@ -16,68 +18,25 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) {
-
-
-
-        Button btn1 = new Button("Auth");
-        btn1.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                Authorization.input();
-            }
-        });
-        btn1.setLayoutX(10);
-        btn1.setLayoutY(10);
-
-        Button btn2 = new Button("Regist");
-        btn2.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                Registration.SReg();
-            }
-        });
-        btn2.setLayoutX(10);
-        btn2.setLayoutY(30);
-
-        Button btn3 = new Button("Maps");
-        btn3.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-
-            }
-        });
-        btn3.setLayoutX(10);
-        btn3.setLayoutY(50);
-
-        Button btn4 = new Button("Events");
-        btn4.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-
-            }
-        });
-        btn4.setLayoutX(10);
-        btn4.setLayoutY(70);
-
-        Button btn5 = new Button("Schedule");
-        btn5.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                Schedule.Window();
-            }
-        });
-        btn5.setLayoutX(10);
-        btn5.setLayoutY(90);
+        Label lbl = new Label("Переход с задержкой");
 
         Pane root = new Pane();
-        root.getChildren().addAll(btn1, btn2, btn3, btn4, btn5);
+        root.getChildren().add(lbl);
         Scene scene = new Scene(root);
 
         stage.setScene(scene);
-        stage.setTitle("Main menu"); // установка заголовка
         stage.setWidth(1000);
         stage.setHeight(650);
-        stage.show();                   // отображение окна на экране
-    }
+        stage.show();
 
+
+        PauseTransition wait = new PauseTransition(Duration.seconds(2));           // Пауза в программе на 2 секунды
+        wait.setOnFinished((e) -> {
+            /*YOUR METHOD*/
+            Menu.Window();                                                         //Открываем форму после паузы
+            stage.hide();
+        });
+        wait.play();
+
+    }
 }
