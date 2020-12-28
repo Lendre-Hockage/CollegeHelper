@@ -1,15 +1,11 @@
-import java.lang.String;
-
 import javafx.animation.PauseTransition;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.layout.*;
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+
 
 public class Main extends Application {
     public static void main(String[] args) {
@@ -31,7 +27,7 @@ public class Main extends Application {
         stage.setHeight(650);
         stage.show();
 
-        PauseTransition wait = new PauseTransition(Duration.seconds(2));           // Пауза в программе на 2 секунды
+        PauseTransition wait = new PauseTransition(Duration.seconds(0));           // Пауза в программе на 2 секунды
         wait.setOnFinished((e) -> {
             /*YOUR METHOD*/
             //Menu.Window();                                                         //Открываем форму после паузы

@@ -1,4 +1,3 @@
-import java.rmi.StubNotFoundException;
 import java.sql.*;
 
 public class AutorizCode {
@@ -47,6 +46,7 @@ public class AutorizCode {
                                 group_name=rs.getString(4);
                                 email=rs.getString(5);}
                                 check = 4;
+
                                 StudentProfile.Profile();
 
                             } else {

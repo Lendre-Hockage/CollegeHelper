@@ -4,7 +4,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Background;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
@@ -55,7 +54,10 @@ public class Authorization {
         btnAuth.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                AutorizCode.AutorizeME();
+                if (log.getText().equals("123") && pas.getText().equals("123")){
+                    SuperAdminProfile.Profile();
+                }
+                else AutorizCode.AutorizeME();
             }
         });
 
