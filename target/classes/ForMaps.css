@@ -1,0 +1,22 @@
+.root {
+     -fx-background-image: url("BackForMap.jpeg");
+
+}
+
+#floors: selected .radio .dot {
+
+     -fx-font-size: 14px;
+     -fx-font-family: "Arial";
+     -fx-text-fill: "#4176c9";
+     -fx-background-color:"#4176c9" ;
+     -fx-background-insets:0;
+ /*    -fx-focus-color: -fx-control-inner-background ;
+     -fx-faint-focus-color: -fx-control-inner-background ;*/
+
+}
+
+#floors{
+ -fx-font-size: 18px;
+ -fx-font-family: "Arial";
+ -fx-text-fill: "black";
+}
