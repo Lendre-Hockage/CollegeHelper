@@ -4,9 +4,15 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.util.Date; //
+
 public class Schedule {
     public static void Main_Schedule () {
         Stage stage = new Stage();
+
+        Date date = new Date();             //
+        System.out.println(date);           //
+
 
         Text nameTypeSched = new Text("Основное расписание");
         nameTypeSched.setLayoutX(10);
