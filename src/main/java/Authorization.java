@@ -59,6 +59,18 @@ public class Authorization {
             }
         });
 
+        Button reg = new Button("You have no account? Register here!");
+        reg.setLayoutY(270);    // установка положения надписи по оси Y
+        reg.setLayoutX(320);   // установка положения надписи по оси X
+        reg.setFont(Font.font("times new roman", FontWeight.NORMAL, FontPosture.REGULAR, 20));
+        reg.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Registration.SReg();
+            }
+        });
+
+
         Button btnEx = new Button("      Exit       ");
         btnEx.setId("btn");
         btnEx.setLayoutY(320);    // установка положения надписи по оси Y
@@ -71,10 +83,10 @@ public class Authorization {
             }
         });
 
-        Pane root = new Pane(auth, log, txtLog, pas, txtPas, btnAuth, btnEx);
+        Pane root = new Pane(auth, log, txtLog, pas, txtPas, btnAuth, btnEx, reg);
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.setTitle("Main menu"); // установка заголовка
+        stage.setTitle("College Helper <3"); // установка заголовка
         stage.setWidth(1000);
         stage.setHeight(650);
         stage.show();                   // отображение окна на экране

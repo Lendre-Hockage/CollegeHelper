@@ -23,7 +23,7 @@ public class Maps {
         grid.setHgap(0);
         grid.setVgap(10);
         grid.setPadding(new Insets(130, 30, 30, 30));
-        grid.setGridLinesVisible(true);
+        grid.setGridLinesVisible(false);
         grid.getColumnConstraints().add(new ColumnConstraints(800));
         grid.getRowConstraints().add(new RowConstraints(10));
         grid.getColumnConstraints().add(new ColumnConstraints(100));

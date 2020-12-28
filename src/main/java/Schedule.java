@@ -24,7 +24,8 @@ public class Schedule {
         grid.setLayoutX(50);
         grid.setLayoutY(150);
         grid.setGridLinesVisible(true);
-        grid.getColumnConstraints().add(new ColumnConstraints(150));
+        grid.getColumnConstraints().add(new ColumnConstraints(100));
+        grid.getColumnConstraints().add(new ColumnConstraints(200));
         grid.getColumnConstraints().add(new ColumnConstraints(200));
         grid.getColumnConstraints().add(new ColumnConstraints(200));
         grid.getColumnConstraints().add(new ColumnConstraints(200));
@@ -38,6 +39,12 @@ public class Schedule {
         Text lbl5 = new Text("5");
         Text lbl6 = new Text("6");
 
+        Text Mon = new Text("Понедельник");
+        Text Tue = new Text("Вторник");
+        Text Wed = new Text("Среда");
+        Text Thur = new Text("Четверг");
+        Text Fri = new Text("Пятница");
+
         GridPane grid2 = new GridPane();
 
         grid2.setLayoutX(50);
@@ -46,12 +53,13 @@ public class Schedule {
         grid2.setGridLinesVisible(true);
         grid2.getColumnConstraints().add(new ColumnConstraints(100));
         grid2.getColumnConstraints().add(new ColumnConstraints(250));
-        grid2.getColumnConstraints().add(new ColumnConstraints(50));
+        grid2.getColumnConstraints().add(new ColumnConstraints(20));
         grid2.getColumnConstraints().add(new ColumnConstraints(250));
 
         pane.getChildren().addAll(main_sched, change_sched);
 
         main_sched.setOnAction(event -> {
+//Непредвиденная ошибка! Если включить сначала основное, затем замены, потом снова основное - оно не появится, куча сообщений об ошибке.
             grid.add(lbl0, 0, 0);
             grid.add(lbl1, 0, 1); //0-столбец 1-строка
             grid.add(lbl2, 0, 2);
@@ -59,6 +67,12 @@ public class Schedule {
             grid.add(lbl4, 0, 4);
             grid.add(lbl5, 0, 5);
             grid.add(lbl6, 0, 6);
+
+            grid.add(Mon, 1,0); //1-столбец 0-строка
+            grid.add(Tue, 2,0);
+            grid.add(Wed, 3,0);
+            grid.add(Thur, 4,0);
+            grid.add(Fri, 5,0);
 
             pane.getChildren().clear();
             pane.getChildren().addAll(main_sched, change_sched, grid);
@@ -79,7 +93,7 @@ public class Schedule {
         Scene scene = new Scene(pane);
 
         stage.setScene(scene);
-        stage.setWidth(1000);
+        stage.setWidth(1200);
         stage.setHeight(650);
         stage.show();
     }

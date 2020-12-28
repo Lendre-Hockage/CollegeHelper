@@ -208,8 +208,18 @@ public class Menu {
         btn5.setLayoutX(10);
         btn5.setLayoutY(90);
 
+        Button btn6 = new Button("My profile");
+        btn6.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                StudentProfile.Profile();
+            }
+        });
+        btn6.setLayoutX(10);
+        btn6.setLayoutY(120);
+
         Pane root = new Pane();
-        root.getChildren().addAll(btn1, btn2, btn3, btn4, btn5);
+        root.getChildren().addAll(btn1, btn2, btn3, btn4, btn5, btn6);
         Scene scene = new Scene(root);
 
         stage.setScene(scene);
