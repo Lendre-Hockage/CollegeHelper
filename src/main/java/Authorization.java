@@ -13,6 +13,11 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class Authorization {
+
+    public static Text txtLog = new Text(), txtPas = new Text();
+    public static TextField log= new TextField();
+    public static PasswordField pas =  new PasswordField();
+
     public static void input () {
         Stage stage = new Stage();
         Text auth = new Text("Authorization: ");
@@ -20,31 +25,27 @@ public class Authorization {
         auth.setLayoutX(400);   // установка положения надписи по оси X
         auth.setFont(Font.font("times new roman", FontWeight.BOLD, FontPosture.REGULAR, 30));
 
-        Text txtLog = new Text("Login:");
+        /*Text txtLog = new Text("");
         txtLog.setLayoutY(140);    // установка положения надписи по оси Y
         txtLog.setLayoutX(370);   // установка положения надписи по оси X
         txtLog.setFont(Font.font("times new roman", FontWeight.NORMAL, FontPosture.REGULAR, 20));
+        */
 
-        TextField log = new TextField();
         log.setLayoutX(360);
         log.setLayoutY(115);
         log.setFont(Font.font("times new roman", FontWeight.NORMAL, FontPosture.REGULAR, 20));
         //   @Override
-        log.setOnMouseEntered(event -> {
-            txtLog.setText("");
-        });
 
-        Text txtPas = new Text("Password:");
+
+        /*Text txtPas = new Text("");
         txtPas.setLayoutY(190);    // установка положения надписи по оси Y
         txtPas.setLayoutX(370);   // установка положения надписи по оси X
-        txtPas.setFont(Font.font("times new roman", FontWeight.NORMAL, FontPosture.REGULAR, 20));
-        PasswordField pas = new PasswordField();
+        txtPas.setFont(Font.font("times new roman", FontWeight.NORMAL, FontPosture.REGULAR, 20));*/
+
         pas.setLayoutX(360);
         pas.setLayoutY(165);
         pas.setFont(Font.font("times new roman", FontWeight.NORMAL, FontPosture.REGULAR, 20));
-        pas.setOnMouseEntered(event -> {
-            txtPas.setText("");
-        });
+
 
         Button btnAuth = new Button("    Log in     ");
         btnAuth.setId("btn");
@@ -54,7 +55,7 @@ public class Authorization {
         btnAuth.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                Schedule.Main_Schedule();
+                AutorizCode.AutorizeME();
             }
         });
 
