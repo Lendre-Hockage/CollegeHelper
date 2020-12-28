@@ -1,3 +1,5 @@
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -14,10 +16,19 @@ import javafx.stage.Stage;
 
 public class Registration {
 
+  public static TextField log1 = new TextField(),
+          pass1  = new TextField(),
+          name1 = new TextField(),
+          surname1 = new TextField(),
+          father1 = new TextField(),
+          group1 = new TextField(),
+          email1 = new TextField();
+
+
         private static Stage primaryStage = new Stage();
         public static void SReg() {
             GridPane grid = new GridPane();   //создание сетки для разметки формы
-            grid.setGridLinesVisible(true);  //видна/не видна
+            //grid.setGridLinesVisible(true);  //видна/не видна
             grid.setAlignment(Pos.CENTER);
             grid.setHgap(0);                   //отступы например между Edit и Label по горизонтали
             grid.setVgap(10);                   //отступы например между Edit и Label по вертикали
@@ -45,7 +56,7 @@ public class Registration {
             grid.add(name, 0, 4);//добавляем текст в Grid
 
             //EDIT "ВВОД ИМЯ"
-            TextField name1 = new TextField();
+
             name1.setId("field");
             grid.add(name1, 0, 5);
 
@@ -57,7 +68,7 @@ public class Registration {
             grid.add(surname, 0, 7);
 
             //EDIT "ВВОД ФАМИЛИЯ"
-            TextField surname1 = new TextField();
+
             surname1.setId("field");
             grid.add(surname1, 0, 8);
 
@@ -69,7 +80,7 @@ public class Registration {
             grid.add(father, 0, 10);
 
             //EDIT "ВВОД ОТЧЕСТВО"
-            TextField father1 = new TextField();
+
             father1.setId("field");
             grid.add(father1, 0, 11);
 
@@ -80,7 +91,7 @@ public class Registration {
             grid.add(group, 0, 13);
 
             //EDIT "ГРУППА"
-            TextField group1 = new TextField();
+
             group1.setId("field");
             grid.add(group1, 0, 14);
 
@@ -92,7 +103,7 @@ public class Registration {
             grid.add(email, 0, 16);
 
             //EDIT "EMAIL"
-            TextField email1 = new TextField();
+
             email1.setId("field");
             grid.add(email1, 0, 17);
 
@@ -104,7 +115,7 @@ public class Registration {
             grid.add(log, 0, 19);
 
             //EDIT "ЛОГИН"
-            TextField log1 = new TextField();
+
             log1.setId("field");
             grid.add(log1, 0, 20);
 
@@ -115,7 +126,7 @@ public class Registration {
             grid.add(pass, 0, 22);
 
             //EDIT "ПАРОЛЬ"
-            PasswordField pass1 = new PasswordField();
+
             pass1.setId("field");
             grid.add(pass1, 0, 23);
 
@@ -129,12 +140,18 @@ public class Registration {
 
 
             //КНОПУЛЕЧКА "→"
-            Button arrow = new Button("→");
+            Button arrow = new Button("Загерестрироваться→");
             HBox hbBtn = new HBox(100); //поместить в контейнер HBox, но это больше для удобства
             arrow.setId("arrow");
             hbBtn.setAlignment(Pos.BOTTOM_RIGHT);
             hbBtn.getChildren().add(arrow);
             grid.add(arrow, 1, 26);
+          arrow.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+              RegistrCode.RegistrME();
+            }
+          });
 
 
             //КНОПУЛЕЧКА "←"
