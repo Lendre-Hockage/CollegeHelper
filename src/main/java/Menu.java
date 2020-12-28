@@ -155,6 +155,28 @@ public class Menu {
         alert.showAndWait();
     }
 
+    public static void Alert12() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Test Connection");
+
+        // Header Text: null
+        alert.setHeaderText(null);
+        alert.setContentText("Имя/Фамилия/Отчество должно быть написано русскими букавками");
+
+        alert.showAndWait();
+    }
+
+    public static void Alert13() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Test Connection");
+
+        // Header Text: null
+        alert.setHeaderText(null);
+        alert.setContentText("Нужно ввести только часть почты только до @");
+
+        alert.showAndWait();
+    }
+
     public static void Window() {
         Stage stage = new Stage();
 

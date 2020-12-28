@@ -1,3 +1,5 @@
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.HPos;
@@ -5,17 +7,17 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.geometry.VPos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class Registration {
-
+ public static ObservableList<String> listEvent = FXCollections.observableArrayList("@gmail.com",
+          "@mail.ru",
+          "@yandex.ru");
+  public static ComboBox<String> EventComboBox = new ComboBox<String>(listEvent);
   public static TextField log1 = new TextField(),
           pass1  = new TextField(),
           name1 = new TextField(),
@@ -108,6 +110,7 @@ public class Registration {
             grid.add(email1, 0, 17);
 
 
+          grid.add(EventComboBox,1,17);
 
             //LABEL "ЛОГИН"
             Label log = new Label("Логин:");
@@ -150,6 +153,13 @@ public class Registration {
             @Override
             public void handle(ActionEvent event) {
               RegistrCode.RegistrME();
+              name1.clear();
+              surname1.clear();
+              father1.clear();
+              group1.clear();
+              email1.clear();
+              log1.clear();
+              pass1.clear();
             }
           });
 
