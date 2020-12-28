@@ -182,7 +182,7 @@ public class Menu {
         btn3.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-
+                Maps.Map();
             }
         });
         btn3.setLayoutX(10);
