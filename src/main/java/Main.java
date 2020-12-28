@@ -16,9 +16,9 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) {
-<<<<<<< HEAD
-    Registration.SReg();
-=======
+
+        Registration.SReg();
+
         Button btn1 = new Button("OK");
         btn1.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -35,8 +35,6 @@ public class Main extends Application {
         stage.setTitle("Main menu"); // установка заголовка
         stage.setWidth(1000);
         stage.setHeight(650);
-        stage.show();                   // отображение окна на экране
->>>>>>> 25276704b92da6bc4d13b64a711e691b3110e6bf
+        stage.show();// отображение окна на экране
     }
-
 }
