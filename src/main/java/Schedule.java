@@ -8,6 +8,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.util.Date;
+
 public class Schedule {
     public static void Window () {
         Stage stage = new Stage();
@@ -60,6 +62,7 @@ public class Schedule {
 
         main_sched.setOnAction(event -> {
 //Непредвиденная ошибка! Если включить сначала основное, затем замены, потом снова основное - оно не появится, куча сообщений об ошибке.
+
             grid.add(lbl0, 0, 0);
             grid.add(lbl1, 0, 1); //0-столбец 1-строка
             grid.add(lbl2, 0, 2);
@@ -68,16 +71,17 @@ public class Schedule {
             grid.add(lbl5, 0, 5);
             grid.add(lbl6, 0, 6);
 
-            grid.add(Mon, 1,0); //1-столбец 0-строка
+            /*grid.add(Mon, 1,0); //1-столбец 0-строка
             grid.add(Tue, 2,0);
             grid.add(Wed, 3,0);
             grid.add(Thur, 4,0);
-            grid.add(Fri, 5,0);
+            grid.add(Fri, 5,0);*/
 
             pane.getChildren().clear();
             pane.getChildren().addAll(main_sched, change_sched, grid);
         });
         change_sched.setOnAction(event -> {
+
             grid2.add(lbl0, 0, 0);
             grid2.add(lbl1, 0, 1); //0-столбец 1-строка
             grid2.add(lbl2, 0, 2);
@@ -89,6 +93,11 @@ public class Schedule {
             pane.getChildren().clear();
             pane.getChildren().addAll(main_sched, change_sched, grid2);
         });
+
+        Date date = new Date();
+        String day = new String();
+        day = date.toString();
+        day.split(" ");
 
         Scene scene = new Scene(pane);
 

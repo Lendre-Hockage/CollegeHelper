@@ -1,16 +1,17 @@
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.geometry.VPos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -130,17 +131,8 @@ public class Registration {
             pass1.setId("field");
             grid.add(pass1, 0, 23);
 
-
-
-
-
-
-
-
-
-
             //КНОПУЛЕЧКА "→"
-            Button arrow = new Button("Загерестрироваться→");
+            Button arrow = new Button("Зарегестрироваться -->");
             HBox hbBtn = new HBox(100); //поместить в контейнер HBox, но это больше для удобства
             arrow.setId("arrow");
             hbBtn.setAlignment(Pos.BOTTOM_RIGHT);
@@ -153,17 +145,23 @@ public class Registration {
             }
           });
 
-
             //КНОПУЛЕЧКА "←"
             Button arrow1 = new Button("←");
+            arrow1.setFont(Font.font("times new roman", FontWeight.BOLD, FontPosture.REGULAR, 20));
             HBox hbBtn1 = new HBox(100); //поместить в контейнер HBox, но это больше для удобства
             arrow1.setId("arrow");
-            hbBtn1.setAlignment(Pos.BOTTOM_LEFT);
+            hbBtn1.setAlignment(Pos.TOP_LEFT);
             hbBtn1.getChildren().add(arrow1);
-            grid.add(arrow1, 0, 26);
 
+            arrow1.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    primaryStage.close();
+                }
+            });
 
-            Scene scene = new Scene(grid, 1000, 650); //добавляем Grid в Scene
+            Pane root = new Pane(grid, hbBtn1);
+            Scene scene = new Scene(root, 1000, 750); //добавляем Grid в Scene
 
             primaryStage.setScene(scene); //добавляем scene в stage
             primaryStage.setTitle("Регистрация"); //название форме (как наказывала Ишкушка)
