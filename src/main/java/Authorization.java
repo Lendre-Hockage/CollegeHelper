@@ -1,10 +1,13 @@
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
@@ -19,50 +22,65 @@ public class Authorization {
 
     public static void input () {
         Stage stage = new Stage();
-        Text auth = new Text("Authorization: ");
-        auth.setLayoutY(80);    // установка положения надписи по оси Y
-        auth.setLayoutX(400);   // установка положения надписи по оси X
-        auth.setFont(Font.font("times new roman", FontWeight.BOLD, FontPosture.REGULAR, 30));
+        GridPane grid = new GridPane();   //создание сетки для разметки формы
+       // grid.setGridLinesVisible(true);
+        grid.setAlignment(Pos.CENTER);
+        grid.setPadding(new Insets(120, 60, 60, 60));
 
-        /*Text txtLog = new Text("");
-        txtLog.setLayoutY(140);    // установка положения надписи по оси Y
-        txtLog.setLayoutX(370);   // установка положения надписи по оси X
-        txtLog.setFont(Font.font("times new roman", FontWeight.NORMAL, FontPosture.REGULAR, 20));
-        */
+        grid.getColumnConstraints().add(new ColumnConstraints(300));
+        grid.getRowConstraints().add(new RowConstraints(80));
+        grid.getRowConstraints().add(new RowConstraints(20));
+        grid.getRowConstraints().add(new RowConstraints(20));
 
-        log.setLayoutX(360);
-        log.setLayoutY(115);
-        log.setFont(Font.font("times new roman", FontWeight.NORMAL, FontPosture.REGULAR, 20));
-        //   @Override
+        grid.getRowConstraints().add(new RowConstraints(30));
+        grid.getRowConstraints().add(new RowConstraints(40)); //Логин
+        grid.getRowConstraints().add(new RowConstraints(10));
+
+        grid.getRowConstraints().add(new RowConstraints(30));
+
+        grid.getRowConstraints().add(new RowConstraints(30));
+        grid.getRowConstraints().add(new RowConstraints(40)); //Пароль
+        grid.getRowConstraints().add(new RowConstraints(10));
+
+        grid.getRowConstraints().add(new RowConstraints(30));
+        grid.getRowConstraints().add(new RowConstraints(50));//Кнопка
+
+        //LABEL "РЕГИСТРАЦИЯ"
+        Label rega = new Label("Авторизация");
+        rega.setId("welcome-text");
+        grid.add(rega, 0, 0);
 
 
-        /*Text txtPas = new Text("");
-        txtPas.setLayoutY(190);    // установка положения надписи по оси Y
-        txtPas.setLayoutX(370);   // установка положения надписи по оси X
-        txtPas.setFont(Font.font("times new roman", FontWeight.NORMAL, FontPosture.REGULAR, 20));*/
+        //LABEL "ЛОГИН"
+        Label login_login = new Label("Логин:");
+        login_login.setId("Label");
+        grid.add(login_login, 0, 3);
 
-        pas.setLayoutX(360);
-        pas.setLayoutY(165);
-        pas.setFont(Font.font("times new roman", FontWeight.NORMAL, FontPosture.REGULAR, 20));
+        //EDIT "ВВОД ЛОГИН"
+        log.setId("field");
+        grid.add(log, 0, 4);
 
 
-        Button btnAuth = new Button("    Log in     ");
-        btnAuth.setId("btn");
-        btnAuth.setLayoutY(220);    // установка положения надписи по оси Y
-        btnAuth.setLayoutX(420);   // установка положения надписи по оси X
-        btnAuth.setFont(Font.font("times new roman", FontWeight.NORMAL, FontPosture.REGULAR, 20));
-        btnAuth.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                AutorizCode.AutorizeME();
-            }
-        });
 
-        Button btnEx = new Button("      Exit       ");
+        //LABEL "ПАРОЛЬ"
+        Label password_password = new Label("Пароль:");
+        password_password.setId("Label"); //для CSS
+        grid.add(password_password, 0, 7);//добавляем текст в Grid
+
+        //EDIT "ВВОД ПАРОЛЬ"
+        pas.setId("field");
+        grid.add(pas, 0, 8);
+
+        HBox box_for_buttons = new HBox(198);
+
+
+        //КНОПКА "ВЫЙТИ"
+        Button btnEx = new Button("←");
         btnEx.setId("btn");
-        btnEx.setLayoutY(320);    // установка положения надписи по оси Y
-        btnEx.setLayoutX(420);   // установка положения надписи по оси X
-        btnEx.setFont(Font.font("times new roman", FontWeight.NORMAL, FontPosture.REGULAR, 20));
+        box_for_buttons.getChildren().add(btnEx);
+
+
+
         btnEx.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -70,12 +88,29 @@ public class Authorization {
             }
         });
 
-        Pane root = new Pane(auth, log, txtLog, pas, txtPas, btnAuth, btnEx);
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setTitle("Main menu"); // установка заголовка
-        stage.setWidth(1000);
-        stage.setHeight(650);
-        stage.show();                   // отображение окна на экране
+
+        //КНОПКА "ДАЛЕЕ"
+        Button btnAuth = new Button("→");
+        btnAuth.setId("btn");
+        box_for_buttons.getChildren().add(btnAuth);
+
+
+        btnAuth.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                AutorizCode.AutorizeME();
+            }
+        });
+
+        grid.add(box_for_buttons, 0, 11);
+
+
+
+        Scene scene = new Scene(grid, 1000, 650); //добавляем Grid в Scene
+
+        stage.setScene(scene); //добавляем scene в stage
+        stage.setTitle("Авторизация"); //название форме (как наказывала Ишкушка)
+        scene.getStylesheets().add(0, "ForAvtorization.css"); //подключение CSS
+        stage.show();                // отображение окна на экране
     }
 }
