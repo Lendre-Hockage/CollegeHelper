@@ -49,19 +49,19 @@ public class Registration {
     grid.getRowConstraints().add(new RowConstraints(20));
 
     grid.getRowConstraints().add(new RowConstraints(30));
-    grid.getRowConstraints().add(new RowConstraints(40)); //фамилия
+    grid.getRowConstraints().add(new RowConstraints(40)); //Фамилия
     grid.getRowConstraints().add(new RowConstraints(10));
 
     grid.getRowConstraints().add(new RowConstraints(30));
-    grid.getRowConstraints().add(new RowConstraints(40)); //фамилия
+    grid.getRowConstraints().add(new RowConstraints(40)); //Имя
     grid.getRowConstraints().add(new RowConstraints(10));
 
     grid.getRowConstraints().add(new RowConstraints(30));
-    grid.getRowConstraints().add(new RowConstraints(40)); //фамилия
+    grid.getRowConstraints().add(new RowConstraints(40)); //Отчество
     grid.getRowConstraints().add(new RowConstraints(10));
 
     grid.getRowConstraints().add(new RowConstraints(30));
-    grid.getRowConstraints().add(new RowConstraints(40)); //фамилия
+    grid.getRowConstraints().add(new RowConstraints(40)); //Группа
     grid.getRowConstraints().add(new RowConstraints(30));
 
     grid.getRowConstraints().add(new RowConstraints(50));
@@ -131,8 +131,12 @@ public class Registration {
 
     //EDIT "EMAIL"
     email1.setId("field");
-    grid.add(email1, 1, 4);
-    grid.add(EventComboBox,2,4);
+    HBox box = new HBox(5);
+    box.getChildren().addAll(email1, EventComboBox);
+    EventComboBox.setId("event");
+    grid.add(box,1,4);
+
+
     //LABEL "ЛОГИН"
     Label log = new Label("Логин:");
     log.setId("Label");
@@ -192,7 +196,7 @@ public class Registration {
     arrow1.setOnAction(new EventHandler<ActionEvent>() {
       @Override
       public void handle(ActionEvent event) {
-        Menu.Window();
+        primaryStage.close();
       }
     });
 
