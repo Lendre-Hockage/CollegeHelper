@@ -24,6 +24,7 @@ public class Menu {
          alert.showAndWait();
      } */
     public static Stage stage = new Stage();
+
     public static void DatabaseFail() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Test Connection");
@@ -219,7 +220,7 @@ public class Menu {
             @Override
             public void handle(ActionEvent actionEvent) {
                 Authorization.input();
-                stage.toBack();
+                stage.hide();
             }
         });
 
@@ -230,7 +231,7 @@ public class Menu {
             @Override
             public void handle(ActionEvent actionEvent) {
                 Registration.SReg();
-                stage.toBack();
+                stage.hide();
             }
         });
 
@@ -242,7 +243,7 @@ public class Menu {
             @Override
             public void handle(ActionEvent actionEvent) {
                 Maps.Map();
-                stage.toBack();
+                stage.hide();
             }
         });
 
@@ -254,7 +255,7 @@ public class Menu {
             @Override
             public void handle(ActionEvent actionEvent) {
                 Events.Window();
-                stage.toBack();
+                stage.hide();
             }
         });
 
@@ -266,7 +267,7 @@ public class Menu {
             @Override
             public void handle(ActionEvent actionEvent) {
                 Schedule.Window();
-                stage.toBack();
+                stage.hide();
             }
         });
 

@@ -1,57 +1,55 @@
-/*
+.root {
+      -fx-background-image: url("BackForMap.jpeg");
+
+ }
+
 #welcome-text {
     -fx-font-size: 45px;
-    -fx-font-family: "Arial";
-    -fx-fill: white;
+    -fx-font-family: "Georgia";
+    -fx-fill: black;
 }
 
 #Label {
     -fx-font-size: 20px;
-    -fx-font-family: "Arial";
-    -fx-text-fill: "#4d4b4d";
+    -fx-font-family: "Georgia";
+    -fx-text-fill: black;
 }
 
-#arrow {
-    -fx-border-radius: 43;
-    -fx-background-radius: 43;
-    -fx-font-size: 35;
-    -fx-background-color:"b295c1";
+#buttons {
+ -fx-pref-width: 50px;
+ -fx-pref-height: 45px;
+ -fx-border-radius: 10;
+ -fx-background-radius: 10;
+ -fx-background-color:"#b6d1fb";
+    -fx-font-size: 17;
     -fx-text-fill: "white";
-}
+
+ }
 
 #field {
-    -fx-border-color: "#d7bdda" "#d7bdda" "#4d4b4d" "#d7bdda";
-    -fx-background-color: "#d7bdda";
-}
-
-
-#avtor {
-     -fx-border-color:  "#b295c1"  "#b295c1" white "#b295c1";
-    -fx-background-color:"#b295c1" ;
-    -fx-font-size: 12px;
+    -fx-border-color: "transparent" "transparent" "black" "transparent";
+    -fx-background-color: transparent;
+    -fx-font-size: 15px;
     -fx-font-family: "Arial";
-    -fx-text-fill: "white";
-
+    -fx-text-fill: black;
 }
 
-#faces:selected .radio .dot {
-     -fx-font-size: 12px;
-     -fx-font-family: "Arial";
-  /*  -fx-text-fill: "#4d4b4d";   я не знаю, нужно ли менятьцвет точки внутри RadioButton.
-                                     я считаю, что это колхоз, поэтому не стала менять
-     -fx-background-color:"#b295c1" ;
-     -fx-background-insets:0;
-   -fx-focus-color: -fx-control-inner-background ;
-        -fx-faint-focus-color: -fx-control-inner-background ;
-
-}
-
-#arrow:hover {
+#buttons:hover {
     -fx-background-color: white;
-    -fx-text-fill: "b295c1";
-    -fx-border-color: "b295c1" ;
+     -fx-border-color: "#b6d1fb" ;
+         -fx-text-fill:"#b6d1fb";
+
 }
 
-#avtor:hover {
-    -fx-border-color: white white white white;
-}*/
+}
+
+#event{
+    -fx-border-color:transparent;
+    -fx-pref-width: 130px;
+    -fx-background-color: "#b6d1fb";
+    -fx-border-width:3;
+}
+
+#event .arrow{
+    -fx-background-color:"white";
+}

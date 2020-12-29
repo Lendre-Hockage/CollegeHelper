@@ -1,0 +1,38 @@
+.root {
+      -fx-background-image: url("BackForMap.jpeg");
+
+ }
+
+#buttons {
+ -fx-pref-width: 120px;
+ -fx-pref-height: 120px;
+ -fx-border-radius: 10;
+ -fx-background-radius: 10;
+ -fx-background-color:"#b6d1fb";
+
+ }
+
+ #Hello {
+     -fx-font-size: 45px;
+     -fx-font-family: "Georgia";
+     -fx-text-fill: black;
+ }
+
+ #Hello2 {
+     -fx-font-size: 25px;
+     -fx-font-family: "Georgia";
+     -fx-text-fill: black;
+ }
+
+ #labels {
+      -fx-font-size: 17px;
+      -fx-font-family: "Georgia";
+      -fx-text-fill: black;
+
+ }
+
+
+#buttons:hover {
+    -fx-background-color: white;
+     -fx-border-color: "#b6d1fb" ;
+}
