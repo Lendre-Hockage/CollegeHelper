@@ -19,13 +19,16 @@ public class Authorization {
     public static Text txtLog = new Text(), txtPas = new Text();
     public static TextField log= new TextField();
     public static PasswordField pas =  new PasswordField();
-
+    public static Stage stage = new Stage();
     public static void input () {
+
         Stage stage = new Stage();
         GridPane grid = new GridPane();   //создание сетки для разметки формы
        // grid.setGridLinesVisible(true);
         grid.setAlignment(Pos.CENTER);
         grid.setPadding(new Insets(120, 60, 60, 60));
+
+
 
         grid.getColumnConstraints().add(new ColumnConstraints(300));
         grid.getRowConstraints().add(new RowConstraints(80));
@@ -84,6 +87,7 @@ public class Authorization {
         btnEx.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                Menu.Window();
                 stage.close();
             }
         });

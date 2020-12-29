@@ -25,9 +25,9 @@ public class Events {
         Label lbl = new Label("OK");
 
         ObservableList<String> listEvent = FXCollections.observableArrayList("Самостоятельные работы",
-                                                                            "Контрольные работы",
-                                                                            "Мероприятия от колледжа",
-                                                                            "Другое");
+                "Контрольные работы",
+                "Мероприятия от колледжа",
+                "Другое");
         ComboBox<String> EventComboBox = new ComboBox<String>(listEvent);
         EventComboBox.setOnAction(event -> {
             switch (EventComboBox.getValue()) {
