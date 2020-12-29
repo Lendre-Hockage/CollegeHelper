@@ -20,7 +20,20 @@ public class Main extends Application {
     public void start(Stage stage) {
 
 
+        Registration.SReg();
+
+        Button btn1 = new Button("OK");
+        btn1.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                Authorization.input();
+            }
+        });
+        Label lbl1 = new Label("Hi!");
+
+
         Label lbl = new Label("Переход с задержкой");
+
 
         Pane root = new Pane();
         root.getChildren().add(lbl);
@@ -29,7 +42,8 @@ public class Main extends Application {
         stage.setScene(scene);
         stage.setWidth(1000);
         stage.setHeight(650);
-        stage.show();
+        stage.show();// отображение окна на экране
+
 
         PauseTransition wait = new PauseTransition(Duration.seconds(2));           // Пауза в программе на 2 секунды
         wait.setOnFinished((e) -> {
@@ -41,3 +55,5 @@ public class Main extends Application {
 
     }
 }
+
+
