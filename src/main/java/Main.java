@@ -32,7 +32,7 @@ public class Main extends Application {
         stage.show();// отображение окна на экране
 
 
-        PauseTransition wait = new PauseTransition(Duration.seconds(2));           // Пауза в программе на 2 секунды
+        PauseTransition wait = new PauseTransition(Duration.seconds(0));           // Пауза в программе на 2 секунды
         wait.setOnFinished((e) -> {
             /*YOUR METHOD*/
             Menu.Window();                                                         //Открываем форму после паузы
