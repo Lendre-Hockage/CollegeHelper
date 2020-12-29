@@ -221,7 +221,7 @@ public class Menu {
             @Override
             public void handle(ActionEvent actionEvent) {
                 Authorization.input();
-                stage.toBack();
+                stage.hide();
             }
         });
 
@@ -232,7 +232,7 @@ public class Menu {
             @Override
             public void handle(ActionEvent actionEvent) {
                 Registration.SReg();
-                stage.toBack();
+                stage.hide();
             }
         });
 
@@ -244,7 +244,7 @@ public class Menu {
             @Override
             public void handle(ActionEvent actionEvent) {
                 Maps.Map();
-                stage.toBack();
+                stage.hide();
             }
         });
 
@@ -256,7 +256,7 @@ public class Menu {
             @Override
             public void handle(ActionEvent actionEvent) {
                 Events.Window();
-                stage.toBack();
+                stage.hide();
             }
         });
 
@@ -268,7 +268,7 @@ public class Menu {
             @Override
             public void handle(ActionEvent actionEvent) {
                 Schedule.Window();
-                stage.toBack();
+                stage.hide();
             }
         });
 
