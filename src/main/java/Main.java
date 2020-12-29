@@ -19,19 +19,6 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) {
 
-
-        Registration.SReg();
-
-        Button btn1 = new Button("OK");
-        btn1.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                Authorization.input();
-            }
-        });
-        Label lbl1 = new Label("Hi!");
-
-
         Label lbl = new Label("Переход с задержкой");
 
 
