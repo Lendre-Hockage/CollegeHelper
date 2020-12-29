@@ -46,7 +46,6 @@ public class AutorizCode {
                                 group_name=rs.getString(4);
                                 email=rs.getString(5);}
                                 check = 4;
-
                             } else {
                                 matching = 2; //пароль не совпал
                                 check = 4;
