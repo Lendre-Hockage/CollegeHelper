@@ -25,7 +25,7 @@ public class Menu {
 
         alert.showAndWait();
     } */
-
+    public static Stage stage = new Stage();
     public static void DatabaseFail() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Test Connection");
@@ -187,7 +187,7 @@ public class Menu {
     public static void Window() {
         GridPane grid = new GridPane();
 
-        Stage stage = new Stage();
+
         grid.setHgap(0);
         grid.setPadding(new Insets(130, 20, 30, 30));
        // grid.setGridLinesVisible(true);
@@ -221,6 +221,7 @@ public class Menu {
             @Override
             public void handle(ActionEvent actionEvent) {
                 Authorization.input();
+                stage.toBack();
             }
         });
 
@@ -231,6 +232,7 @@ public class Menu {
             @Override
             public void handle(ActionEvent actionEvent) {
                 Registration.SReg();
+                stage.toBack();
             }
         });
 
@@ -242,6 +244,7 @@ public class Menu {
             @Override
             public void handle(ActionEvent actionEvent) {
                 Maps.Map();
+                stage.toBack();
             }
         });
 
@@ -253,6 +256,7 @@ public class Menu {
             @Override
             public void handle(ActionEvent actionEvent) {
                 Events.Window();
+                stage.toBack();
             }
         });
 
@@ -264,6 +268,7 @@ public class Menu {
             @Override
             public void handle(ActionEvent actionEvent) {
                 Schedule.Window();
+                stage.toBack();
             }
         });
 
