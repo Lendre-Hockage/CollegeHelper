@@ -132,7 +132,7 @@ public class Registration {
           //EDIT "EMAIL"
           email1.setId("field");
           grid.add(email1, 1, 4);
-
+          grid.add(EventComboBox,2,4);
           //LABEL "ЛОГИН"
           Label log = new Label("Логин:");
           log.setId("Label");
@@ -146,7 +146,6 @@ public class Registration {
           Label pass = new Label("Пароль:");
           pass.setId("Label");
           grid.add(pass, 1, 9);
-          grid.add(EventComboBox,1,17);
 
           //EDIT "ПАРОЛЬ"
           pass1.setId("field");
