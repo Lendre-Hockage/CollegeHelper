@@ -196,7 +196,7 @@ public class Registration {
           arrow1.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-              Menu.Window();
+              primaryStage.close();
             }
           });
 

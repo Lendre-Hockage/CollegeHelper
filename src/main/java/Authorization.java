@@ -16,9 +16,9 @@ public class Authorization {
     public static Text txtLog = new Text(), txtPas = new Text();
     public static TextField log= new TextField();
     public static PasswordField pas =  new PasswordField();
-
+    public static Stage stage = new Stage();
     public static void input () {
-        Stage stage = new Stage();
+
         Text auth = new Text("Authorization: ");
         auth.setLayoutY(80);    // установка положения надписи по оси Y
         auth.setLayoutX(400);   // установка положения надписи по оси X
