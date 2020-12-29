@@ -168,7 +168,7 @@ public class Menu {
         Stage stage = new Stage();
         grid.setHgap(0);
         grid.setPadding(new Insets(130, 20, 30, 30));
-        grid.setGridLinesVisible(true);
+       // grid.setGridLinesVisible(true);
         grid.getColumnConstraints().add(new ColumnConstraints(930));
         grid.getRowConstraints().add(new RowConstraints(70));
         grid.getRowConstraints().add(new RowConstraints(50));
