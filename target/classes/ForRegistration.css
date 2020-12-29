@@ -39,3 +39,14 @@
      -fx-border-color: "#b6d1fb" ;
          -fx-text-fill:"#b6d1fb";
 }
+
+#event{
+    -fx-border-color:transparent;
+    -fx-pref-width: 130px;
+    -fx-background-color: "#b6d1fb";
+    -fx-border-width:3;
+}
+
+#event .arrow{
+    -fx-background-color:"white";
+}
