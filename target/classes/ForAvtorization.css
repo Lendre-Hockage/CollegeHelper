@@ -15,7 +15,7 @@
     -fx-text-fill: black;
 }
 
-#buttons {
+#btn {
  -fx-pref-width: 50px;
  -fx-pref-height: 45px;
  -fx-border-radius: 10;
@@ -34,22 +34,9 @@
     -fx-text-fill: black;
 }
 
-#buttons:hover {
+#btn:hover {
     -fx-background-color: white;
      -fx-border-color: "#b6d1fb" ;
          -fx-text-fill:"#b6d1fb";
 
 }
-
-
-#event{
-    -fx-border-color:transparent;
-    -fx-pref-width: 130px;
-    -fx-background-color: "#b6d1fb";
-    -fx-border-width:3;
-}
-
-#event .arrow{
-    -fx-background-color:"white";
-}
-
