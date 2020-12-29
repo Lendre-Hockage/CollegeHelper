@@ -39,6 +39,7 @@ public class Events {
             }
         });
 
+
         Text someText = new Text();
         someText.setText("some text\nsome text\nsome text\nsome text\nsome text\nsome text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2\nsome text\nsome text\nsome text\nsome text\nsome text\nsome text\nsome text\n");
 
@@ -47,11 +48,10 @@ public class Events {
         gridPane.setVisible(true);
         gridPane.add(text2, 0, 0);                                  //Добавили gridPane в ScrollPane, чтобы листалось
         gridPane.add(someText, 0, 3);                               //Не отображаются пустые строки
+        gridPane.setGridLinesVisible(true);
 
         scrollPane.setContent(gridPane);
-
         pane.getChildren().addAll(EventComboBox, lbl, scrollPane);
-
         Scene scene = new Scene(pane);
 
         stage.setScene(scene);
