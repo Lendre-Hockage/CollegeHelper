@@ -1,3 +1,5 @@
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.HPos;
@@ -10,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.ColumnConstraints;
+import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.RowConstraints;
@@ -17,7 +20,10 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class Registration {
-
+ public static ObservableList<String> listEvent = FXCollections.observableArrayList("@gmail.com",
+          "@mail.ru",
+          "@yandex.ru");
+  public static ComboBox<String> EventComboBox = new ComboBox<String>(listEvent);
   public static TextField log1 = new TextField(),
           pass1  = new TextField(),
           pass2 = new TextField(),
@@ -126,9 +132,7 @@ public class Registration {
           //EDIT "EMAIL"
           email1.setId("field");
           grid.add(email1, 1, 4);
-
-
-
+          grid.add(EventComboBox,2,4);
           //LABEL "ЛОГИН"
           Label log = new Label("Логин:");
           log.setId("Label");
@@ -137,8 +141,6 @@ public class Registration {
           //EDIT "ЛОГИН"
           log1.setId("field");
           grid.add(log1, 1, 7);
-
-
 
           //LABEL "ПАРОЛЬ"
           Label pass = new Label("Пароль:");
@@ -149,7 +151,6 @@ public class Registration {
           pass1.setId("field");
           grid.add(pass1, 1, 10);
 
-
           //LABEL "ПАРОЛЬ ПОВТОР"
           Label pass_pov = new Label("Повторите пароль:");
           pass_pov.setId("Label");
@@ -159,44 +160,41 @@ public class Registration {
           pass2.setId("field");
           grid.add(pass2, 1, 13);
 
-
-
-
-
-
-
-
-
-
             //КНОПУЛЕЧКА "→"
-            Button arrow = new Button("→");
-            HBox hbBtn = new HBox(100); //поместить в контейнер HBox, но это больше для удобства
-            arrow.setId("buttons");
-            hbBtn.setAlignment(Pos.CENTER_RIGHT);
-            hbBtn.getChildren().add(arrow);
-            grid.add(hbBtn, 1, 15);
+          Button arrow = new Button("→");
+          HBox hbBtn = new HBox(100); //поместить в контейнер HBox, но это больше для удобства
+          arrow.setId("buttons");
+          hbBtn.setAlignment(Pos.CENTER_RIGHT);
+          hbBtn.getChildren().add(arrow);
+          grid.add(hbBtn, 1, 15);
           arrow.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
               RegistrCode.RegistrME();
+              name1.clear();
+              surname1.clear();
+              father1.clear();
+              group1.clear();
+              email1.clear();
+              log1.clear();
+              pass1.clear();
+              pass2.clear();
             }
           });
 
-
             //КНОПУЛЕЧКА "←"
-            Button arrow1 = new Button("←");
-            HBox hbBtn1 = new HBox(100); //поместить в контейнер HBox, но это больше для удобства
-            arrow1.setId("buttons");
-            hbBtn1.setAlignment(Pos.BOTTOM_LEFT);
-            hbBtn1.getChildren().add(arrow1);
-            grid.add(arrow1, 0, 15);
+          Button arrow1 = new Button("←");
+          HBox hbBtn1 = new HBox(100); //поместить в контейнер HBox, но это больше для удобства
+          arrow1.setId("buttons");
+          hbBtn1.setAlignment(Pos.BOTTOM_LEFT);
+          hbBtn1.getChildren().add(arrow1);
+          grid.add(arrow1, 0, 15);
           arrow1.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
               Menu.Window();
             }
           });
-
 
             Scene scene = new Scene(grid, 1000, 650); //добавляем Grid в Scene
 
