@@ -1,0 +1,12 @@
+create database sharagahelper;
+use sharagahelper;
+create table student_info (name varchar(20) not null, surname varchar(20) not null,
+second_name varchar(20) not null, group_name varchar(10) not null, email varchar(30) not null, id int not null);
+create table prepods_info (name varchar(20) not null, surname varchar(20) not null,
+second_name varchar(20) not null, email varchar(30) not null, id int not null);
+create table users_info (id int not null, login varchar(30) not null, password varchar(100) not null, user_type int not null);
+alter table users_info add primary key (id);
+alter table prepods_info add primary key (id);
+alter table student_info add primary key (id);
+alter table student_info add foreign key (id) references users_info(id);
+alter table prepods_info add foreign key (id) references users_info(id);
