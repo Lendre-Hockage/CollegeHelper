@@ -2,10 +2,14 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
+import javafx.geometry.Pos;
 import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
@@ -17,8 +21,7 @@ import javax.swing.*;
 import java.util.Date;
 
 public class Schedule {
-
-   //объявление массива!!!!!!!!! для внесения расписания
+    //объявление массива!!!!!!!!! для внесения расписания
     public static TextField[] txt = new TextField[30];
 
     //объявление выпадающего списка. глобально, потому что в addSchendule
@@ -52,13 +55,31 @@ public class Schedule {
 
     public static  ComboBox<String> EventComboBox1 = new ComboBox<String>(listEvent1);
 
+
     public static void Window () {
         Stage stage = new Stage();
-        FlowPane pane = new FlowPane(Orientation.VERTICAL, 0, 10);
+        BackgroundImage bgI = new BackgroundImage(new Image("BackForMap.jpeg",1000,650,false,true),
+                BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
+                BackgroundSize.DEFAULT);
+        FlowPane pane = new FlowPane(Orientation.HORIZONTAL, 25, 20);
+        pane.setLayoutX(160);
+        pane.setLayoutY(245);
         ToggleGroup toggleGroup = new ToggleGroup();
 
+        Text welcome_text = new Text("Расписание и изменения расписания");
+        welcome_text.setId("welcome-text");
+        welcome_text.setLayoutX(40);
+        welcome_text.setLayoutY(140);
+
+        Text instruction = new Text ("1. Выберите вашу группу в раскрывающемся списке\n\n2. Выберите \"Основное расписание\" или \"Изменения в расписании\"");
+        instruction.setId("welcome-text2");
+        instruction.setLayoutX(40);
+        instruction.setLayoutY(175);
+
         RadioButton main_sched = new RadioButton("Основное расписание");
+        main_sched.setId("floors");
         RadioButton change_sched = new RadioButton("Изменения в расписании");
+        change_sched.setId("floors");
 
         main_sched.setToggleGroup(toggleGroup);
         change_sched.setToggleGroup(toggleGroup);
@@ -67,13 +88,25 @@ public class Schedule {
         grid.setLayoutX(50);
         grid.setLayoutY(150);
         grid.setGridLinesVisible(true);
+        grid.getColumnConstraints().add(new ColumnConstraints(30));
         grid.getColumnConstraints().add(new ColumnConstraints(150));
-        grid.getColumnConstraints().add(new ColumnConstraints(200));
-        grid.getColumnConstraints().add(new ColumnConstraints(200));
-        grid.getColumnConstraints().add(new ColumnConstraints(200));
-        grid.getColumnConstraints().add(new ColumnConstraints(200));
+        grid.getColumnConstraints().add(new ColumnConstraints(150));
+        grid.getColumnConstraints().add(new ColumnConstraints(150));
+        grid.getColumnConstraints().add(new ColumnConstraints(150));
+        grid.getColumnConstraints().add(new ColumnConstraints(150));
+        grid.getRowConstraints().add(new RowConstraints(35));
+        grid.getRowConstraints().add(new RowConstraints(35));
+        grid.getRowConstraints().add(new RowConstraints(35));
+        grid.getRowConstraints().add(new RowConstraints(35));
+        grid.getRowConstraints().add(new RowConstraints(35));
+        grid.getRowConstraints().add(new RowConstraints(35));
+        grid.getRowConstraints().add(new RowConstraints(35));
 
-        Text lbl0 = new Text("День недели");
+
+
+
+
+        Text lbl0 = new Text("");
         Text lbl1 = new Text("1");
         Text lbl2 = new Text("2");
         Text lbl3 = new Text("3");
@@ -81,16 +114,31 @@ public class Schedule {
         Text lbl5 = new Text("5");
         Text lbl6 = new Text("6");
 
-        GridPane grid2 = new GridPane();
 
+        Text lbl11 = new Text("Понедельник");
+        Text lbl21 = new Text("Вторник");
+        Text lbl31 = new Text("Среда");
+        Text lbl41 = new Text("Четверг");
+        Text lbl51 = new Text("Пятница");
+
+
+
+        GridPane grid2 = new GridPane();
         grid2.setLayoutX(50);
         grid2.setLayoutY(150);
 
         grid2.setGridLinesVisible(true);
-        grid2.getColumnConstraints().add(new ColumnConstraints(100));
-        grid2.getColumnConstraints().add(new ColumnConstraints(250));
-        grid2.getColumnConstraints().add(new ColumnConstraints(50));
-        grid2.getColumnConstraints().add(new ColumnConstraints(250));
+        grid2.getColumnConstraints().add(new ColumnConstraints(30));
+        grid2.getColumnConstraints().add(new ColumnConstraints(150));
+        grid2.getColumnConstraints().add(new ColumnConstraints(80));
+        grid2.getColumnConstraints().add(new ColumnConstraints(150));
+        grid2.getRowConstraints().add(new RowConstraints(35));
+        grid2.getRowConstraints().add(new RowConstraints(35));
+        grid2.getRowConstraints().add(new RowConstraints(35));
+        grid2.getRowConstraints().add(new RowConstraints(35));
+        grid2.getRowConstraints().add(new RowConstraints(35));
+        grid2.getRowConstraints().add(new RowConstraints(35));
+        grid2.getRowConstraints().add(new RowConstraints(35));
 
         pane.getChildren().addAll(main_sched, change_sched);
 
@@ -105,6 +153,18 @@ public class Schedule {
             grid.add(lbl4, 0, 4);
             grid.add(lbl5, 0, 5);
             grid.add(lbl6, 0, 6);
+
+            grid.add(lbl11, 1, 0);
+            grid.add(lbl21, 2, 0); //0-столбец 1-строка
+            grid.add(lbl31, 3, 0);
+            grid.add(lbl41, 4, 0);
+            grid.add(lbl51, 5, 0);
+
+
+
+
+
+
 
 
             showScendule.showLessons();
@@ -151,23 +211,22 @@ public class Schedule {
             pane.getChildren().addAll(main_sched, change_sched, grid2);
         });
 
-        Button btn = new Button("Создать расписание");
+        Button btn = new Button("+");
         btn.setId("btn");
-        btn.setLayoutY(250);    // установка положения надписи по оси Y
-        btn.setLayoutX(50);   // установка положения надписи по оси X
-        btn.setFont(Font.font("times new roman", FontWeight.NORMAL, FontPosture.REGULAR, 20));
+        btn.setLayoutY(550);    // установка положения надписи по оси Y
+        btn.setLayoutX(550);   // установка положения надписи по оси X
         btn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 createSchedule();
+                stage.close();
             }
         });
 
-        Button ext = new Button("Выход");
+        Button ext = new Button("←");
         ext.setId("btn");
         ext.setLayoutY(550);    // установка положения надписи по оси Y
-        ext.setLayoutX(1350);   // установка положения надписи по оси X
-        ext.setFont(Font.font("times new roman", FontWeight.NORMAL, FontPosture.REGULAR, 20));
+        ext.setLayoutX(450);   // установка положения надписи по оси X
         ext.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -177,27 +236,56 @@ public class Schedule {
         });
 
 
-        EventComboBox1.setLayoutX(250);
-        EventComboBox1.setLayoutY(5);
+        EventComboBox1.setLayoutX(40);
+        EventComboBox1.setLayoutY(245);
+        EventComboBox1.setId("event");
 
-        Group group = new Group(pane, btn, EventComboBox1, ext);
-        Scene scene = new Scene(group);
-
-
-
+        Pane group = new Pane(pane, btn, EventComboBox1, ext, welcome_text, instruction);
+        group.setBackground(new Background(bgI));
+        Scene scene = new Scene(group, 1000,650);
         stage.setScene(scene);
-        stage.setWidth(1500);
-        stage.setHeight(650);
+        scene.getStylesheets().add(0, "ForSchedule.css");
         stage.show();
+
     }
+
+
+
+
+
+
+
+
+
+
 
     public static void createSchedule(){
         Stage stage = new Stage();
-        FlowPane pane = new FlowPane(Orientation.VERTICAL, 0, 10);
+        FlowPane pane = new FlowPane(Orientation.HORIZONTAL, 25, 20);
+        pane.setLayoutX(140);
+        pane.setLayoutY(225);
+        BackgroundImage bgI = new BackgroundImage(new Image("BackForMap.jpeg",1000,650,false,true),
+                BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
+                BackgroundSize.DEFAULT);
+
+        Text welcome_text = new Text("Обновление основного и изменённого расписаний");
+        welcome_text.setId("welcome-text1");
+        welcome_text.setLayoutX(20);
+        welcome_text.setLayoutY(140);
+
+        Text instruction = new Text ("1. Выберите группу в раскрывающемся списке, для которой необходимо внести изменения\n\n2. Выберите место для внесения изменений \"Основное расписание\" или \"Изменения в расписании\"");
+        instruction.setId("welcome-text2");
+        instruction.setLayoutX(20);
+        instruction.setLayoutY(175);
+
         ToggleGroup toggleGroup = new ToggleGroup();
 
         RadioButton main_sched = new RadioButton("Основное расписание");
+        main_sched.setId("floors");
         RadioButton change_sched = new RadioButton("Изменения в расписании");
+        change_sched.setId("floors");
+
+
 
         main_sched.setToggleGroup(toggleGroup);
         change_sched.setToggleGroup(toggleGroup);
@@ -206,14 +294,22 @@ public class Schedule {
         grid.setLayoutX(50);
         grid.setLayoutY(150);
         grid.setGridLinesVisible(true);
+        grid.getColumnConstraints().add(new ColumnConstraints(30));
         grid.getColumnConstraints().add(new ColumnConstraints(150));
-        grid.getColumnConstraints().add(new ColumnConstraints(200));
-        grid.getColumnConstraints().add(new ColumnConstraints(200));
-        grid.getColumnConstraints().add(new ColumnConstraints(200));
-        grid.getColumnConstraints().add(new ColumnConstraints(200));
+        grid.getColumnConstraints().add(new ColumnConstraints(150));
+        grid.getColumnConstraints().add(new ColumnConstraints(150));
+        grid.getColumnConstraints().add(new ColumnConstraints(150));
+        grid.getColumnConstraints().add(new ColumnConstraints(150));
+        grid.getRowConstraints().add(new RowConstraints(35));
+        grid.getRowConstraints().add(new RowConstraints(35));
+        grid.getRowConstraints().add(new RowConstraints(35));
+        grid.getRowConstraints().add(new RowConstraints(35));
+        grid.getRowConstraints().add(new RowConstraints(35));
+        grid.getRowConstraints().add(new RowConstraints(35));
+        grid.getRowConstraints().add(new RowConstraints(35));
 
 
-        Text lbl0 = new Text("День недели");
+        Text lbl0 = new Text("");
         Text lbl1 = new Text("1");
         Text lbl2 = new Text("2");
         Text lbl3 = new Text("3");
@@ -258,10 +354,17 @@ public class Schedule {
         grid2.setLayoutY(150);
 
         grid2.setGridLinesVisible(true);
-        grid2.getColumnConstraints().add(new ColumnConstraints(100));
-        grid2.getColumnConstraints().add(new ColumnConstraints(250));
-        grid2.getColumnConstraints().add(new ColumnConstraints(50));
-        grid2.getColumnConstraints().add(new ColumnConstraints(250));
+        grid2.getColumnConstraints().add(new ColumnConstraints(30));
+        grid2.getColumnConstraints().add(new ColumnConstraints(150));
+        grid2.getColumnConstraints().add(new ColumnConstraints(80));
+        grid2.getColumnConstraints().add(new ColumnConstraints(150));
+        grid2.getRowConstraints().add(new RowConstraints(35));
+        grid2.getRowConstraints().add(new RowConstraints(35));
+        grid2.getRowConstraints().add(new RowConstraints(35));
+        grid2.getRowConstraints().add(new RowConstraints(35));
+        grid2.getRowConstraints().add(new RowConstraints(35));
+        grid2.getRowConstraints().add(new RowConstraints(35));
+        grid2.getRowConstraints().add(new RowConstraints(35));
 
         grid2.add(lbl0, 0, 0);
         grid2.add(lbl1, 0, 1); //0-столбец 1-строка
@@ -314,14 +417,27 @@ public class Schedule {
 
 
 
-        EventComboBox.setLayoutX(250);
-        EventComboBox.setLayoutY(5);
+        EventComboBox.setLayoutX(20);
+        EventComboBox.setLayoutY(225);
+        EventComboBox.setId("event");
 
-        Button btn = new Button("ок");
+        Button ext = new Button("←");
+        ext.setId("btn");
+        ext.setLayoutY(530);    // установка положения надписи по оси Y
+        ext.setLayoutX(450);   // установка положения надписи по оси X
+        ext.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Schedule.Window();
+                stage.close();
+            }
+        });
+
+        Button btn = new Button("✓");
         btn.setId("btn");
-        btn.setLayoutY(250);    // установка положения надписи по оси Y
-        btn.setLayoutX(50);   // установка положения надписи по оси X
-        btn.setFont(Font.font("times new roman", FontWeight.NORMAL, FontPosture.REGULAR, 20));
+        btn.setLayoutY(530);    // установка положения надписи по оси Y
+        btn.setLayoutX(550);   // установка положения надписи по оси X
+
         btn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -329,11 +445,13 @@ public class Schedule {
             }
         });
 
-        Group gr = new Group(pane, EventComboBox, btn);
-        Scene scene = new Scene(gr);
+        Pane root = new Pane(pane, EventComboBox, btn, instruction, welcome_text, ext);
+        root.setBackground(new Background(bgI));
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("ForSchedule.css"); //подключение CSS
 
         stage.setScene(scene);
-        stage.setWidth(1500);
+        stage.setWidth(1000);
         stage.setHeight(650);
         stage.show();
     }

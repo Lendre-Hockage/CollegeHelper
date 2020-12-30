@@ -1,0 +1,4 @@
+use sharagahelper;
+create table mainschendule (group_name varchar(5) not null, day_of_week varchar(2) not null, 
+number varchar(1) not null, 
+lesson varchar(50) not null, room varchar(10) not null); 
