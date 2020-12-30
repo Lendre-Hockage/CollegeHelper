@@ -1,3 +1,5 @@
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -20,14 +22,21 @@ public class Maps {
     public static void Map() {
         GridPane grid = new GridPane();
 
-        grid.setHgap(0);
-        grid.setVgap(10);
-        grid.setPadding(new Insets(130, 30, 30, 30));
-        grid.setGridLinesVisible(false);
-        grid.getColumnConstraints().add(new ColumnConstraints(800));
-        grid.getRowConstraints().add(new RowConstraints(10));
+        grid.setPadding(new Insets(115, 30, 35, 35));
+       // grid.setGridLinesVisible(true);
+        grid.setAlignment(Pos.CENTER);
         grid.getColumnConstraints().add(new ColumnConstraints(100));
-        grid.getRowConstraints().add(new RowConstraints(500));
+        grid.getColumnConstraints().add(new ColumnConstraints(700));
+        grid.getColumnConstraints().add(new ColumnConstraints(100));
+        grid.getRowConstraints().add(new RowConstraints(75));
+        grid.getRowConstraints().add(new RowConstraints(8));
+        grid.getRowConstraints().add(new RowConstraints(30));
+        grid.getRowConstraints().add(new RowConstraints(380));
+
+
+        Label mp = new Label("Карты зданий");
+        mp.setId("welcome-text");   //для CSS
+        grid.add(mp, 1, 0);
 
         ToggleGroup group= new ToggleGroup();
 
@@ -46,6 +55,8 @@ public class Maps {
         RadioButton jank2 = new RadioButton("Общежитие женское");
         jank2.setToggleGroup(group);
         jank2.setId("floors");
+
+
 
         RadioButton firstN = new RadioButton("1 этаж");
         firstN.setToggleGroup(group);
@@ -84,85 +95,110 @@ public class Maps {
 //        grid.add(floorsOld, 1, 0);
 
         HBox corp = new HBox();
-        corp.setAlignment(Pos.CENTER);
+        corp.setAlignment(Pos.BASELINE_LEFT);
         corp.setSpacing(25);
         corp.getChildren().addAll(newCorp, oldCorp, jank1, jank2);
-        grid.add(corp, 0, 0);
+        grid.add(corp, 1, 2);
 
+        //КНОПУЛЕЧКА "←"
+        Button left = new Button("←");
+        HBox box_for_arrow = new HBox(100); //поместить в контейнер HBox, но это больше для удобства
+        left.setId("buttons");
+        box_for_arrow.setAlignment(Pos.BOTTOM_LEFT);
+        box_for_arrow.getChildren().add(left);
+        grid.add(box_for_arrow, 0, 3);
+        left.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Menu.Window();
+                primaryStage.close();
+            }
+        });
 ///////////////////////////////////////////////////////////////////////////
 
         newCorp.setOnAction(event -> {
             grid.getChildren().clear();
-            grid.add(floorsN, 1, 1);
+            grid.getChildren().addAll(mp, box_for_arrow);
+            grid.add(floorsN, 2, 3);
             grid.getChildren().addAll(corp);
         });
 
         oldCorp.setOnAction(event -> {
             grid.getChildren().clear();
-            grid.add(floorsOld, 1, 1);
+            grid.getChildren().addAll(mp, box_for_arrow);
+            grid.add(floorsOld, 2, 3);
             grid.getChildren().addAll(corp);
         });
 
         jank1.setOnAction(event -> {
             grid.getChildren().clear();
+            grid.getChildren().addAll(mp, box_for_arrow);
             grid.getChildren().addAll( corp);
-            grid.add(new ImageView("1этаж.jpeg"), 0, 1);
+            grid.add(new ImageView("1этаж.png"), 1, 3);
         });
 
         jank2.setOnAction(event -> {
             grid.getChildren().clear();
+            grid.getChildren().addAll(mp, box_for_arrow);
             grid.getChildren().addAll(corp);
-            grid.add(new ImageView("4этаж.jpeg"), 0, 1);
+            grid.add(new ImageView("4этаж.png"), 1, 3);
         });
 
 ///////////////////////////////////////////////////////////////////////////
 
         firstN.setOnAction(event -> {
             grid.getChildren().clear();
+            grid.getChildren().addAll(mp, box_for_arrow);
             grid.getChildren().addAll(floorsN, corp);
-            grid.add(new ImageView("1этаж.jpeg"), 0, 1);
+            grid.add(new ImageView("1этаж.png"), 1, 3);
 
         });
 
 
         secondN.setOnAction(event -> {
             grid.getChildren().clear();
+            grid.getChildren().addAll(mp, box_for_arrow);
             grid.getChildren().addAll(floorsN, corp);
-            grid.add(new ImageView("2этаж.jpeg"), 0, 1);
+            grid.add(new ImageView("2этаж.png"), 1, 3);
         });
 
 
 
         thirdN.setOnAction(event -> {
             grid.getChildren().clear();
+            grid.getChildren().addAll(mp, box_for_arrow);
             grid.getChildren().addAll(floorsN, corp);
-            grid.add(new ImageView("3этаж.jpeg"), 0, 1);
+            grid.add(new ImageView("3этаж.png"), 1, 3);
         });
 
 
         fourthN.setOnAction(event -> {
             grid.getChildren().clear();
+            grid.getChildren().addAll(mp, box_for_arrow);
             grid.getChildren().addAll(floorsN, corp);
-            grid.add(new ImageView("4этаж.jpeg"), 0, 1);
+            grid.add(new ImageView("4этаж.png"), 1, 3);
         });
 
         ///////////////////////////////////////////////////////
 
         firstOld.setOnAction(event -> {
             grid.getChildren().clear();
+            grid.getChildren().addAll(mp, box_for_arrow);
             grid.getChildren().addAll(floorsOld, corp);
-            grid.add(new ImageView("1этаж.jpeg"), 0, 1);
+            grid.add(new ImageView("1этаж.png"), 1, 3);
         });
 
 
         secondOld.setOnAction(event -> {
             grid.getChildren().clear();
+            grid.getChildren().addAll(mp, box_for_arrow);
             grid.getChildren().addAll(floorsOld, corp);
-            grid.add(new ImageView("2этаж.jpeg"), 0, 1);
+            grid.add(new ImageView("2этаж.png"), 1, 3);
         });
 
 
-        Scene scene = new Scene(grid, 1000, 800); //добавляем Grid в Scene
+
+        Scene scene = new Scene(grid, 1000, 650); //добавляем Grid в Scene
 
         primaryStage.setScene(scene); //добавляем scene в stage
         primaryStage.setTitle("Схемы этажей");
