@@ -6,9 +6,6 @@ public class showScendule {
 
     public static void showLessons () {
 
-        if (Schedule.EventComboBox1.getValue()==null) {Menu.Alert15();}
-
-        else {
 
         for (int i=0; i<30; i++) {
             Text text = new Text(" ");
@@ -39,4 +36,3 @@ public class showScendule {
 
     } }
 
-}

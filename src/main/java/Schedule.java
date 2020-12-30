@@ -123,6 +123,33 @@ public class Schedule {
 
 
 
+
+        grid.add(lbl0, 0, 0);
+        grid.add(lbl1, 0, 1); //0-столбец 1-строка
+        grid.add(lbl2, 0, 2);
+        grid.add(lbl3, 0, 3);
+        grid.add(lbl4, 0, 4);
+        grid.add(lbl5, 0, 5);
+        grid.add(lbl6, 0, 6);
+
+        grid.add(lbl11, 1, 0);
+        grid.add(lbl21, 2, 0); //0-столбец 1-строка
+        grid.add(lbl31, 3, 0);
+        grid.add(lbl41, 4, 0);
+        grid.add(lbl51, 5, 0);
+
+        showScendule.showLessons();
+
+        int k=0;
+
+        for (int q=1; q<6; q++){
+            for (int j=1; j<7; j++) {
+
+                grid.add(showtxt[k], q, j);
+                k++;
+            }
+        }
+
         GridPane grid2 = new GridPane();
         grid2.setLayoutX(50);
         grid2.setLayoutY(150);
@@ -140,75 +167,49 @@ public class Schedule {
         grid2.getRowConstraints().add(new RowConstraints(35));
         grid2.getRowConstraints().add(new RowConstraints(35));
 
+
+
+        grid2.add(lbl0, 0, 0);
+        grid2.add(lbl1, 0, 1); //0-столбец 1-строка
+        grid2.add(lbl2, 0, 2);
+        grid2.add(lbl3, 0, 3);
+        grid2.add(lbl4, 0, 4);
+        grid2.add(lbl5, 0, 5);
+        grid2.add(lbl6, 0, 6);
+
+        //добавление текста с расписанием
+        for (int i=0; i<30; i++) {
+            Text text = new Text();
+            showtxt[i] = text;
+        }
+        int p=0;
+
+        for (int q=1; q<6; q++){
+            for (int j=1; j<7; j++) {
+                grid2.add(showtxt[p], q, j);
+                grid.add(showtxt[p], q, j);
+                p++;
+            }
+        }
+
         pane.getChildren().addAll(main_sched, change_sched);
 
         main_sched.setOnAction(event -> {
 
 
-
-            grid.add(lbl0, 0, 0);
-            grid.add(lbl1, 0, 1); //0-столбец 1-строка
-            grid.add(lbl2, 0, 2);
-            grid.add(lbl3, 0, 3);
-            grid.add(lbl4, 0, 4);
-            grid.add(lbl5, 0, 5);
-            grid.add(lbl6, 0, 6);
-
-            grid.add(lbl11, 1, 0);
-            grid.add(lbl21, 2, 0); //0-столбец 1-строка
-            grid.add(lbl31, 3, 0);
-            grid.add(lbl41, 4, 0);
-            grid.add(lbl51, 5, 0);
-
-
-
-
-
-
-
-
-            showScendule.showLessons();
-            int k=0;
-
-            for (int q=1; q<6; q++){
-                for (int j=1; j<7; j++) {
-
-                    grid.add(showtxt[k], q, j);
-                    k++;
-                }
+            if (EventComboBox1.getValue()==null) {Menu.Alert15();}
+            else {
+                pane.getChildren().clear();
+                pane.getChildren().addAll(main_sched, change_sched, grid);
             }
-
-            pane.getChildren().clear();
-            pane.getChildren().addAll(main_sched, change_sched, grid);
         });
         change_sched.setOnAction(event -> {
 
-
-            grid2.add(lbl0, 0, 0);
-            grid2.add(lbl1, 0, 1); //0-столбец 1-строка
-            grid2.add(lbl2, 0, 2);
-            grid2.add(lbl3, 0, 3);
-            grid2.add(lbl4, 0, 4);
-            grid2.add(lbl5, 0, 5);
-            grid2.add(lbl6, 0, 6);
-
-            //добавление текста с расписанием
-            for (int i=0; i<30; i++) {
-                Text text = new Text();
-                showtxt[i] = text;
-            }
-            int k=0;
-
-            for (int q=1; q<6; q++){
-                for (int j=1; j<7; j++) {
-                    grid2.add(showtxt[k], q, j);
-                    grid.add(showtxt[k], q, j);
-                    k++;
-                }
-            }
-
-            pane.getChildren().clear();
-            pane.getChildren().addAll(main_sched, change_sched, grid2);
+            if (EventComboBox1.getValue()==null) {Menu.Alert15();}
+            else {
+                pane.getChildren().clear();
+                pane.getChildren().addAll(main_sched, change_sched, grid2);
+             }
         });
 
         Button btn = new Button("+");
