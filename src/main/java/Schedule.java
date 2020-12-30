@@ -244,6 +244,32 @@ public class Schedule {
         Text lb4 = new Text("Четверг");
         Text lb5 = new Text("Пятница");
 
+        grid.add(lbl0, 0, 0);
+        grid.add(lbl1, 0, 1); //0-столбец 1-строка
+        grid.add(lbl2, 0, 2);
+        grid.add(lbl3, 0, 3);
+        grid.add(lbl4, 0, 4);
+        grid.add(lbl5, 0, 5);
+        grid.add(lbl6, 0, 6);
+
+        grid.add(lb1, 1, 0);
+        grid.add(lb2, 2, 0);
+        grid.add(lb3, 3, 0);
+        grid.add(lb4, 4, 0);
+        grid.add(lb5, 5, 0);
+
+        for (int i=0; i<30; i++) {
+            TextField textField = new TextField();
+            txt[i] = textField;
+        }
+        int k=0;
+
+        for (int q=1; q<6; q++){
+            for (int j=1; j<7; j++) {
+                grid.add(txt[k], q, j);
+                k++;
+            }
+        }
         GridPane grid2 = new GridPane();
 
         grid2.setLayoutX(50);
@@ -255,114 +281,51 @@ public class Schedule {
         grid2.getColumnConstraints().add(new ColumnConstraints(50));
         grid2.getColumnConstraints().add(new ColumnConstraints(250));
 
+        grid2.add(lbl0, 0, 0);
+        grid2.add(lbl1, 0, 1); //0-столбец 1-строка
+        grid2.add(lbl2, 0, 2);
+        grid2.add(lbl3, 0, 3);
+        grid2.add(lbl4, 0, 4);
+        grid2.add(lbl5, 0, 5);
+        grid2.add(lbl6, 0, 6);
+        Date date = new Date();
+        String dat = String.valueOf(date);
+        String[] words = dat.split(" ");
+        Label fDay = new Label();
+        Label sDay = new Label();
+
+        switch (words[0]){
+            case "Mon":{fDay.setText("Понедельник"); sDay.setText("Вторник");break;}
+            case "Tue":{fDay.setText("Вторник"); sDay.setText("Среда");break;}
+            case "Wed":{fDay.setText("Среда"); sDay.setText("Четверг");break;}
+            case "Thu":{fDay.setText("Четверг"); sDay.setText("Пятница");break;}
+            case "Fri":{fDay.setText("Пятница"); sDay.setText("Понедельник");break;}
+            default:{ Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Эм... Походу считано неправильное время");
+                alert.setContentText("Событие было отправлено следующим группам: ");
+                alert.showAndWait();
+            }
+        }
+
+        grid2.add(fDay, 1, 0);
+        grid2.add(sDay, 3, 0);
         pane.getChildren().addAll(main_sched, change_sched);
 
 
         main_sched.setOnAction(event -> {
-
+            pane.getChildren().clear();
             //добавление обозначений дней недели
-          grid.add(lbl0, 0, 0);
-            grid.add(lbl1, 0, 1); //0-столбец 1-строка
-            grid.add(lbl2, 0, 2);
-            grid.add(lbl3, 0, 3);
-            grid.add(lbl4, 0, 4);
-            grid.add(lbl5, 0, 5);
-            grid.add(lbl6, 0, 6);
-
-            grid.add(lb1, 1, 0);
-            grid.add(lb2, 2, 0);
-            grid.add(lb3, 3, 0);
-            grid.add(lb4, 4, 0);
-            grid.add(lb5, 5, 0);
-
-            //добавление эдитов колхозным способом. в принципе, больше не понадобится никогда в жизни,
-            //можно убрать
-
-          /*  grid.add(tf1, 1, 1);
-            grid.add(tf2, 1, 2);
-            grid.add(tf3, 1, 3);
-            grid.add(tf4, 1, 4);
-            grid.add(tf5, 1, 5);
-            grid.add(tf6, 1, 6);
-
-            grid.add(tf7, 2, 1);
-            grid.add(tf8, 2, 2);
-            grid.add(tf9, 2, 3);
-            grid.add(tf10, 2, 4);
-            grid.add(tf11, 2, 5);
-            grid.add(tf12, 2, 6);
-
-            grid.add(tf13, 3, 1);
-            grid.add(tf14, 3, 2);
-            grid.add(tf15, 3, 3);
-            grid.add(tf16, 3, 4);
-            grid.add(tf17, 3, 5);
-            grid.add(tf18, 3, 6);
-
-            grid.add(tf19, 4, 1);
-            grid.add(tf20, 4, 2);
-            grid.add(tf21, 4, 3);
-            grid.add(tf22, 4, 4);
-            grid.add(tf23, 4, 5);
-            grid.add(tf24, 4, 6);
-
-            grid.add(tf25, 5, 1);
-            grid.add(tf26, 5, 2);
-            grid.add(tf27, 5, 3);
-            grid.add(tf28, 5, 4);
-            grid.add(tf29, 5, 5);
-            grid.add(tf30, 5, 6); */
-
 
             //добавление эдитов элегатно и красиво. советую каждому,
             //кто сейчас этот комментарий читает, разобраться, как оно работает.
             //даже не советую, а настаиваю. объявление массива смотрите глобально
-            for (int i=0; i<30; i++) {
-                TextField textField = new TextField();
-                txt[i] = textField;
-            }
-                int k=0;
 
-                for (int q=1; q<6; q++){
-                for (int j=1; j<7; j++) {
-                    grid.add(txt[k], q, j);
-                    k++;
-                }
-             }
-
-            pane.getChildren().clear();
             pane.getChildren().addAll(main_sched,change_sched, grid);
         });
         change_sched.setOnAction(event -> {
-            grid2.add(lbl0, 0, 0);
-            grid2.add(lbl1, 0, 1); //0-столбец 1-строка
-            grid2.add(lbl2, 0, 2);
-            grid2.add(lbl3, 0, 3);
-            grid2.add(lbl4, 0, 4);
-            grid2.add(lbl5, 0, 5);
-            grid2.add(lbl6, 0, 6);
 
-            Date date = new Date();
-            String dat = String.valueOf(date);
-            String[] words = dat.split(" ");
-            Label fDay = new Label();
-            Label sDay = new Label();
 
-            switch (words[0]){
-                case "Mon":{fDay.setText("Понедельник"); sDay.setText("Вторник");break;}
-                case "Tue":{fDay.setText("Вторник"); sDay.setText("Среда");break;}
-                case "Wed":{fDay.setText("Среда"); sDay.setText("Четверг");break;}
-                case "Thu":{fDay.setText("Четверг"); sDay.setText("Пятница");break;}
-                case "Fri":{fDay.setText("Пятница"); sDay.setText("Понедельник");break;}
-                default:{ Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Эм... Походу считано неправильное время");
-                    alert.setContentText("Событие было отправлено следующим группам: ");
-                    alert.showAndWait();
-                }
-            }
 
-            grid2.add(fDay, 1, 0);
-            grid2.add(sDay, 3, 0);
 
             pane.getChildren().clear();
             pane.getChildren().addAll(main_sched,change_sched, grid2);
