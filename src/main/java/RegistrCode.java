@@ -42,7 +42,7 @@ public class RegistrCode {
                                     if (NewPassword.indexOf(" ") != -1) {
                                         Menu.Alert11();
                                     } else {//если пароль с пробелами, выгоняем
-                                        if (NewPassword.equals(Registration.pass1.getText()) == false) {
+                                        if (NewPassword.equals(Registration.pass2.getText()) == false) {//если пароль не совпадает
                                             Menu.Alert3();
                                         } else {
                                             newid = id;
