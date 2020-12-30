@@ -262,20 +262,20 @@ public class Schedule {
     public static void createSchedule(){
         Stage stage = new Stage();
         FlowPane pane = new FlowPane(Orientation.HORIZONTAL, 25, 20);
-        pane.setLayoutX(160);
-        pane.setLayoutY(245);
+        pane.setLayoutX(140);
+        pane.setLayoutY(225);
         BackgroundImage bgI = new BackgroundImage(new Image("BackForMap.jpeg",1000,650,false,true),
                 BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
                 BackgroundSize.DEFAULT);
 
         Text welcome_text = new Text("Обновление основного и изменённого расписаний");
         welcome_text.setId("welcome-text1");
-        welcome_text.setLayoutX(40);
+        welcome_text.setLayoutX(20);
         welcome_text.setLayoutY(140);
 
         Text instruction = new Text ("1. Выберите группу в раскрывающемся списке, для которой необходимо внести изменения\n\n2. Выберите место для внесения изменений \"Основное расписание\" или \"Изменения в расписании\"");
         instruction.setId("welcome-text2");
-        instruction.setLayoutX(40);
+        instruction.setLayoutX(20);
         instruction.setLayoutY(175);
 
         ToggleGroup toggleGroup = new ToggleGroup();
@@ -417,13 +417,13 @@ public class Schedule {
 
 
 
-        EventComboBox.setLayoutX(40);
-        EventComboBox.setLayoutY(245);
+        EventComboBox.setLayoutX(20);
+        EventComboBox.setLayoutY(225);
         EventComboBox.setId("event");
 
         Button ext = new Button("←");
         ext.setId("btn");
-        ext.setLayoutY(550);    // установка положения надписи по оси Y
+        ext.setLayoutY(530);    // установка положения надписи по оси Y
         ext.setLayoutX(450);   // установка положения надписи по оси X
         ext.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -435,7 +435,7 @@ public class Schedule {
 
         Button btn = new Button("✓");
         btn.setId("btn");
-        btn.setLayoutY(550);    // установка положения надписи по оси Y
+        btn.setLayoutY(530);    // установка положения надписи по оси Y
         btn.setLayoutX(550);   // установка положения надписи по оси X
 
         btn.setOnAction(new EventHandler<ActionEvent>() {

@@ -35,13 +35,6 @@
 
  }
 
-/*#field {
-    -fx-border-color: "transparent" "transparent" "black" "transparent";
-    -fx-background-color: transparent;
-    -fx-font-size: 15px;
-    -fx-font-family: "Arial";
-    -fx-text-fill: black;
-}*/
 
 #btn:hover {
     -fx-background-color: white;
@@ -67,6 +60,7 @@
  -fx-font-family: "Arial";
  -fx-text-fill: "black";
 }
+
 #floors: selected .radio .dot {
 
 
