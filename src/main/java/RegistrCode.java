@@ -22,28 +22,38 @@ public class RegistrCode {
 
             if (matching == 0) {
                 if (Registration.name1.getText().matches("^[a-zA-Z0-9]*$") || Registration.surname1.getText().matches("^[a-zA-Z0-9]*$") || Registration.father1.getText().matches("^[a-zA-Z0-9]*$")) {
-                    Menu.Alert12();//Имя фамилия и отчество только русскими буквами
+                    Menu.Alert12();
+                    Registration.name1.clear();
+                    Registration.surname1.clear();
+                    Registration.father1.clear();//Имя фамилия и отчество только русскими буквами
                 } else {
                     if (Registration.email1.getText().contains("@")){
-                        Menu.Alert13();//заполнение только первой половины почты
+                        Menu.Alert13();
+                        Registration.email1.clear();//заполнение только первой половины почты
                     }
                     else{
                         if (NewLogin.trim().isEmpty()) {
                             Menu.Alert9();
+                            Registration.log1.clear();
                         } else { //еси написан пустой логин, выгоняем
                             if (NewLogin.indexOf(" ") != -1) {
                                 Menu.Alert10();
+                                Registration.log1.clear();
                             } else { //если написан логин с пробелами, выгоняем
                                 NewPassword = Registration.pass1.getText(); //читаем пароль
                                 hash = byteArrayToHexString(RegistrCode.computeHash(NewPassword));
                                 if (NewPassword.trim().equals("")) {
                                     Menu.Alert6();
+                                    Registration.pass1.clear();
                                 } else { //если пустой пароль, выгоняем
                                     if (NewPassword.indexOf(" ") != -1) {
                                         Menu.Alert11();
+                                        Registration.pass1.clear();
                                     } else {//если пароль с пробелами, выгоняем
                                         if (NewPassword.equals(Registration.pass2.getText()) == false) {//если пароль не совпадает
                                             Menu.Alert3();
+                                            Registration.pass1.clear();
+                                            Registration.pass2.clear();
                                         } else {
                                             newid = id;
                                             newid++;
