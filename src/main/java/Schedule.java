@@ -23,7 +23,7 @@ import java.util.Date;
 public class Schedule {
     //объявление массива!!!!!!!!! для внесения расписания
     public static TextField[] txt = new TextField[30];
-
+    public static TextField[] txt1 = new TextField[12];
     //объявление выпадающего списка. глобально, потому что в addSchendule
     //название группы читается в бд
     public static ObservableList<String> listEvent = FXCollections.observableArrayList("1-ИС",
@@ -41,7 +41,6 @@ public class Schedule {
 
     //объявление массива для отображения расписания
     public static Text[] showtxt = new Text[30];
-    public static TextField[] txt1 = new TextField[12];
     //выпадающий список для отображения расписания
     public static ObservableList<String> listEvent1 = FXCollections.observableArrayList("1-ИС",
             "1-СП",
