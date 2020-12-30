@@ -184,6 +184,28 @@ public class Menu {
         alert.showAndWait();
     }
 
+    public static void Alert14() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Test Connection");
+
+        // Header Text: null
+        alert.setHeaderText(null);
+        alert.setContentText("Расписание успешно добавлено.");
+
+        alert.showAndWait();
+    }
+
+    public static void Alert15() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Test Connection");
+
+        // Header Text: null
+        alert.setHeaderText(null);
+        alert.setContentText("Выберите группу.");
+
+        alert.showAndWait();
+    }
+
     public static void Window() {
         GridPane grid = new GridPane();
 

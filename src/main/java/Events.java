@@ -1,18 +1,26 @@
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Orientation;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class Events {
     public static void Window() {
         Stage stage = new Stage();
+        Pane pane2 = new Pane();
         FlowPane pane = new FlowPane(Orientation.VERTICAL, 10, 10);
         GridPane gridPane = new GridPane();
         ScrollPane scrollPane = new ScrollPane();
@@ -21,6 +29,19 @@ public class Events {
         scrollPane.setPrefViewportWidth(900);
         scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
         scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+
+        Button ext = new Button("Выход");
+        ext.setId("btn");
+        ext.setLayoutY(550);    // установка положения надписи по оси Y
+        ext.setLayoutX(850);   // установка положения надписи по оси X
+        ext.setFont(Font.font("times new roman", FontWeight.NORMAL, FontPosture.REGULAR, 20));
+        ext.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Menu.Window();
+                stage.close();
+            }
+        });
 
         Label lbl = new Label("OK");
 
@@ -51,8 +72,9 @@ public class Events {
         scrollPane.setContent(gridPane);
 
         pane.getChildren().addAll(EventComboBox, lbl, scrollPane);
+        pane2.getChildren().addAll(pane, ext);
 
-        Scene scene = new Scene(pane);
+        Scene scene = new Scene(pane2);
 
         stage.setScene(scene);
         stage.setWidth(1000);
