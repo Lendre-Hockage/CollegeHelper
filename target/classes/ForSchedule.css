@@ -1,6 +1,3 @@
-.root {
-      -fx-background-image: url("BackForMap.jpeg");
- }
 
 #welcome-text {
     -fx-font-size: 45px;
@@ -8,32 +5,45 @@
     -fx-fill: black;
 }
 
+#welcome-text1 {
+    -fx-font-size: 35px;
+    -fx-font-family: "Georgia";
+    -fx-fill: black;
+}
+
+#welcome-text2 {
+    -fx-font-size: 15px;
+    -fx-font-family: "Georgia";
+    -fx-fill: black;
+}
+
+
 #Label {
     -fx-font-size: 20px;
     -fx-font-family: "Georgia";
     -fx-text-fill: black;
 }
 
-#buttons {
- -fx-pref-width: 50px;
- -fx-pref-height: 45px;
- -fx-border-radius: 10;
- -fx-background-radius: 10;
+#btn {
+ -fx-pref-width: 60px;
+ -fx-pref-height: 50px;
+ -fx-border-radius: 7;
+ -fx-background-radius: 7;
  -fx-background-color:"#b6d1fb";
     -fx-font-size: 17;
     -fx-text-fill: "white";
 
  }
 
-#field {
+/*#field {
     -fx-border-color: "transparent" "transparent" "black" "transparent";
     -fx-background-color: transparent;
     -fx-font-size: 15px;
     -fx-font-family: "Arial";
     -fx-text-fill: black;
-}
+}*/
 
-#buttons:hover {
+#btn:hover {
     -fx-background-color: white;
      -fx-border-color: "#b6d1fb" ;
          -fx-text-fill:"#b6d1fb";
@@ -43,12 +53,25 @@
 
 #event{
     -fx-border-color:transparent;
-    -fx-pref-width: 130px;
+    -fx-pref-width: 90px;
     -fx-background-color: "#b6d1fb";
-    -fx-border-width:3;
+    -fx-border-width:0;
 }
 
 #event .arrow{
     -fx-background-color:"white";
 }
 
+#floors{
+ -fx-font-size: 14px;
+ -fx-font-family: "Arial";
+ -fx-text-fill: "black";
+}
+#floors: selected .radio .dot {
+
+
+     -fx-font-family: "Arial";
+     -fx-text-fill: "#111112";
+     -fx-background-color:"#111112" ;
+     -fx-background-insets:0;
+}
