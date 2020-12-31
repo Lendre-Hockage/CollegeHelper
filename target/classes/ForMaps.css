@@ -3,17 +3,41 @@
 
 }
 
+#welcome-text{
+    -fx-font-size: 45px;
+    -fx-font-family: "Georgia";
+    -fx-fill: black;
+}
+
 #floors: selected .radio .dot {
 
-     -fx-font-size: 14px;
+     -fx-font-size: 10px;
      -fx-font-family: "Arial";
-     -fx-text-fill: "#4176c9";
-     -fx-background-color:"#4176c9" ;
+     -fx-text-fill: "#111112";
+     -fx-background-color:"#111112" ;
      -fx-background-insets:0;
 }
 
 #floors{
- -fx-font-size: 18px;
+ -fx-font-size: 15px;
  -fx-font-family: "Arial";
  -fx-text-fill: "black";
 }
+
+#buttons {
+ -fx-pref-width: 70px;
+ -fx-pref-height: 50px;
+ -fx-border-radius: 10;
+ -fx-background-radius: 10;
+ -fx-background-color:"#b6d1fb";
+    -fx-font-size: 20;
+    -fx-text-fill: "white";
+
+ }
+
+ #buttons:hover {
+     -fx-background-color: white;
+      -fx-border-color: "#b6d1fb" ;
+          -fx-text-fill:"#b6d1fb";
+
+ }

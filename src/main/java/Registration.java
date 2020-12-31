@@ -175,14 +175,6 @@ public class Registration {
             @Override
             public void handle(ActionEvent event) {
               RegistrCode.RegistrME();
-              name1.clear();
-              surname1.clear();
-              father1.clear();
-              group1.clear();
-              email1.clear();
-              log1.clear();
-              pass1.clear();
-              pass2.clear();
             }
           });
 
@@ -196,6 +188,14 @@ public class Registration {
           arrow1.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+              name1.clear();
+              surname1.clear();
+              father1.clear();
+              group1.clear();
+              email1.clear();
+              log1.clear();
+              pass1.clear();
+              pass2.clear();
               Menu.Window();
               primaryStage.close();
             }
