@@ -23,6 +23,7 @@ import java.util.Date;
 public class Schedule {
     //объявление массива!!!!!!!!! для внесения расписания
     public static TextField[] txt = new TextField[30];
+    public static TextField[] txt1 = new TextField[12];
 
     //объявление выпадающего списка. глобально, потому что в addSchendule
     //название группы читается в бд
@@ -146,7 +147,7 @@ public class Schedule {
 
 
 
-            grid.add(lbl0, 0, 0);
+
             grid.add(lbl1, 0, 1); //0-столбец 1-строка
             grid.add(lbl2, 0, 2);
             grid.add(lbl3, 0, 3);
@@ -159,12 +160,6 @@ public class Schedule {
             grid.add(lbl31, 3, 0);
             grid.add(lbl41, 4, 0);
             grid.add(lbl51, 5, 0);
-
-
-
-
-
-
 
 
             showScendule.showLessons();
@@ -184,7 +179,7 @@ public class Schedule {
         change_sched.setOnAction(event -> {
 
 
-            grid2.add(lbl0, 0, 0);
+
             grid2.add(lbl1, 0, 1); //0-столбец 1-строка
             grid2.add(lbl2, 0, 2);
             grid2.add(lbl3, 0, 3);
@@ -206,6 +201,27 @@ public class Schedule {
                     k++;
                 }
             }
+            Date date = new Date();
+            String dat = String.valueOf(date);
+            String[] words = dat.split(" ");
+            Label fDay = new Label();
+            Label sDay = new Label();
+
+            switch (words[0]){
+                case "Mon":{fDay.setText("Понедельник"); sDay.setText("Вторник");break;}
+                case "Tue":{fDay.setText("Вторник"); sDay.setText("Среда");break;}
+                case "Wed":{fDay.setText("Среда"); sDay.setText("Четверг");break;}
+                case "Thu":{fDay.setText("Четверг"); sDay.setText("Пятница");break;}
+                case "Fri":{fDay.setText("Пятница"); sDay.setText("Понедельник");break;}
+                default:{ Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Эм... Походу считано неправильное время");
+                    alert.setContentText("Событие было отправлено следующим группам: ");
+                    alert.showAndWait();
+                }
+            }
+
+            grid2.add(fDay, 1, 0);
+            grid2.add(sDay, 3, 0);
 
             pane.getChildren().clear();
             pane.getChildren().addAll(main_sched, change_sched, grid2);
@@ -309,7 +325,6 @@ public class Schedule {
         grid.getRowConstraints().add(new RowConstraints(35));
 
 
-        Text lbl0 = new Text("");
         Text lbl1 = new Text("1");
         Text lbl2 = new Text("2");
         Text lbl3 = new Text("3");
@@ -322,13 +337,6 @@ public class Schedule {
         Text lb4 = new Text("Четверг");
         Text lb5 = new Text("Пятница");
 
-        grid.add(lbl0, 0, 0);
-        grid.add(lbl1, 0, 1); //0-столбец 1-строка
-        grid.add(lbl2, 0, 2);
-        grid.add(lbl3, 0, 3);
-        grid.add(lbl4, 0, 4);
-        grid.add(lbl5, 0, 5);
-        grid.add(lbl6, 0, 6);
 
         grid.add(lb1, 1, 0);
         grid.add(lb2, 2, 0);
@@ -348,6 +356,7 @@ public class Schedule {
                 k++;
             }
         }
+
         GridPane grid2 = new GridPane();
 
         grid2.setLayoutX(50);
@@ -366,13 +375,19 @@ public class Schedule {
         grid2.getRowConstraints().add(new RowConstraints(35));
         grid2.getRowConstraints().add(new RowConstraints(35));
 
-        grid2.add(lbl0, 0, 0);
-        grid2.add(lbl1, 0, 1); //0-столбец 1-строка
-        grid2.add(lbl2, 0, 2);
-        grid2.add(lbl3, 0, 3);
-        grid2.add(lbl4, 0, 4);
-        grid2.add(lbl5, 0, 5);
-        grid2.add(lbl6, 0, 6);
+        for (int i=0; i<12; i++) {
+            TextField textField = new TextField();
+            txt1[i] = textField;
+        }
+        int P=0;
+
+        for (int q=1; q<4; q+=2){
+            for (int j=1; j<7; j++) {
+                grid2.add(txt1[P], q, j);
+                P++;
+            }
+        }
+
         Date date = new Date();
         String dat = String.valueOf(date);
         String[] words = dat.split(" ");
@@ -404,11 +419,23 @@ public class Schedule {
             //кто сейчас этот комментарий читает, разобраться, как оно работает.
             //даже не советую, а настаиваю. объявление массива смотрите глобально
 
+            grid.add(lbl1, 0, 1); //0-столбец 1-строка
+            grid.add(lbl2, 0, 2);
+            grid.add(lbl3, 0, 3);
+            grid.add(lbl4, 0, 4);
+            grid.add(lbl5, 0, 5);
+            grid.add(lbl6, 0, 6);
+
             pane.getChildren().addAll(main_sched,change_sched, grid);
         });
         change_sched.setOnAction(event -> {
 
-
+            grid2.add(lbl1, 0, 1); //0-столбец 1-строка
+            grid2.add(lbl2, 0, 2);
+            grid2.add(lbl3, 0, 3);
+            grid2.add(lbl4, 0, 4);
+            grid2.add(lbl5, 0, 5);
+            grid2.add(lbl6, 0, 6);
 
 
             pane.getChildren().clear();
