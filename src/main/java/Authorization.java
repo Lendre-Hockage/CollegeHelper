@@ -77,26 +77,27 @@ public class Authorization {
         HBox box_for_buttons = new HBox(198);
 
 
-        //КНОПКА "ВЫЙТИ"
-        Button btnEx = new Button("←");
-        btnEx.setId("btn");
-        box_for_buttons.getChildren().add(btnEx);
-
-
-
-        btnEx.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                Menu.Window();
-                stage.close();
-            }
-        });
+//        //КНОПКА "ВЫЙТИ"
+//        Button btnEx = new Button("←");
+//        btnEx.setId("btn");
+//        box_for_buttons.getChildren().add(btnEx);
+//
+//
+//
+//        btnEx.setOnAction(new EventHandler<ActionEvent>() {
+//            @Override
+//            public void handle(ActionEvent event) {
+//                Menu.Window();
+//                stage.close();
+//            }
+//        });
 
 
         //КНОПКА "ДАЛЕЕ"
-        Button btnAuth = new Button("→");
+        Button btnAuth = new Button("Войти");
         btnAuth.setId("btn");
         box_for_buttons.getChildren().add(btnAuth);
+        box_for_buttons.setAlignment(Pos.CENTER);
 
 
         btnAuth.setOnAction(new EventHandler<ActionEvent>() {
