@@ -1,27 +1,28 @@
 .root {
-      -fx-background-image: url("BackForMap.jpeg");
+      -fx-background-image: url("BackForReg.png");
  }
 
 #welcome-text {
     -fx-font-size: 45px;
-    -fx-font-family: "Georgia";
+    -fx-font-family: "Microsoft JhengHei Light";
     -fx-fill: black;
 }
 
 #Label {
     -fx-font-size: 20px;
-    -fx-font-family: "Georgia";
+    -fx-font-family: "Microsoft JhengHei Light";
     -fx-text-fill: black;
 }
 
 #buttons {
- -fx-pref-width: 50px;
- -fx-pref-height: 45px;
+ -fx-pref-width: 230px;
+ -fx-pref-height: 40px;
  -fx-border-radius: 10;
  -fx-background-radius: 10;
- -fx-background-color:"#b6d1fb";
-    -fx-font-size: 17;
-    -fx-text-fill: "white";
+ -fx-background-color:"white";
+      -fx-font-family: "Microsoft JhengHei Light";
+    -fx-font-size: 20;
+    -fx-text-fill: "black";
 
  }
 
@@ -29,14 +30,14 @@
     -fx-border-color: "transparent" "transparent" "black" "transparent";
     -fx-background-color: transparent;
     -fx-font-size: 15px;
-    -fx-font-family: "Arial";
+    -fx-font-family: "Microsoft JhengHei Light";
     -fx-text-fill: black;
 }
 
 #buttons:hover {
-    -fx-background-color: white;
-     -fx-border-color: "#b6d1fb" ;
-         -fx-text-fill:"#b6d1fb";
+    -fx-background-color: transparent;
+     -fx-border-color: "black" ;
+         -fx-text-fill:"black";
 
 }
 
@@ -44,11 +45,12 @@
 #event{
     -fx-border-color:transparent;
     -fx-pref-width: 130px;
-    -fx-background-color: "#b6d1fb";
+    -fx-background-color: "white";
     -fx-border-width:3;
 }
 
 #event .arrow{
-    -fx-background-color:"white";
+    -fx-background-color:"black";
 }
+
 
