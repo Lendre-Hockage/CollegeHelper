@@ -49,7 +49,7 @@ public class Registration {
          //   grid.setGridLinesVisible(true);
             grid.setAlignment(Pos.CENTER);
             grid.setHgap(70);
-            grid.setPadding(new Insets(230, 167, 0, 167));
+            grid.setPadding(new Insets(220, 167, 0, 167));
 
           grid.getColumnConstraints().add(new ColumnConstraints(300));
           grid.getColumnConstraints().add(new ColumnConstraints(300));
@@ -88,7 +88,7 @@ public class Registration {
           for_name.getChildren().add(re);
           re.setId("welcome-text");   //для CSS
           re.setLayoutX(365);
-          re.setLayoutY(153);
+          re.setLayoutY(145);
 
 
           //LABEL "ФАМИЛИЯ"
@@ -179,13 +179,20 @@ public class Registration {
           Button arrow = new Button("Зарегистрироваться");
           arrow.setId("buttons");
           arrow.setLayoutX(375);
-          arrow.setLayoutY(562);
+          arrow.setLayoutY(555);
           arrow.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
               RegistrCode.RegistrME();
             }
           });
+
+
+          Button av = new Button("Авторизация");
+          av.setId("lets_go");
+          av.setLayoutX(680);
+          av.setLayoutY(100);
+
 
 //            //КНОПУЛЕЧКА "←"
 //          Button arrow1 = new Button("←");
@@ -210,7 +217,7 @@ public class Registration {
 //            }
 //          });
 
-            Pane without_other_enter = new Pane(grid, re, arrow);
+            Pane without_other_enter = new Pane(grid, re, arrow, av);
             Scene scene = new Scene(without_other_enter, 1000, 650); //добавляем Grid в Scene
 
             primaryStage.setScene(scene); //добавляем scene в stage

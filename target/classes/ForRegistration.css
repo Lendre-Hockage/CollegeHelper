@@ -54,3 +54,19 @@
 }
 
 
+#lets_go {
+
+    -fx-border-color: "transparent" "transparent" "black" "transparent";
+     -fx-pref-width: 155px;
+          -fx-pref-height: 10px;
+     -fx-background-color:"transparent";
+          -fx-font-family: "Microsoft JhengHei Light";
+        -fx-font-size: 17;
+        -fx-text-fill: "black";
+}
+
+#lets_go:hover {
+
+    -fx-border-color: "black" "black" "black" "black";
+        -fx-text-fill: "black";
+}
