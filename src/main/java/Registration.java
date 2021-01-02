@@ -72,15 +72,6 @@ public class Registration {
           grid.getRowConstraints().add(new RowConstraints(40)); //Группа
 
 
-
-//            //КНОПУЛЕЧКА "РЕГИСТРАЦИЯ"
-//            Button avtor = new Button("Регистрация");
-//            HBox hbbtn = new HBox(100); //поместить в контейнер HBox, но это больше для удобства
-//            avtor.setId("avtor");
-//            hbbtn.setAlignment(Pos.BOTTOM_RIGHT);
-//            hbbtn.getChildren().add(avtor);
-//            grid.add(avtor, 1, 0);
-
           //ЗАГОЛОВОК "РЕГИСТРАЦИЯ"
           Label re = new Label("Регистрация");
           HBox for_name = new HBox();
@@ -174,8 +165,8 @@ public class Registration {
           pass2.setId("field");
           grid.add(pass2, 1, 10);
 
-            //КНОПУЛЕЧКА "→"
 
+          //КНОПУЛЕЧКА "→"
           Button arrow = new Button("Зарегистрироваться");
           arrow.setId("buttons");
           arrow.setLayoutX(375);
@@ -188,10 +179,18 @@ public class Registration {
           });
 
 
+          //КНОПУЛЕЧКА "АВТОРИЗАЦИЯ"
           Button av = new Button("Авторизация");
           av.setId("lets_go");
           av.setLayoutX(680);
           av.setLayoutY(100);
+          av.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+              Authorization.input();
+              primaryStage.hide();
+            }
+          });
 
 
 //            //КНОПУЛЕЧКА "←"
