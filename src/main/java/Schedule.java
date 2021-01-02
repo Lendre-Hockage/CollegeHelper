@@ -138,17 +138,7 @@ public class Schedule {
         grid.add(lbl41, 4, 0);
         grid.add(lbl51, 5, 0);
 
-        showScendule.showLessons();
 
-        int k=0;
-
-        for (int q=1; q<6; q++){
-            for (int j=1; j<7; j++) {
-
-                grid.add(showtxt[k], q, j);
-                k++;
-            }
-        }
 
         GridPane grid2 = new GridPane();
         grid2.setLayoutX(50);
@@ -179,6 +169,8 @@ public class Schedule {
             case "Wed":{fDay.setText("Среда"); sDay.setText("Четверг");break;}
             case "Thu":{fDay.setText("Четверг"); sDay.setText("Пятница");break;}
             case "Fri":{fDay.setText("Пятница"); sDay.setText("Понедельник");break;}
+            case "Sat":{fDay.setText("Выходной"); sDay.setText("Понедельник");break;}
+            case "Sun":{fDay.setText("Выходной"); sDay.setText("Понедельник");break;}
             default:{ Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Эм... Походу считано неправильное время");
                 alert.setContentText("Событие было отправлено следующим группам: ");
@@ -219,6 +211,17 @@ public class Schedule {
 
             if (EventComboBox1.getValue()==null) {Menu.Alert15();}
             else {
+                showScendule.showLessons();
+
+                int k=0;
+
+                for (int q=1; q<6; q++){
+                    for (int j=1; j<7; j++) {
+
+                        grid.add(showtxt[k], q, j);
+                        k++;
+                    }
+                }
                 pane.getChildren().clear();
                 pane.getChildren().addAll(main_sched, change_sched, grid);
             }
@@ -229,7 +232,7 @@ public class Schedule {
             else {
                 pane.getChildren().clear();
                 pane.getChildren().addAll(main_sched, change_sched, grid2);
-             }
+            }
         });
 
         Button btn = new Button("+");
