@@ -137,7 +137,5 @@ public class Events {
         scene.getStylesheets().add(0, "ForRegistration.css"); //подключение CSS
         stage.show();
 
-
-
     }
 }
