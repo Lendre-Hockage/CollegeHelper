@@ -43,6 +43,19 @@ public class Events {
             }
         });
 
+        Button add = new Button("Добавить");
+        add.setId("btn");
+        add.setLayoutY(500);    // установка положения надписи по оси Y
+        add.setLayoutX(320);   // установка положения надписи по оси X
+        add.setFont(Font.font("times new roman", FontWeight.NORMAL, FontPosture.REGULAR, 20));
+        add.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                AddEvent.Add();
+                stage.close();
+            }
+        });
+
         Label lbl = new Label("OK");
 
         ObservableList<String> listEvent = FXCollections.observableArrayList("Самостоятельные работы",
@@ -71,7 +84,7 @@ public class Events {
 
         scrollPane.setContent(gridPane);
 
-        pane.getChildren().addAll(EventComboBox, lbl, scrollPane);
+        pane.getChildren().addAll(EventComboBox, lbl, scrollPane, add);
         pane2.getChildren().addAll(pane, ext);
 
         Scene scene = new Scene(pane2);
