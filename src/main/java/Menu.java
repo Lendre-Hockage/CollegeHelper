@@ -207,38 +207,25 @@ public class Menu {
     }
 
     public static void Window() {
-        GridPane grid = new GridPane();
 
 
-        grid.setHgap(0);
-        grid.setPadding(new Insets(130, 20, 30, 30));
-       // grid.setGridLinesVisible(true);
-        grid.getColumnConstraints().add(new ColumnConstraints(930));
-        grid.getRowConstraints().add(new RowConstraints(70));
-        grid.getRowConstraints().add(new RowConstraints(50));
-        grid.getRowConstraints().add(new RowConstraints(80));
-        grid.getRowConstraints().add(new RowConstraints(150));
-        grid.getRowConstraints().add(new RowConstraints(30));
-
-        Label Hello = new Label("ГЛАВНОЕ МЕНЮ");
-        Hello.setAlignment(Pos.CENTER);
-        Hello.setId("Hello");
-        grid.add(Hello, 0, 0);
-
-        Label Hello2 = new Label("Выберите действие");
-        Hello2.setId("Hello2");
-        grid.add(Hello2, 0, 1);
+//        Label Hello = new Label("ГЛАВНОЕ МЕНЮ");
+//        Hello.setAlignment(Pos.CENTER);
+//        Hello.setId("Hello");
 
 
-        HBox gorizont_buttons = new HBox();
-        gorizont_buttons.setAlignment(Pos.CENTER);
-        gorizont_buttons.setSpacing(50);
+
+        VBox vertical_buttons = new VBox();
+        vertical_buttons.setAlignment(Pos.CENTER);
+        vertical_buttons.setSpacing(50);
 
 
 
         Image av = new Image("Av.png");
         Button btn1 = new Button("", new ImageView(av));
         btn1.setId("buttons");
+        btn1.setLayoutX(0);
+        btn1.setLayoutY(20);
         btn1.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -247,9 +234,11 @@ public class Menu {
             }
         });
 
-        Image reg = new Image("Reg.png");
+       Image reg = new Image("Reg.png");
         Button btn2 = new Button("", new ImageView(reg));
         btn2.setId("buttons");
+        btn2.setLayoutX(0);
+        btn2.setLayoutY(137);
         btn2.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -262,6 +251,8 @@ public class Menu {
         Image map = new Image("Map.png");
         Button btn3 = new Button("", new ImageView(map));
         btn3.setId("buttons");
+        btn3.setLayoutX(0);
+        btn3.setLayoutY(254);
         btn3.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -274,6 +265,8 @@ public class Menu {
         Image ev = new Image("Ev.png");
         Button btn4 = new Button("", new ImageView(ev));
         btn4.setId("buttons");
+        btn4.setLayoutX(0);
+        btn4.setLayoutY(371);
         btn4.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -286,6 +279,8 @@ public class Menu {
         Image shed = new Image("Shed.png");
         Button btn5 = new Button("", new ImageView(shed));
         btn5.setId("buttons");
+        btn5.setLayoutX(0);
+        btn5.setLayoutY(488);
         btn5.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -294,37 +289,38 @@ public class Menu {
             }
         });
 
-        gorizont_buttons.getChildren().addAll(btn1, btn2, btn3, btn4, btn5);
-        grid.add(gorizont_buttons, 0, 3);
-
-
-        HBox gorizont_labels = new HBox();
-        gorizont_labels.setAlignment(Pos.CENTER);
-        gorizont_labels.setSpacing(70);
 
         Label authorize = new Label("Авторизация");
         authorize.setId("labels");
+        authorize.setLayoutX(35);
+        authorize.setLayoutY(83);
 
         Label registration = new Label("Регистрация");
         registration.setId("labels");
+        registration.setLayoutX(40);
+        registration.setLayoutY(197);
 
         Label maps = new Label("Карта корпусов");
         maps.setId("labels");
+        maps.setLayoutX(30);
+        maps.setLayoutY(315);
 
         Label eve = new Label("События");
         eve.setId("labels");
+        eve.setLayoutX(53);
+        eve.setLayoutY(432);
 
         Label shedl = new Label("Расписание");
         shedl.setId("labels");
+        shedl.setLayoutX(40);
+        shedl.setLayoutY(549);
 
-        gorizont_labels.getChildren().addAll(authorize, registration, maps, eve, shedl);
-        grid.add(gorizont_labels, 0, 4);
 
-
-        Scene scene = new Scene(grid, 1000, 650); //добавляем Grid в Scene
+        Pane pane = new Pane(btn1, btn2, btn3, btn4, btn5, authorize, registration, maps, eve, shedl);
+        Scene scene = new Scene(pane, 1000, 650); //добавляем Grid в Scene
 
         stage.setScene(scene); //добавляем scene в stage
-        stage.setTitle("Главное меню");
+        stage.setTitle("Личный кабинет");
         scene.getStylesheets().add(0, "ForMenu.css"); //подключение CSS
         stage.show();
 
