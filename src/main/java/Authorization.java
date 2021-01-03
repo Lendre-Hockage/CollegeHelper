@@ -107,7 +107,7 @@ public class Authorization {
 
 
 
-        Pane pane = new Pane(grid, reg);
+        AnchorPane pane = new AnchorPane(grid, reg);
         Scene scene = new Scene(pane, 1000, 650); //добавляем Grid в Scene
         stage.setScene(scene); //добавляем scene в stage
         stage.setTitle("Авторизация"); //название форме (как наказывала Ишкушка)
