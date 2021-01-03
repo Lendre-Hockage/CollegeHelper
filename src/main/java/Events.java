@@ -4,12 +4,10 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Orientation;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
+import javafx.scene.control.*;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
@@ -18,6 +16,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class Events {
+    public static ComboBox<String> box = new ComboBox<String>(Schedule.listEvent);
     public static void Window() {
         Stage stage = new Stage();
         Pane pane2 = new Pane();
@@ -51,7 +50,7 @@ public class Events {
         add.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                AddEvent.Add();
+                Add();
                 stage.close();
             }
         });
@@ -93,5 +92,52 @@ public class Events {
         stage.setWidth(1000);
         stage.setHeight(650);
         stage.show();
+    }
+    public static void Add(){
+        Stage stage = new Stage();
+        HBox for_edits = new HBox(10);
+        TextField date = new TextField();
+        TextField event = new TextField();
+        TextField description =  new TextField();
+
+
+        for_edits.getChildren().addAll(box, date, event, description);
+        for_edits.setLayoutX(200);
+        for_edits.setLayoutY(270);
+
+        HBox for_labels = new HBox(130);
+        Label gr = new Label("Группа");
+        Label date1 = new Label("Дата");
+        Label event1 = new Label("Событие");
+        Label description1 =  new Label("Описание");
+
+        for_labels.getChildren().addAll(gr, date1, event1, description1);
+        for_labels.setLayoutX(200);
+        for_labels.setLayoutY(240);
+
+        Button add = new Button("Добавить событие");
+        add.setLayoutX(730);
+        add.setLayoutY(320);
+
+        Button back = new Button("<-");
+        back.setLayoutX(50);
+        back.setLayoutY(50);
+        back.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                Window();
+                stage.close();
+            }
+        });
+
+        Pane without_other_enter = new Pane(for_edits, for_labels, add, back);
+        Scene scene = new Scene(without_other_enter, 1000, 650); //добавляем Grid в Scene
+        stage.setScene(scene); //добавляем scene в stage
+        stage.setTitle("Регистрация"); //название форме (как наказывала Ишкушка)
+        scene.getStylesheets().add(0, "ForRegistration.css"); //подключение CSS
+        stage.show();
+
+
+
     }
 }
