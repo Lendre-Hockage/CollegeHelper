@@ -15,12 +15,16 @@ import java.sql.Statement;
 public class AddEvent {
     public static int id=0;
     public static void addEv() {
+        int newid=0;
         if (Events.box.getValue() == null) {
             Menu.Alert15();
         } else {
 
             try (Connection conn = DriverManager.getConnection(AutorizCode.url, AutorizCode.root, AutorizCode.password)) { //подключаемся к бд
                 Statement statement = conn.createStatement();
+
+                newid = id;
+                newid++;
             }
             catch (SQLException throwables) {
                 Menu.DatabaseFail(); //если не получилось подключиться, держим в курсе
