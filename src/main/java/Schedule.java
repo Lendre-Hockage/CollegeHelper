@@ -23,8 +23,9 @@ import java.util.Date;
 
 public class Schedule {
     //объявление массива!!!!!!!!! для внесения расписания
-    public static TextField[] txt = new TextField[30];
-    public static TextField[] txt1 = new TextField[12];
+    public static TextField[] txt = new TextField[30]; //основное
+    public static TextField[] txt1 = new TextField[12]; //изменения
+    public static int select; //проверка выбора что вносить
     //объявление выпадающего списка. глобально, потому что в addSchendule
     //название группы читается в бд
     public static ObservableList<String> listEvent = FXCollections.observableArrayList("1-ИС",
@@ -40,8 +41,9 @@ public class Schedule {
 
     public static  ComboBox<String> EventComboBox = new ComboBox<String>(listEvent);
 
-    //объявление массива для отображения расписания
+    //объявление массива для отображения расписания и изменений(2)
     public static Text[] showtxt = new Text[30];
+    public static Text[] showtxt2 = new Text[12];
     //выпадающий список для отображения расписания
     public static ObservableList<String> listEvent1 = FXCollections.observableArrayList("1-ИС",
             "1-СП",
@@ -55,6 +57,14 @@ public class Schedule {
             "4-ПР1");
 
     public static  ComboBox<String> EventComboBox1 = new ComboBox<String>(listEvent1);
+
+    //дата глобально, потому что она нужна для изменений
+    public static Date date = new Date();
+    public static String dat = String.valueOf(date);
+    public static String[] words = dat.split(" ");
+
+    //проверка на понедельник для изменений
+    public static int monday_check;
 
 
     public static void Window () {
@@ -318,6 +328,25 @@ public class Schedule {
 
             if (EventComboBox1.getValue()==null) {Menu.Alert15();}
             else {
+
+                showChanges.showChanges();
+
+                int k=0;
+
+
+                    for (int j=1; j<7; j++) {
+
+                        grid2.add(showtxt2[k], 1, j);
+                        k++;
+                    }
+
+                for (int j=1; j<7; j++) {
+
+                    grid2.add(showtxt2[k], 3, j);
+                    k++;
+                }
+
+
                 pane.getChildren().clear();
                 pane.getChildren().addAll(main_sched, change_sched, grid2);
             }
@@ -521,7 +550,7 @@ public class Schedule {
 
         main_sched.setOnAction(event -> {
             pane.getChildren().clear();
-
+            select=1;
             //добавление эдитов элегатно и красиво. советую каждому,
             //кто сейчас этот комментарий читает, разобраться, как оно работает.
             //даже не советую, а настаиваю. объявление массива смотрите глобально
@@ -536,7 +565,7 @@ public class Schedule {
             pane.getChildren().addAll(main_sched,change_sched, grid);
         });
         change_sched.setOnAction(event -> {
-
+            select=2;
             grid2.add(lbl1, 0, 1); //0-столбец 1-строка
             grid2.add(lbl2, 0, 2);
             grid2.add(lbl3, 0, 3);
@@ -575,7 +604,10 @@ public class Schedule {
         btn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                addSchendule.addLessons();
+                if (select==1) {
+                addSchendule.addLessons(); }
+                else addChanges.addChanges();
+
             }
         });
 
