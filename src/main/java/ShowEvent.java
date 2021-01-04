@@ -13,7 +13,7 @@ public class ShowEvent {
                         for (int i = 1; i < 7; i++) {
                             String text= resultSet.getString(i)+" ";
                             Events.evShow = text;
-                            Events.textArea.setText(Events.evShow);
+                            Events.textArea.setText(Events.evShow);//это не так должно работать, но я так заебался что мне лень думать
                         }
                     }
                     break;        //Действия при выборе соответствующего эл-та списка
