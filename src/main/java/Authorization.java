@@ -24,9 +24,9 @@ public class Authorization {
 
         Stage stage = new Stage();
         GridPane grid = new GridPane();   //создание сетки для разметки формы
-       // grid.setGridLinesVisible(true);
+        //grid.setGridLinesVisible(true);
         grid.setAlignment(Pos.CENTER);
-        grid.setPadding(new Insets(120, 60, 60, 60));
+        grid.setPadding(new Insets(188, 250, 60, 348));
 
 
 
@@ -74,30 +74,15 @@ public class Authorization {
         pas.setId("field");
         grid.add(pas, 0, 8);
 
+
+
         HBox box_for_buttons = new HBox(198);
-
-
-        //КНОПКА "ВЫЙТИ"
-        Button btnEx = new Button("←");
-        btnEx.setId("btn");
-        box_for_buttons.getChildren().add(btnEx);
-
-
-
-        btnEx.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                Menu.Window();
-                stage.close();
-            }
-        });
-
-
         //КНОПКА "ДАЛЕЕ"
-        Button btnAuth = new Button("→");
+        Button btnAuth = new Button("Войти");
         btnAuth.setId("btn");
         box_for_buttons.getChildren().add(btnAuth);
-
+        box_for_buttons.setAlignment(Pos.CENTER);
+        grid.add(box_for_buttons, 0, 11);
 
         btnAuth.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -106,12 +91,24 @@ public class Authorization {
             }
         });
 
-        grid.add(box_for_buttons, 0, 11);
+
+        //КНОПУЛЕЧКА "РЕГИСТРАЦИЯ"
+        Button reg = new Button("Регистрация");
+        reg.setId("lets_go");
+        reg.setLayoutX(560);
+        reg.setLayoutY(125);
+        reg.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Registration.SReg();
+                stage.hide();
+            }
+        });
 
 
 
-        Scene scene = new Scene(grid, 1000, 650); //добавляем Grid в Scene
-
+        AnchorPane pane = new AnchorPane(grid, reg);
+        Scene scene = new Scene(pane, 1000, 650); //добавляем Grid в Scene
         stage.setScene(scene); //добавляем scene в stage
         stage.setTitle("Авторизация"); //название форме (как наказывала Ишкушка)
         scene.getStylesheets().add(0, "ForAvtorization.css"); //подключение CSS

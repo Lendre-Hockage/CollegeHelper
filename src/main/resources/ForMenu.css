@@ -1,38 +1,28 @@
 .root {
-      -fx-background-image: url("BackForMap.jpeg");
+      -fx-background-image: url("BackMenuLichKab.png");
 
  }
 
 #buttons {
- -fx-pref-width: 120px;
- -fx-pref-height: 120px;
- -fx-border-radius: 10;
- -fx-background-radius: 10;
- -fx-background-color:"#b6d1fb";
+ -fx-pref-width: 182px;
+ -fx-pref-height: 70px;
+ -fx-background-color:"transparent";
+ -fx-border-color: transparent;
+ -fx-border-width: 0 2px 0 0 ;
+
 
  }
 
- #Hello {
-     -fx-font-size: 45px;
-     -fx-font-family: "Georgia";
-     -fx-text-fill: black;
- }
-
- #Hello2 {
-     -fx-font-size: 25px;
-     -fx-font-family: "Georgia";
-     -fx-text-fill: black;
- }
 
  #labels {
       -fx-font-size: 17px;
-      -fx-font-family: "Georgia";
+      -fx-font-family: "Microsoft JhengHei Light";
       -fx-text-fill: black;
 
  }
 
 
 #buttons:hover {
-    -fx-background-color: white;
-     -fx-border-color: "#b6d1fb" ;
+    -fx-background-color: transparent;
+     -fx-border-color: "black"  ;
 }
