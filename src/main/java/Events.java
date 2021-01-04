@@ -16,14 +16,27 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class Events {
+    public static TextField date = new TextField();
+    public static TextField description =  new TextField();
     public static ComboBox<String> box = new ComboBox<String>(Schedule.listEvent);
+    public static ObservableList<String> listEvent = FXCollections.observableArrayList("Самостоятельные работы",
+            "Контрольные работы",
+            "Мероприятия от колледжа",
+            "Другое");
+    public static ComboBox<String> EventComboBox = new ComboBox<String>(listEvent);
+    public static ObservableList<String> course = FXCollections.observableArrayList("1",
+            "2",
+            "3",
+            "4");
+    public static ComboBox<String> CourseBox = new ComboBox<String>(course);
+    public static String evShow = new String("");
+    public static Stage stage = new Stage();
+    //public static GridPane gridPane = new GridPane();
+public static TextArea textArea = new TextArea();
     public static void Window() {
-        Stage stage = new Stage();
         Pane pane2 = new Pane();
         FlowPane pane = new FlowPane(Orientation.VERTICAL, 10, 10);
-        GridPane gridPane = new GridPane();
         ScrollPane scrollPane = new ScrollPane();
-
         scrollPane.setPrefViewportHeight(150);
         scrollPane.setPrefViewportWidth(900);
         scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
@@ -57,31 +70,21 @@ public class Events {
 
         Label lbl = new Label("OK");
 
-        ObservableList<String> listEvent = FXCollections.observableArrayList("Самостоятельные работы",
-                "Контрольные работы",
-                "Мероприятия от колледжа",
-                "Другое");
-        ComboBox<String> EventComboBox = new ComboBox<String>(listEvent);
+
         EventComboBox.setOnAction(event -> {
-            switch (EventComboBox.getValue()) {
-                case "Самостоятельные работы": lbl.setText("yes1"); break;        //Действия при выборе соответствующего эл-та списка
-                case "Контрольные работы": lbl.setText("yes2"); break;
-                case "Мероприятия от колледжа": lbl.setText("yes3"); break;
-                case "Другое": lbl.setText("yes4"); break;
-                default: lbl.setText("not found"); break;
-            }
+            ShowEvent.show();
         });
 
-        Text someText = new Text();
-        someText.setText("some text\nsome text\nsome text\nsome text\nsome text\nsome text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2\nsome text\nsome text\nsome text\nsome text\nsome text\nsome text\nsome text\n");
+      //  Text someText = new Text();
+       // someText.setText("some text\nsome text\nsome text\nsome text\nsome text\nsome text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2\nsome text\nsome text\nsome text\nsome text\nsome text\nsome text\nsome text\n");
 
-        Text text2 = new Text("sdghfgjhgfgdf");
+      //  Text text2 = new Text("sdghfgjhgfgdf");
 
-        gridPane.setVisible(true);
-        gridPane.add(text2, 0, 0);                                  //Добавили gridPane в ScrollPane, чтобы листалось
-        gridPane.add(someText, 0, 3);                               //Не отображаются пустые строки
+       // gridPane.setVisible(true);
+       // gridPane.add(text2, 0, 0);                                  //Добавили gridPane в ScrollPane, чтобы листалось
+       // gridPane.add(someText, 0, 3);                               //Не отображаются пустые строки
 
-        scrollPane.setContent(gridPane);
+        scrollPane.setContent(textArea);
 
         pane.getChildren().addAll(EventComboBox, lbl, scrollPane, add);
         pane2.getChildren().addAll(pane, ext);
@@ -96,28 +99,32 @@ public class Events {
     public static void Add(){
         Stage stage = new Stage();
         HBox for_edits = new HBox(10);
-        TextField date = new TextField();
-        TextField event = new TextField();
-        TextField description =  new TextField();
 
-
-        for_edits.getChildren().addAll(box, date, event, description);
-        for_edits.setLayoutX(200);
+        for_edits.getChildren().addAll(CourseBox ,EventComboBox ,box, date, description);
+        for_edits.setLayoutX(150);
         for_edits.setLayoutY(270);
 
-        HBox for_labels = new HBox(130);
+        HBox for_labels = new HBox(100);
+        Label cour = new Label("Курс");
+        Label name = new Label("Событие");
         Label gr = new Label("Группа");
         Label date1 = new Label("Дата");
-        Label event1 = new Label("Событие");
+
         Label description1 =  new Label("Описание");
 
-        for_labels.getChildren().addAll(gr, date1, event1, description1);
-        for_labels.setLayoutX(200);
+        for_labels.getChildren().addAll(cour ,name ,gr ,date1 , description1);
+        for_labels.setLayoutX(170);
         for_labels.setLayoutY(240);
 
         Button add = new Button("Добавить событие");
         add.setLayoutX(730);
         add.setLayoutY(320);
+        add.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                AddEvent.addEv();
+            }
+        });
 
         Button back = new Button("<-");
         back.setLayoutX(50);

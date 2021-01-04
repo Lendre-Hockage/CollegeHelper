@@ -33,6 +33,7 @@ public class Registration {
           "@outlook.com",
           "@internet.ru");
   public static ComboBox<String> EventComboBox = new ComboBox<String>(listEvent);
+  public static ComboBox<String> cmbox = new ComboBox<String>(Schedule.listEvent);
   public static TextField log1 = new TextField(),
           pass1  = new PasswordField(),
           pass2 = new PasswordField(),
@@ -120,8 +121,9 @@ public class Registration {
           grid.add(group, 0, 9);
 
           //EDIT "ГРУППА"
-          group1.setId("field");
-          grid.add(group1, 0, 10);
+          //group1.setId("field");
+          cmbox.setId("event");
+          grid.add(cmbox, 0, 10);
 
 
 
