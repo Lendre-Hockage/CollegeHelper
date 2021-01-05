@@ -16,7 +16,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class Events {
-    public static TextField date = new TextField();
+    //public static TextField date = new TextField();
+    public static DatePicker datePicker = new DatePicker();
     public static TextField description =  new TextField();
     public static ComboBox<String> box = new ComboBox<String>(Schedule.listEvent);
     public static ObservableList<String> listEvent = FXCollections.observableArrayList("Самостоятельные работы",
@@ -100,7 +101,7 @@ public static TextArea textArea = new TextArea();
         Stage stage = new Stage();
         HBox for_edits = new HBox(10);
 
-        for_edits.getChildren().addAll(CourseBox ,EventComboBox ,box, date, description);
+        for_edits.getChildren().addAll(CourseBox ,EventComboBox ,box, datePicker, description);
         for_edits.setLayoutX(150);
         for_edits.setLayoutY(270);
 

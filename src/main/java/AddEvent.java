@@ -39,7 +39,7 @@ public class AddEvent {
                     newid = id;
                     newid++;
                 }
-                statement.executeUpdate("insert into events VALUES(" + newid + ",'" + Events.EventComboBox.getValue() + "','" + Events.description.getText() + "','" + Events.date.getText() + "','" + Events.box.getValue() + "','" + Events.CourseBox.getValue() + "')");
+                statement.executeUpdate("insert into events VALUES(" + newid + ",'" + Events.EventComboBox.getValue() + "','" + Events.description.getText() + "','" + Events.datePicker.getValue() + "','" + Events.box.getValue() + "','" + Events.CourseBox.getValue() + "')");
                 Menu.Alert16();//тут сам занос в бд
 
             }
