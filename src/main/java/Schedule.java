@@ -69,7 +69,7 @@ public class Schedule {
 
     public static void Window () {
         Stage stage = new Stage();
-        BackgroundImage bgI = new BackgroundImage(new Image("BackMenuShed.png",1000,650,false,true),
+        BackgroundImage bgI = new BackgroundImage(new Image("BackForShed.png",1000,650,false,true),
                 BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
                 BackgroundSize.DEFAULT);
         FlowPane pane = new FlowPane(Orientation.HORIZONTAL, 25, 20);
