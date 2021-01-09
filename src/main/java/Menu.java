@@ -205,6 +205,26 @@ public class Menu {
 
         alert.showAndWait();
     }
+    public static void Alert16() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Test Connection");
+
+        // Header Text: null
+        alert.setHeaderText(null);
+        alert.setContentText("Событие добавлено");
+
+        alert.showAndWait();
+    }
+    public static void Alert17() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Test Connection");
+
+        // Header Text: null
+        alert.setHeaderText(null);
+        alert.setContentText("Указанная дата раньше текущей");
+
+        alert.showAndWait();
+    }
 
     public static void Window() {
 

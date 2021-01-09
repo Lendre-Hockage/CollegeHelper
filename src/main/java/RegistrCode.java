@@ -27,43 +27,47 @@ public class RegistrCode {
                     Registration.surname1.clear();
                     Registration.father1.clear();//Имя фамилия и отчество только русскими буквами
                 } else {
-                    if (Registration.email1.getText().contains("@")){
-                        Menu.Alert13();
-                        Registration.email1.clear();//заполнение только первой половины почты
+                    if (Registration.cmbox.getValue()==null){
+                        Menu.Alert15();
                     }
                     else{
-                        if (NewLogin.trim().isEmpty()) {
-                            Menu.Alert9();
-                            Registration.log1.clear();
-                        } else { //еси написан пустой логин, выгоняем
-                            if (NewLogin.indexOf(" ") != -1) {
-                                Menu.Alert10();
+                        if (Registration.email1.getText().contains("@")) {
+                            Menu.Alert13();
+                            Registration.email1.clear();//заполнение только первой половины почты
+                        } else {
+                            if (NewLogin.trim().isEmpty()) {
+                                Menu.Alert9();
                                 Registration.log1.clear();
-                            } else { //если написан логин с пробелами, выгоняем
-                                NewPassword = Registration.pass1.getText(); //читаем пароль
-                                hash = byteArrayToHexString(RegistrCode.computeHash(NewPassword));
-                                if (NewPassword.trim().equals("")) {
-                                    Menu.Alert6();
-                                    Registration.pass1.clear();
-                                } else { //если пустой пароль, выгоняем
-                                    if (NewPassword.indexOf(" ") != -1) {
-                                        Menu.Alert11();
+                            } else { //еси написан пустой логин, выгоняем
+                                if (NewLogin.indexOf(" ") != -1) {
+                                    Menu.Alert10();
+                                    Registration.log1.clear();
+                                } else { //если написан логин с пробелами, выгоняем
+                                    NewPassword = Registration.pass1.getText(); //читаем пароль
+                                    hash = byteArrayToHexString(RegistrCode.computeHash(NewPassword));
+                                    if (NewPassword.trim().equals("")) {
+                                        Menu.Alert6();
                                         Registration.pass1.clear();
-                                    } else {//если пароль с пробелами, выгоняем
-                                        if (NewPassword.equals(Registration.pass2.getText()) == false) {//если пароль не совпадает
-                                            Menu.Alert3();
+                                    } else { //если пустой пароль, выгоняем
+                                        if (NewPassword.indexOf(" ") != -1) {
+                                            Menu.Alert11();
                                             Registration.pass1.clear();
-                                            Registration.pass2.clear();
-                                        } else {
-                                            newid = id;
-                                            newid++;
+                                        } else {//если пароль с пробелами, выгоняем
+                                            if (NewPassword.equals(Registration.pass2.getText()) == false) {//если пароль не совпадает
+                                                Menu.Alert3();
+                                                Registration.pass1.clear();
+                                                Registration.pass2.clear();
+                                            } else {
+                                                newid = id;
+                                                newid++;
 
 
-                                            //записываем id, логин, пароль и тип (1 - студент) в users_info
-                                            statement.executeUpdate("insert into users_info VALUES ('" + newid + "','" + NewLogin + "', '" + hash + "', " + 1 + ")");
-                                            //записываем имя, фамилию, отчество, почту, группу в student_info
-                                            statement.executeUpdate("insert into student_info VALUES ('" + Registration.name1.getText() + "','" + Registration.surname1.getText() + "', '" + Registration.father1.getText() + "', '" + Registration.group1.getText() + "', '" + Registration.email1.getText()+Registration.EventComboBox.getValue() + "'," + newid + ")");
-                                            Menu.Alert5();
+                                                //записываем id, логин, пароль и тип (1 - студент) в users_info
+                                                statement.executeUpdate("insert into users_info VALUES ('" + newid + "','" + NewLogin + "', '" + hash + "', " + 1 + ")");
+                                                //записываем имя, фамилию, отчество, почту, группу в student_info
+                                                statement.executeUpdate("insert into student_info VALUES ('" + Registration.name1.getText() + "','" + Registration.surname1.getText() + "', '" + Registration.father1.getText() + "', '" + Registration.cmbox.getValue() + "', '" + Registration.email1.getText() + Registration.EventComboBox.getValue() + "'," + newid + ")");
+                                                Menu.Alert5();
+                                            }
                                         }
                                     }
                                 }
