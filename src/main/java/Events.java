@@ -30,9 +30,9 @@ public class Events {
             "3",
             "4");
     public static ComboBox<String> CourseBox = new ComboBox<String>(course);
-    public static String evShow = new String("");
+    public static Text[] evShow = new Text[500];
     public static Stage stage = new Stage();
-    //public static GridPane gridPane = new GridPane();
+    public static GridPane gridPane = new GridPane();
 public static TextArea textArea = new TextArea();
     public static void Window() {
         Pane pane2 = new Pane();
@@ -81,11 +81,11 @@ public static TextArea textArea = new TextArea();
 
       //  Text text2 = new Text("sdghfgjhgfgdf");
 
-       // gridPane.setVisible(true);
+        gridPane.setVisible(true);
        // gridPane.add(text2, 0, 0);                                  //Добавили gridPane в ScrollPane, чтобы листалось
        // gridPane.add(someText, 0, 3);                               //Не отображаются пустые строки
 
-        scrollPane.setContent(textArea);
+        scrollPane.setContent(gridPane);
 
         pane.getChildren().addAll(EventComboBox, lbl, scrollPane, add);
         pane2.getChildren().addAll(pane, ext);
