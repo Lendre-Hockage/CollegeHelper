@@ -34,11 +34,6 @@ public class AddEvent {
                 LocalDate local = Events.datePicker.getValue();
                 while (resultSet.next()) {
                     id = resultSet.getInt(1);
-                    /*Date date = resultSet.getDate(4);
-                    LocalDate localDate1 = LocalDate.parse( new SimpleDateFormat("yyyy-MM-dd").format(date) );
-                    if (localDate.isAfter(localDate1)){
-                        statement.executeUpdate("delete from events where event_date ='"+localDate1+"'");
-                    }*/
                     newid = id;
                     newid++;
 

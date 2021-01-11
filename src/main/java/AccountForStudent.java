@@ -27,6 +27,7 @@ public class AccountForStudent {
             "@outlook.com",
             "@internet.ru");
     public static ComboBox<String> EventComboBox = new ComboBox<String>(listEvent);
+    public static ComboBox<String> cmbox = new ComboBox<String>(Schedule.listEvent1);
     public static TextField
             pass1  = new PasswordField(),
             name1 = new TextField(),
