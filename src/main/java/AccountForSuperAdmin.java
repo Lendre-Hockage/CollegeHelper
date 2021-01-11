@@ -248,7 +248,7 @@ public class AccountForSuperAdmin {
 
         primaryStage.setScene(scene); //добавляем scene в stage
         primaryStage.setTitle("Личный кабинет Великого Владыки и Надзирателя");
-        scene.getStylesheets().add(0, "ForStudentForm.css"); //подключение CSS
+        scene.getStylesheets().add(0, "ForAdminForm.css"); //подключение CSS
         primaryStage.show();
 
 

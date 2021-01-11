@@ -248,7 +248,7 @@ public class AccountForTeacher {
 
         primaryStage.setScene(scene); //добавляем scene в stage
         primaryStage.setTitle("Личный кабинет Карателя смертных");
-        scene.getStylesheets().add(0, "ForStudentForm.css"); //подключение CSS
+        scene.getStylesheets().add(0, "ForTeacherForm.css"); //подключение CSS
         primaryStage.show();
 
     }
