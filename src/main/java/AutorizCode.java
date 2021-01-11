@@ -13,14 +13,12 @@ public class AutorizCode {
     public static String email;
     public static String group_name;
     public static int id;
+    public static int type;
         //данные о бд, имя пользователя, пароль, расположение и коррекция бед с часовым поясом
         public static int check=0, matching=0;
 
 
         public static void AutorizeME() {
-            if (Authorization.log.getText().trim().equals("123")&&Authorization.pas.getText().trim().equals("123")){AccountForSuperAdmin.WindowAdmin();}
-            else if (1 == 2){AccountForTeacher.WindowTeacher();}
-            else {
                 try (Connection conn = DriverManager.getConnection(url, root, password)) { //подключаемся к бд
                     Statement statement = conn.createStatement(); //штука, которая обрабатывает запросы sql
                     ResultSet resultSet = statement.executeQuery("SELECT * from users_info"); //коробка для записи взятых данных из таблицы
@@ -32,6 +30,8 @@ public class AutorizCode {
                             String CurrentLogin = resultSet.getString(2);
                             String CurrentPassword = resultSet.getString(3);
                             id = resultSet.getInt(1);
+                            type = resultSet.getInt(4);
+
 
 
                             if (CurrentLogin.equals(Authorization.log.getText().trim()) && matching == 0) {
@@ -50,7 +50,9 @@ public class AutorizCode {
                                         email = rs.getString(5);
                                     }
                                     check = 4;
-                                    AccountForStudent.WindowStudent();
+                                    if (type == 1){AccountForStudent.WindowStudent();}
+                                    else if (type == 2){AccountForTeacher.WindowTeacher();}
+                                    else {AccountForSuperAdmin.WindowAdmin();}
                                 } else {
                                     matching = 2; //пароль не совпал
                                     check = 4;
@@ -69,7 +71,6 @@ public class AutorizCode {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-            }
             switch (matching) {
                 case 1: /*Menu.Alert1();*/Authorization.log.clear();Authorization.pas.clear(); break; //всё верно
                 case 2: Menu.Alert8(); break;  //пароль неверный

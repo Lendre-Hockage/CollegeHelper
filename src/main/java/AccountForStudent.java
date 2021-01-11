@@ -159,7 +159,7 @@ public class AccountForStudent {
         surname1.setId("field");
         surname1.setLayoutX(580);
         surname1.setLayoutY(100);
-
+        surname1.setText(AutorizCode.surname);
 
 
         //LABEL "ИМЯ"
@@ -172,6 +172,7 @@ public class AccountForStudent {
         name1.setId("field");
         name1.setLayoutX(580);
         name1.setLayoutY(185);
+        name1.setText(AutorizCode.name);
 
 
 
@@ -187,6 +188,7 @@ public class AccountForStudent {
         father1.setId("field");
         father1.setLayoutX(580);
         father1.setLayoutY(270);
+        father1.setText(AutorizCode.second_name);
 
 
 
