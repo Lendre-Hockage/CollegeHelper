@@ -35,7 +35,7 @@ public class Main extends Application {
         PauseTransition wait = new PauseTransition(Duration.seconds(0));           // Пауза в программе на 2 секунды
         wait.setOnFinished((e) -> {
             /*YOUR METHOD*/
-            AccountForStudent.WindowStudent();                                                      //Открываем форму после паузы
+            AccountForTeacher.WindowTeacher();                                                      //Открываем форму после паузы
             stage.hide();
         });
         wait.play();
