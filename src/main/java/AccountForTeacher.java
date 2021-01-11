@@ -40,19 +40,6 @@ public class AccountForTeacher {
     private static Stage primaryStage = new Stage();
 
     public static void WindowTeacher(){
-        HBox fio = new HBox(10);
-        Label fam = new Label("Фамилия");
-        fam.setId("for_fio");
-        Label imya = new Label("Имя");
-        imya.setId("for_fio");
-        Label otches = new Label("Отчество");
-        otches.setId("for_fio");
-
-
-        fio.getChildren().addAll(fam, imya, otches);
-        fio.setLayoutX(308);
-        fio.setLayoutY(280);
-
 
         Image av = new Image("Av.png");
         Button btn1 = new Button("", new ImageView(av));
@@ -230,7 +217,7 @@ public class AccountForTeacher {
 
 
         Pane pane = new Pane(btn1, btn2, btn3, btn4, btn5, authorize, registration, maps, eve, shedl,
-                surname, surname1, name, name1, father, father1, email, box, pass, pass1, fio );
+                surname, surname1, name, name1, father, father1, email, box, pass, pass1 );
         Scene scene = new Scene(pane, 1000, 650); //добавляем Grid в Scene
 
         primaryStage.setScene(scene); //добавляем scene в stage
