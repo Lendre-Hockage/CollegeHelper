@@ -104,7 +104,7 @@ public class AccountForTeacher {
         btn5.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                Schedule.Window();
+                Schedule.shedForPrepod();
                 primaryStage.hide();
             }
         });

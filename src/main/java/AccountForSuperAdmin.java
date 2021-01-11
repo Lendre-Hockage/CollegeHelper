@@ -105,7 +105,7 @@ public class AccountForSuperAdmin {
         btn5.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                Schedule.Window();
+                Schedule.createSchedule();
                 primaryStage.hide();
             }
         });
