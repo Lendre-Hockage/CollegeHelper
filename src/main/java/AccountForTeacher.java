@@ -154,12 +154,12 @@ public class AccountForTeacher {
         Label surname = new Label("Фамилия:");
         surname.setId("Label");
         surname.setLayoutX(580);
-        surname.setLayoutY(80);
+        surname.setLayoutY(100);
 
         //EDIT "ВВОД ФАМИЛИЯ"
         surname1.setId("field");
         surname1.setLayoutX(580);
-        surname1.setLayoutY(100);
+        surname1.setLayoutY(120);
 
 
 
@@ -167,12 +167,12 @@ public class AccountForTeacher {
         Label name = new Label("Имя:");
         name.setId("Label");
         name.setLayoutX(580);
-        name.setLayoutY(165);
+        name.setLayoutY(185);
 
         //EDIT "ВВОД ИМЯ"
         name1.setId("field");
         name1.setLayoutX(580);
-        name1.setLayoutY(185);
+        name1.setLayoutY(205);
 
 
 
@@ -181,29 +181,13 @@ public class AccountForTeacher {
         Label father = new Label("Отчество:");
         father.setId("Label");
         father.setLayoutX(580);
-        father.setLayoutY(250);
+        father.setLayoutY(270);
 
 
         //EDIT "ВВОД ОТЧЕСТВО"
         father1.setId("field");
         father1.setLayoutX(580);
-        father1.setLayoutY(270);
-
-
-
-
-        //LABEL "ГРУППА"
-        Label group = new Label("Группа:");
-        group.setId("Label");
-        group.setLayoutX(580);
-        group.setLayoutY(335);
-
-
-        //EDIT "ГРУППА"
-        cmbox.setId("event");
-        cmbox.setLayoutX(580);
-        cmbox.setLayoutY(365);
-
+        father1.setLayoutY(290);
 
 
 
@@ -211,7 +195,7 @@ public class AccountForTeacher {
         Label email = new Label("Электронная почта:");
         email.setId("Label");
         email.setLayoutX(580);
-        email.setLayoutY(430);
+        email.setLayoutY(370);
 
 
         //EDIT "EMAIL"
@@ -220,7 +204,7 @@ public class AccountForTeacher {
         box.getChildren().addAll(email1, EventComboBox);
         EventComboBox.setId("event");
         box.setLayoutX(580);
-        box.setLayoutY(450);
+        box.setLayoutY(390);
 
 
 
@@ -229,21 +213,21 @@ public class AccountForTeacher {
         Label pass = new Label("Пароль:");
         pass.setId("Label");
         pass.setLayoutX(580);
-        pass.setLayoutY(515);
+        pass.setLayoutY(455);
 
 
 
         //EDIT "ПАРОЛЬ"
         pass1.setId("field");
         pass1.setLayoutX(580);
-        pass1.setLayoutY(535);
+        pass1.setLayoutY(475);
 
 
 
 
 
         Pane pane = new Pane(btn1, btn2, btn3, btn4, btn5, authorize, registration, maps, eve, shedl,
-                surname, surname1, name, name1, father, father1, email, box, group, cmbox, pass, pass1, fio );
+                surname, surname1, name, name1, father, father1, email, box, pass, pass1, fio );
         Scene scene = new Scene(pane, 1000, 650); //добавляем Grid в Scene
 
         primaryStage.setScene(scene); //добавляем scene в stage
