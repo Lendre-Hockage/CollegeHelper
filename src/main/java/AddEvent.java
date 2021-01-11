@@ -50,13 +50,34 @@ public class AddEvent {
                     statement.executeUpdate("insert into events VALUES(" + newid + ",'" + Events.EventComboBox.getValue() + "','" + Events.description.getText() + "','" + Events.datePicker.getValue() + "','" + Events.box.getValue() + "','" + Events.CourseBox.getValue() + "')");
                     Menu.Alert16();//тут сам занос в бд
                 }
-            }
-            catch(SQLException throwables){
-                    Menu.DatabaseFail(); //если не получилось подключиться, держим в курсе
-                    throwables.printStackTrace();
-                }catch(Exception e){
-                    e.printStackTrace();
-                }
+            } catch (SQLException throwables) {
+                Menu.DatabaseFail(); //если не получилось подключиться, держим в курсе
+                throwables.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
+
+    public static void delEv() {
+        try (Connection conn = DriverManager.getConnection(AutorizCode.url, AutorizCode.root, AutorizCode.password)) { //подключаемся к бд
+            Statement statement = conn.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * from events");
+            LocalDate localDate = LocalDate.now();
+            LocalDate local = Events.datePicker.getValue();
+            while (resultSet.next()) {
+                id = resultSet.getInt(1);
+                Date date = resultSet.getDate(4);
+                LocalDate localDate1 = LocalDate.parse(new SimpleDateFormat("yyyy-MM-dd").format(date));
+                if (localDate.isAfter(localDate1)) {
+                    statement.executeUpdate("delete from events where event_date ='" + localDate1 + "'");
+                }
+            }
+        } catch (SQLException throwables) {
+            Menu.DatabaseFail(); //если не получилось подключиться, держим в курсе
+            throwables.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}

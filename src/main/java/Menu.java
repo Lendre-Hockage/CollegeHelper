@@ -290,6 +290,7 @@ public class Menu {
         btn4.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
+                AddEvent.delEv();
                 Events.Window();
                 stage.hide();
             }
