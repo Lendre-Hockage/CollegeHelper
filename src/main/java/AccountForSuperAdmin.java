@@ -10,7 +10,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-public class AccountForStudent {
+public class AccountForSuperAdmin {
+
     public static ObservableList<String> listEvent = FXCollections.observableArrayList("@gmail.com",
             "@yandex.ru",
             "@ya.ru",
@@ -36,7 +37,8 @@ public class AccountForStudent {
 
 
     private static Stage primaryStage = new Stage();
-    public static void WindowStudent(){
+
+    public static void WindowAdmin(){
 
 
         Image av = new Image("Av.png");
@@ -88,7 +90,6 @@ public class AccountForStudent {
         btn4.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                AddEvent.delEv();
                 Events.Window();
                 primaryStage.hide();
             }
@@ -140,25 +141,26 @@ public class AccountForStudent {
         Label surname = new Label("Фамилия:");
         surname.setId("Label");
         surname.setLayoutX(580);
-        surname.setLayoutY(80);
+        surname.setLayoutY(100);
 
         //EDIT "ВВОД ФАМИЛИЯ"
         surname1.setId("field");
         surname1.setLayoutX(580);
-        surname1.setLayoutY(100);
+        surname1.setLayoutY(120);
         surname1.setText(AutorizCode.surname);
+
 
 
         //LABEL "ИМЯ"
         Label name = new Label("Имя:");
         name.setId("Label");
         name.setLayoutX(580);
-        name.setLayoutY(165);
+        name.setLayoutY(185);
 
         //EDIT "ВВОД ИМЯ"
         name1.setId("field");
         name1.setLayoutX(580);
-        name1.setLayoutY(185);
+        name1.setLayoutY(205);
         name1.setText(AutorizCode.name);
 
 
@@ -168,30 +170,14 @@ public class AccountForStudent {
         Label father = new Label("Отчество:");
         father.setId("Label");
         father.setLayoutX(580);
-        father.setLayoutY(250);
+        father.setLayoutY(270);
 
 
         //EDIT "ВВОД ОТЧЕСТВО"
         father1.setId("field");
         father1.setLayoutX(580);
-        father1.setLayoutY(270);
+        father1.setLayoutY(290);
         father1.setText(AutorizCode.second_name);
-
-
-
-
-        //LABEL "ГРУППА"
-        Label group = new Label("Группа:");
-        group.setId("Label");
-        group.setLayoutX(580);
-        group.setLayoutY(335);
-
-
-        //EDIT "ГРУППА"
-        cmbox.setId("event");
-        cmbox.setLayoutX(580);
-        cmbox.setLayoutY(365);
-
 
 
 
@@ -199,7 +185,7 @@ public class AccountForStudent {
         Label email = new Label("Электронная почта:");
         email.setId("Label");
         email.setLayoutX(580);
-        email.setLayoutY(430);
+        email.setLayoutY(370);
 
 
         //EDIT "EMAIL"
@@ -208,7 +194,7 @@ public class AccountForStudent {
         box.getChildren().addAll(email1, EventComboBox);
         EventComboBox.setId("event");
         box.setLayoutX(580);
-        box.setLayoutY(450);
+        box.setLayoutY(390);
 
 
 
@@ -217,26 +203,25 @@ public class AccountForStudent {
         Label pass = new Label("Пароль:");
         pass.setId("Label");
         pass.setLayoutX(580);
-        pass.setLayoutY(515);
+        pass.setLayoutY(455);
 
 
 
         //EDIT "ПАРОЛЬ"
         pass1.setId("field");
         pass1.setLayoutX(580);
-        pass1.setLayoutY(535);
-
+        pass1.setLayoutY(475);
 
 
 
 
         Pane pane = new Pane(btn1, btn2, btn3, btn4, btn5, authorize, registration, maps, eve, shedl,
-                surname, surname1, name, name1, father, father1, email, box, group, cmbox, pass, pass1 );
+                surname, surname1, name, name1, father, father1, email, box, pass, pass1);
         Scene scene = new Scene(pane, 1000, 650); //добавляем Grid в Scene
 
         primaryStage.setScene(scene); //добавляем scene в stage
-        primaryStage.setTitle("Личный кабинет студента");
-        scene.getStylesheets().add(0, "ForStudentForm.css"); //подключение CSS
+        primaryStage.setTitle("Личный кабинет Великого Владыки и Надзирателя");
+        scene.getStylesheets().add(0, "ForAdminForm.css"); //подключение CSS
         primaryStage.show();
 
 
