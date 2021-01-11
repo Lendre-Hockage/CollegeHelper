@@ -160,6 +160,7 @@ public class AccountForTeacher {
         surname1.setId("field");
         surname1.setLayoutX(580);
         surname1.setLayoutY(120);
+        surname1.setText(AutorizCode.surname);
 
 
 
@@ -173,6 +174,7 @@ public class AccountForTeacher {
         name1.setId("field");
         name1.setLayoutX(580);
         name1.setLayoutY(205);
+        name1.setText(AutorizCode.name);
 
 
 
@@ -188,7 +190,7 @@ public class AccountForTeacher {
         father1.setId("field");
         father1.setLayoutX(580);
         father1.setLayoutY(290);
-
+        father1.setText(AutorizCode.second_name);
 
 
         //LABEL "EMAIL"
@@ -221,6 +223,7 @@ public class AccountForTeacher {
         pass1.setId("field");
         pass1.setLayoutX(580);
         pass1.setLayoutY(475);
+
 
 
 
