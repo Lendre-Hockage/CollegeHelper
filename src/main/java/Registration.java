@@ -176,7 +176,9 @@ public class Registration {
           arrow.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+
               RegistrCode.RegistrME();
+              primaryStage.hide();
             }
           });
 
