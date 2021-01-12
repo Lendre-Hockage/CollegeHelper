@@ -87,7 +87,9 @@ public class Authorization {
         btnAuth.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+
                 AutorizCode.AutorizeME();
+                stage.hide();
             }
         });
 

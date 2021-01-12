@@ -33,6 +33,7 @@ public class Registration {
           "@outlook.com",
           "@internet.ru");
   public static ComboBox<String> EventComboBox = new ComboBox<String>(listEvent);
+  public static ComboBox<String> cmbox = new ComboBox<String>(Schedule.listEvent);
   public static TextField log1 = new TextField(),
           pass1  = new PasswordField(),
           pass2 = new PasswordField(),
@@ -120,8 +121,9 @@ public class Registration {
           grid.add(group, 0, 9);
 
           //EDIT "ГРУППА"
-          group1.setId("field");
-          grid.add(group1, 0, 10);
+          //group1.setId("field");
+          cmbox.setId("event");
+          grid.add(cmbox, 0, 10);
 
 
 
@@ -174,7 +176,9 @@ public class Registration {
           arrow.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+
               RegistrCode.RegistrME();
+              primaryStage.hide();
             }
           });
 
@@ -192,29 +196,6 @@ public class Registration {
             }
           });
 
-
-//            //КНОПУЛЕЧКА "←"
-//          Button arrow1 = new Button("←");
-//          HBox hbBtn1 = new HBox(100); //поместить в контейнер HBox, но это больше для удобства
-//          arrow1.setId("buttons");
-//          hbBtn1.setAlignment(Pos.BOTTOM_LEFT);
-//          hbBtn1.getChildren().add(arrow1);
-//          grid.add(arrow1, 0, 12);
-//          arrow1.setOnAction(new EventHandler<ActionEvent>() {
-//            @Override
-//            public void handle(ActionEvent event) {
-//              name1.clear();
-//              surname1.clear();
-//              father1.clear();
-//              group1.clear();
-//              email1.clear();
-//              log1.clear();
-//              pass1.clear();
-//              pass2.clear();
-//              Menu.Window();
-//              primaryStage.close();
-//            }
-//          });
 
             Pane without_other_enter = new Pane(grid, re, arrow, av);
             Scene scene = new Scene(without_other_enter, 1000, 650); //добавляем Grid в Scene

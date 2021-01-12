@@ -205,6 +205,26 @@ public class Menu {
 
         alert.showAndWait();
     }
+    public static void Alert16() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Test Connection");
+
+        // Header Text: null
+        alert.setHeaderText(null);
+        alert.setContentText("Событие добавлено");
+
+        alert.showAndWait();
+    }
+    public static void Alert17() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Test Connection");
+
+        // Header Text: null
+        alert.setHeaderText(null);
+        alert.setContentText("Указанная дата раньше текущей");
+
+        alert.showAndWait();
+    }
 
     public static void Window() {
 
@@ -270,6 +290,7 @@ public class Menu {
         btn4.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
+                AddEvent.delEv();
                 Events.Window();
                 stage.hide();
             }
