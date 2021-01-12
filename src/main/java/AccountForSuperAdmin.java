@@ -55,25 +55,12 @@ public class AccountForSuperAdmin {
         });
 
 
-        Image map = new Image("Map.png");
-        Button btn3 = new Button("", new ImageView(map));
-        btn3.setId("buttons");
-        btn3.setLayoutX(0);
-        btn3.setLayoutY(137);
-        btn3.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                Maps.Map();
-                primaryStage.hide();
-            }
-        });
-
 
         Image ev = new Image("Ev.png");
         Button btn4 = new Button("", new ImageView(ev));
         btn4.setId("buttons");
         btn4.setLayoutX(0);
-        btn4.setLayoutY(254);
+        btn4.setLayoutY(140);
         btn4.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -88,7 +75,7 @@ public class AccountForSuperAdmin {
         Button btn5 = new Button("", new ImageView(shed));
         btn5.setId("buttons");
         btn5.setLayoutX(0);
-        btn5.setLayoutY(371);
+        btn5.setLayoutY(260);
         btn5.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -97,11 +84,24 @@ public class AccountForSuperAdmin {
             }
         });
 
+        Image reg_t = new Image("Reg.png");
+        Button btn7 = new Button("", new ImageView(reg_t));
+        btn7.setId("buttons");
+        btn7.setLayoutX(0);
+        btn7.setLayoutY(380);
+        btn7.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                RegistTeacher.RegistT();
+                primaryStage.hide();
+            }
+        });
+
         Image exit = new Image("Exit.png");
         Button btn6 = new Button("", new ImageView(exit));
         btn6.setId("buttons");
         btn6.setLayoutX(0);
-        btn6.setLayoutY(538);
+        btn6.setLayoutY(537);
         btn6.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -110,30 +110,34 @@ public class AccountForSuperAdmin {
             }
         });
 
-        Label ex = new Label("Выход");
-        ex.setId("labels");
-        ex.setLayoutX(65);
-        ex.setLayoutY(599);
+
+
 
         Label authorize = new Label("Личный кабинет");
         authorize.setId("labels");
         authorize.setLayoutX(25);
         authorize.setLayoutY(83);
 
-        Label maps = new Label("Карта корпусов");
-        maps.setId("labels");
-        maps.setLayoutX(30);
-        maps.setLayoutY(197);
 
-        Label eve = new Label("События");
+        Label eve = new Label("Редакировать\n    события");
         eve.setId("labels");
-        eve.setLayoutX(53);
-        eve.setLayoutY(315);
+        eve.setLayoutX(37);
+        eve.setLayoutY(203);
 
-        Label shedl = new Label("Расписание");
+        Label shedl = new Label("Редакировать\n расписание");
         shedl.setId("labels");
-        shedl.setLayoutX(40);
-        shedl.setLayoutY(432);
+        shedl.setLayoutX(35);
+        shedl.setLayoutY(323);
+
+        Label reg_teach = new Label("  Регистрация\nпреподавателя");
+        reg_teach.setId("labels");
+        reg_teach.setLayoutX(30);
+        reg_teach.setLayoutY(443);
+
+        Label ex = new Label("Выход");
+        ex.setId("labels");
+        ex.setLayoutX(65);
+        ex.setLayoutY(600);
 
 
         //LABEL "ФАМИЛИЯ"
@@ -214,7 +218,7 @@ public class AccountForSuperAdmin {
 
 
 
-        Pane pane = new Pane(btn1, btn3, btn4, btn5, btn6, authorize, maps, eve, shedl, ex,
+        Pane pane = new Pane(btn1, btn4, btn5, btn6, btn7, authorize, eve, shedl, ex, reg_teach,
                 surname, surname1, name, name1, father, father1, email, box, pass, pass1);
         Scene scene = new Scene(pane, 1000, 650); //добавляем Grid в Scene
 
