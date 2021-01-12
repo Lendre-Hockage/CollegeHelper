@@ -74,7 +74,7 @@ public class Schedule {
         pane2.setLayoutX(375);
         pane2.setLayoutY(355);
 
-        Image av = new Image("Av.png");
+        Image av = new Image("LichKab.png");
         Button btn1 = new Button("", new ImageView(av));
         btn1.setId("buttons");
         btn1.setLayoutX(0);
@@ -82,21 +82,8 @@ public class Schedule {
         btn1.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                Authorization.input();
-                stage.hide();
-            }
-        });
-
-        Image reg = new Image("Reg.png");
-        Button btn2 = new Button("", new ImageView(reg)); //Переход к регистрации
-        btn2.setId("buttons");
-        btn2.setLayoutX(0);
-        btn2.setLayoutY(137);
-        btn2.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                Registration.SReg();
-                stage.hide();
+//                Authorization.input();
+//                primaryStage.hide();
             }
         });
 
@@ -105,7 +92,7 @@ public class Schedule {
         Button btn3 = new Button("", new ImageView(map));
         btn3.setId("buttons");
         btn3.setLayoutX(0);
-        btn3.setLayoutY(254);
+        btn3.setLayoutY(137);
         btn3.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -119,10 +106,11 @@ public class Schedule {
         Button btn4 = new Button("", new ImageView(ev));
         btn4.setId("buttons");
         btn4.setLayoutX(0);
-        btn4.setLayoutY(371);
+        btn4.setLayoutY(254);
         btn4.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
+                AddEvent.delEv();
                 Events.Window();
                 stage.hide();
             }
@@ -133,7 +121,7 @@ public class Schedule {
         Button btn5 = new Button("", new ImageView(shed));
         btn5.setId("buttons");
         btn5.setLayoutX(0);
-        btn5.setLayoutY(488);
+        btn5.setLayoutY(371);
         btn5.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -142,34 +130,47 @@ public class Schedule {
             }
         });
 
+        Image exit = new Image("Exit.png");
+        Button btn6 = new Button("", new ImageView(exit));
+        btn6.setId("buttons");
+        btn6.setLayoutX(0);
+        btn6.setLayoutY(538);
+        btn6.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                Authorization.input();
+                stage.hide();
+            }
+        });
 
-        Label authorize = new Label("Авторизация");
+        Label ex = new Label("Выход");
+        ex.setId("labels");
+        ex.setLayoutX(65);
+        ex.setLayoutY(599);
+
+
+        Label authorize = new Label("Личный кабинет");
         authorize.setId("labels");
-        authorize.setLayoutX(35);
+        authorize.setLayoutX(25);
         authorize.setLayoutY(83);
-
-        Label registration = new Label("Регистрация");
-        registration.setId("labels");
-        registration.setLayoutX(40);
-        registration.setLayoutY(197);
 
         Label maps = new Label("Карта корпусов");
         maps.setId("labels");
         maps.setLayoutX(30);
-        maps.setLayoutY(315);
+        maps.setLayoutY(197);
 
         Label eve = new Label("События");
         eve.setId("labels");
         eve.setLayoutX(53);
-        eve.setLayoutY(432);
+        eve.setLayoutY(315);
 
         Label shedl = new Label("Расписание");
         shedl.setId("labels");
         shedl.setLayoutX(40);
-        shedl.setLayoutY(549);
+        shedl.setLayoutY(432);
 
 
-        Pane pane1 = new Pane(btn1, btn2, btn3, btn4, btn5, authorize, registration, maps, eve, shedl);
+        Pane pane1 = new Pane(btn1, btn3, btn4, btn5, btn6, authorize, maps, eve, shedl, ex);
 
 
         GridPane grid = new GridPane();
@@ -357,17 +358,19 @@ public class Schedule {
 
     public static void shedForPrepod(){
         Stage stage = new Stage();
-        BackgroundImage bgI = new BackgroundImage(new Image("BackForShed.png",1000,650,false,true),
+        BackgroundImage bgI = new BackgroundImage(new Image("BackForShedWithText.png",1000,650,false,true),
                 BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
                 BackgroundSize.DEFAULT);
         FlowPane pane = new FlowPane(Orientation.HORIZONTAL, 25, 20);
         FlowPane pane2 = new FlowPane(Orientation.HORIZONTAL, 25, 20);
         pane.setLayoutX(250);
-        pane.setLayoutY(45);
+        pane.setLayoutY(110);
         pane2.setLayoutX(250);
-        pane2.setLayoutY(345);
+        pane2.setLayoutY(415);
 
-        Image av = new Image("Av.png");
+
+
+        Image av = new Image("LichKab.png");
         Button btn1 = new Button("", new ImageView(av));
         btn1.setId("buttons");
         btn1.setLayoutX(0);
@@ -375,21 +378,8 @@ public class Schedule {
         btn1.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                Authorization.input();
-                stage.hide();
-            }
-        });
-
-        Image reg = new Image("Reg.png");
-        Button btn2 = new Button("", new ImageView(reg));
-        btn2.setId("buttons");
-        btn2.setLayoutX(0);
-        btn2.setLayoutY(137);
-        btn2.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                Registration.SReg();
-                stage.hide();
+//                Authorization.input();
+//                primaryStage.hide();
             }
         });
 
@@ -398,7 +388,7 @@ public class Schedule {
         Button btn3 = new Button("", new ImageView(map));
         btn3.setId("buttons");
         btn3.setLayoutX(0);
-        btn3.setLayoutY(254);
+        btn3.setLayoutY(137);
         btn3.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -412,10 +402,11 @@ public class Schedule {
         Button btn4 = new Button("", new ImageView(ev));
         btn4.setId("buttons");
         btn4.setLayoutX(0);
-        btn4.setLayoutY(371);
+        btn4.setLayoutY(254);
         btn4.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
+                AddEvent.delEv();
                 Events.Window();
                 stage.hide();
             }
@@ -426,7 +417,7 @@ public class Schedule {
         Button btn5 = new Button("", new ImageView(shed));
         btn5.setId("buttons");
         btn5.setLayoutX(0);
-        btn5.setLayoutY(488);
+        btn5.setLayoutY(371);
         btn5.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -435,34 +426,45 @@ public class Schedule {
             }
         });
 
+        Image exit = new Image("Exit.png");
+        Button btn6 = new Button("", new ImageView(exit));
+        btn6.setId("buttons");
+        btn6.setLayoutX(0);
+        btn6.setLayoutY(538);
+        btn6.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                Authorization.input();
+                stage.hide();
+            }
+        });
 
-        Label authorize = new Label("Авторизация");
+        Label ex = new Label("Выход");
+        ex.setId("labels");
+        ex.setLayoutX(65);
+        ex.setLayoutY(599);
+
+        Label authorize = new Label("Личный кабинет");
         authorize.setId("labels");
-        authorize.setLayoutX(35);
+        authorize.setLayoutX(25);
         authorize.setLayoutY(83);
-
-        Label registration = new Label("Регистрация");
-        registration.setId("labels");
-        registration.setLayoutX(40);
-        registration.setLayoutY(197);
 
         Label maps = new Label("Карта корпусов");
         maps.setId("labels");
         maps.setLayoutX(30);
-        maps.setLayoutY(315);
+        maps.setLayoutY(197);
 
         Label eve = new Label("События");
         eve.setId("labels");
         eve.setLayoutX(53);
-        eve.setLayoutY(432);
+        eve.setLayoutY(315);
 
         Label shedl = new Label("Расписание");
         shedl.setId("labels");
         shedl.setLayoutX(40);
-        shedl.setLayoutY(549);
+        shedl.setLayoutY(432);
 
-
-        Pane pane1 = new Pane(btn1, btn2, btn3, btn4, btn5, authorize, registration, maps, eve, shedl);
+        Pane pane1 = new Pane(btn1, btn3, btn4, btn5, btn6, authorize, maps, eve, shedl, ex);
 
         GridPane grid = new GridPane();
         grid.setLayoutX(50);
@@ -514,6 +516,19 @@ public class Schedule {
         grid.add(lbl41, 4, 0);
         grid.add(lbl51, 5, 0);
 
+        grid.setHalignment(lbl1, HPos.CENTER);
+        grid.setHalignment(lbl2, HPos.CENTER);
+        grid.setHalignment(lbl3, HPos.CENTER);
+        grid.setHalignment(lbl4, HPos.CENTER);
+        grid.setHalignment(lbl5, HPos.CENTER);
+        grid.setHalignment(lbl6, HPos.CENTER);
+
+        grid.setHalignment(lbl11, HPos.CENTER);
+        grid.setHalignment(lbl21, HPos.CENTER);
+        grid.setHalignment(lbl31, HPos.CENTER);
+        grid.setHalignment(lbl41, HPos.CENTER);
+        grid.setHalignment(lbl51, HPos.CENTER);
+
 
 
         GridPane grid2 = new GridPane();
@@ -537,7 +552,12 @@ public class Schedule {
         String dat = String.valueOf(date);
         String[] words = dat.split(" ");
         Label fDay = new Label();
+        fDay.setId("text");
         Label sDay = new Label();
+        sDay.setId("text");
+
+        grid2.setHalignment(fDay, HPos.CENTER);
+        grid2.setHalignment(sDay, HPos.CENTER);
 
         switch (words[0]){
             case "Mon":{fDay.setText("Понедельник"); sDay.setText("Вторник");break;}
@@ -580,11 +600,16 @@ public class Schedule {
         });
 
 
-        EventComboBox1.setLayoutX(40);
-        EventComboBox1.setLayoutY(245);
+        EventComboBox1.setLayoutX(750);
+        EventComboBox1.setLayoutY(62);
         EventComboBox1.setId("event");
 
-        Pane group = new Pane(pane1, pane, pane2, EventComboBox1);
+        Label group_for_changes_shed = new Label( "ГРУППА");
+        group_for_changes_shed.setId("for_group");
+        group_for_changes_shed.setLayoutY(362);
+        group_for_changes_shed.setLayoutX(762);
+
+        Pane group = new Pane(pane1, pane, pane2, EventComboBox1, group_for_changes_shed);
         group.setBackground(new Background(bgI));
         Scene scene = new Scene(group, 1000,650);
         stage.setScene(scene);
@@ -661,7 +686,7 @@ public class Schedule {
         pane2.setLayoutX(250);
         pane2.setLayoutY(415);
 
-        Image av = new Image("Av.png");
+        Image av = new Image("LichKab.png");
         Button btn1 = new Button("", new ImageView(av));
         btn1.setId("buttons");
         btn1.setLayoutX(0);
@@ -669,21 +694,8 @@ public class Schedule {
         btn1.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                Authorization.input();
-                stage.hide();
-            }
-        });
-
-        Image reg = new Image("Reg.png");
-        Button btn2 = new Button("", new ImageView(reg)); //Переход к регистрации
-        btn2.setId("buttons");
-        btn2.setLayoutX(0);
-        btn2.setLayoutY(137);
-        btn2.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                Registration.SReg();
-                stage.hide();
+//                Authorization.input();
+//                primaryStage.hide();
             }
         });
 
@@ -692,7 +704,7 @@ public class Schedule {
         Button btn3 = new Button("", new ImageView(map));
         btn3.setId("buttons");
         btn3.setLayoutX(0);
-        btn3.setLayoutY(254);
+        btn3.setLayoutY(137);
         btn3.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -706,10 +718,11 @@ public class Schedule {
         Button btn4 = new Button("", new ImageView(ev));
         btn4.setId("buttons");
         btn4.setLayoutX(0);
-        btn4.setLayoutY(371);
+        btn4.setLayoutY(254);
         btn4.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
+                AddEvent.delEv();
                 Events.Window();
                 stage.hide();
             }
@@ -720,7 +733,7 @@ public class Schedule {
         Button btn5 = new Button("", new ImageView(shed));
         btn5.setId("buttons");
         btn5.setLayoutX(0);
-        btn5.setLayoutY(488);
+        btn5.setLayoutY(371);
         btn5.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -729,34 +742,46 @@ public class Schedule {
             }
         });
 
+        Image exit = new Image("Exit.png");
+        Button btn6 = new Button("", new ImageView(exit));
+        btn6.setId("buttons");
+        btn6.setLayoutX(0);
+        btn6.setLayoutY(538);
+        btn6.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                Authorization.input();
+                stage.hide();
+            }
+        });
 
-        Label authorize = new Label("Авторизация");
+        Label ex = new Label("Выход");
+        ex.setId("labels");
+        ex.setLayoutX(65);
+        ex.setLayoutY(599);
+
+        Label authorize = new Label("Личный кабинет");
         authorize.setId("labels");
-        authorize.setLayoutX(35);
+        authorize.setLayoutX(25);
         authorize.setLayoutY(83);
-
-        Label registration = new Label("Регистрация");
-        registration.setId("labels");
-        registration.setLayoutX(40);
-        registration.setLayoutY(197);
 
         Label maps = new Label("Карта корпусов");
         maps.setId("labels");
         maps.setLayoutX(30);
-        maps.setLayoutY(315);
+        maps.setLayoutY(197);
 
         Label eve = new Label("События");
         eve.setId("labels");
         eve.setLayoutX(53);
-        eve.setLayoutY(432);
+        eve.setLayoutY(315);
 
         Label shedl = new Label("Расписание");
         shedl.setId("labels");
         shedl.setLayoutX(40);
-        shedl.setLayoutY(549);
+        shedl.setLayoutY(432);
 
 
-        Pane pane1 = new Pane(btn1, btn2, btn3, btn4, btn5, authorize, registration, maps, eve, shedl);
+        Pane pane1 = new Pane(btn1, btn3, btn4, btn5, btn6, authorize, maps, eve, shedl, ex);
 
 
         GridPane grid = new GridPane();
