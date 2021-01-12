@@ -1,71 +1,84 @@
 
-#welcome-text {
-    -fx-font-size: 45px;
-    -fx-font-family: "Georgia";
-    -fx-fill: black;
-}
-
-#welcome-text1 {
-    -fx-font-size: 35px;
-    -fx-font-family: "Georgia";
-    -fx-fill: black;
-}
-
-#welcome-text2 {
-    -fx-font-size: 15px;
-    -fx-font-family: "Georgia";
-    -fx-fill: black;
-}
+#buttons {
+ -fx-pref-width: 182px;
+ -fx-pref-height: 70px;
+ -fx-background-color:"transparent";
+ -fx-border-color: transparent;
+ -fx-border-width: 0 2px 0 0 ;
 
 
-#Label {
-    -fx-font-size: 20px;
-    -fx-font-family: "Georgia";
-    -fx-text-fill: black;
-}
+ }
+
+ #buttons:hover {
+     -fx-background-color: transparent;
+      -fx-border-color: "black"  ;
+ }
+
+
+ #labels {
+      -fx-font-size: 17px;
+      -fx-font-family: "Microsoft JhengHei Light";
+      -fx-text-fill: black;
+
+ }
+
 
 #btn {
- -fx-pref-width: 60px;
- -fx-pref-height: 50px;
+ -fx-pref-width: 150px;
+ -fx-pref-height: 40px;
  -fx-border-radius: 7;
  -fx-background-radius: 7;
- -fx-background-color:"#b6d1fb";
-    -fx-font-size: 17;
-    -fx-text-fill: "white";
+ -fx-background-color:"white";
+      -fx-font-family: "Microsoft JhengHei Light";
+    -fx-font-size: 18;
+    -fx-text-fill: "black";
+
 
  }
 
 
 #btn:hover {
-    -fx-background-color: white;
-     -fx-border-color: "#b6d1fb" ;
-         -fx-text-fill:"#b6d1fb";
+    -fx-background-color: transparent;
+     -fx-border-color: "black" ;
+         -fx-text-fill:"black";
 
 }
 
 
 #event{
-    -fx-border-color:transparent;
+   /* -fx-border-color: ;*/
+
     -fx-pref-width: 90px;
-    -fx-background-color: "black";
+    -fx-background-color: "white";
     -fx-border-width:0;
 }
 
 #event .arrow{
-    -fx-background-color:"white";
+    -fx-background-color:"black";
 }
 
-#floors{
- -fx-font-size: 14px;
- -fx-font-family: "Arial";
- -fx-text-fill: "black";
+Text {
+    -fx-font-size: 15px;
+    -fx-font-family: "Microsoft JhengHei Light";
+    -fx-text-fill: black;
 }
 
-#floors: selected .radio .dot {
+#text {
+    -fx-font-size: 15px;
+    -fx-font-family: "Microsoft JhengHei Light";
+    -fx-text-fill: black;
+}
 
+#edit {
+        -fx-border-color:"transparent";
+        -fx-background-color: transparent;
+        -fx-font-size: 12px;
+        -fx-font-family: "Microsoft JhengHei Light";
+        -fx-text-fill: black;
+}
 
-     -fx-font-family: "Arial";
-     -fx-text-fill: "#111112";
-     -fx-background-color:"#111112" ;
-     -fx-background-insets:0;
+#for_group {
+        -fx-font-size: 25px;
+        -fx-font-family: "Microsoft JhengHei Light";
+        -fx-text-fill: black;
 }
