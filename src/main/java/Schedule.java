@@ -330,24 +330,11 @@ public class Schedule {
                 pane2.getChildren().addAll(grid2);
             }
 
-        Button btn = new Button("+");
-        btn.setId("btn");
-        btn.setLayoutY(550);    // установка положения надписи по оси Y
-        btn.setLayoutX(550);   // установка положения надписи по оси X
-        btn.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                createSchedule();
-                stage.close();
-            }
-        });
-
-
         EventComboBox1.setLayoutX(40);
         EventComboBox1.setLayoutY(245);
         EventComboBox1.setId("event");
 
-        Pane group = new Pane(pane1, pane, pane2, btn, EventComboBox1);
+        Pane group = new Pane(pane1, pane, pane2);
         group.setBackground(new Background(bgI));
         Scene scene = new Scene(group, 1000,650);
         stage.setScene(scene);
