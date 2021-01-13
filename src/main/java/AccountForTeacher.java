@@ -40,7 +40,7 @@ public class AccountForTeacher {
 
     public static void WindowTeacher(){
 
-        Image av = new Image("Av.png");
+        Image av = new Image("LichKab.png");
         Button btn1 = new Button("", new ImageView(av));
         btn1.setId("buttons");
         btn1.setLayoutX(0);
@@ -48,20 +48,7 @@ public class AccountForTeacher {
         btn1.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                Authorization.input();
-                primaryStage.hide();
-            }
-        });
-
-        Image reg = new Image("Reg.png");
-        Button btn2 = new Button("", new ImageView(reg));
-        btn2.setId("buttons");
-        btn2.setLayoutX(0);
-        btn2.setLayoutY(137);
-        btn2.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                Registration.SReg();
+                AccountForTeacher.WindowTeacher();
                 primaryStage.hide();
             }
         });
@@ -71,7 +58,7 @@ public class AccountForTeacher {
         Button btn3 = new Button("", new ImageView(map));
         btn3.setId("buttons");
         btn3.setLayoutX(0);
-        btn3.setLayoutY(254);
+        btn3.setLayoutY(137);
         btn3.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -85,7 +72,7 @@ public class AccountForTeacher {
         Button btn4 = new Button("", new ImageView(ev));
         btn4.setId("buttons");
         btn4.setLayoutX(0);
-        btn4.setLayoutY(371);
+        btn4.setLayoutY(254);
         btn4.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -100,7 +87,7 @@ public class AccountForTeacher {
         Button btn5 = new Button("", new ImageView(shed));
         btn5.setId("buttons");
         btn5.setLayoutX(0);
-        btn5.setLayoutY(488);
+        btn5.setLayoutY(371);
         btn5.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -109,31 +96,45 @@ public class AccountForTeacher {
             }
         });
 
+        Image exit = new Image("Exit.png");
+        Button btn6 = new Button("", new ImageView(exit));
+        btn6.setId("buttons");
+        btn6.setLayoutX(0);
+        btn6.setLayoutY(538);
+        btn6.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                Authorization.input();
+                primaryStage.hide();
+            }
+        });
 
-        Label authorize = new Label("Авторизация");
+        Label ex = new Label("Выход");
+        ex.setId("labels");
+        ex.setLayoutX(65);
+        ex.setLayoutY(599);
+
+
+        Label authorize = new Label("Личный кабинет");
         authorize.setId("labels");
-        authorize.setLayoutX(35);
+        authorize.setLayoutX(25);
         authorize.setLayoutY(83);
-
-        Label registration = new Label("Регистрация");
-        registration.setId("labels");
-        registration.setLayoutX(40);
-        registration.setLayoutY(197);
 
         Label maps = new Label("Карта корпусов");
         maps.setId("labels");
         maps.setLayoutX(30);
-        maps.setLayoutY(315);
+        maps.setLayoutY(197);
 
         Label eve = new Label("События");
         eve.setId("labels");
         eve.setLayoutX(53);
-        eve.setLayoutY(432);
+        eve.setLayoutY(315);
 
         Label shedl = new Label("Расписание");
         shedl.setId("labels");
         shedl.setLayoutX(40);
-        shedl.setLayoutY(549);
+        shedl.setLayoutY(432);
+
 
 
 
@@ -216,7 +217,7 @@ public class AccountForTeacher {
 
 
 
-        Pane pane = new Pane(btn1, btn2, btn3, btn4, btn5, authorize, registration, maps, eve, shedl,
+        Pane pane = new Pane(btn1, btn3, btn4, btn5, btn6, authorize, maps, eve, shedl, ex,
                 surname, surname1, name, name1, father, father1, email, box, pass, pass1 );
         Scene scene = new Scene(pane, 1000, 650); //добавляем Grid в Scene
 
