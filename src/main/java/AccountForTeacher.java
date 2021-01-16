@@ -212,12 +212,35 @@ public class AccountForTeacher {
         pass1.setLayoutX(580);
         pass1.setLayoutY(475);
 
+        Image blue_green = new Image("BlueGreen.png");
+        Button btn8 = new Button("", new ImageView(blue_green));
+        btn8.setId("colors");
+        btn8.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+            }
+        });
+
+        Image grey_white = new Image("GreyWhite.png");
+        Button btn9 = new Button("", new ImageView(grey_white));
+        btn9.setId("colors");
+        btn9.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+            }
+        });
+
+        HBox themes = new HBox(0);
+        themes.getChildren().addAll(btn8, btn9);
+        themes.setLayoutX(432);
+        themes.setLayoutY(425);
 
 
 
 
 
-        Pane pane = new Pane(btn1, btn3, btn4, btn5, btn6, authorize, maps, eve, shedl, ex,
+
+        Pane pane = new Pane(btn1, btn3, btn4, btn5, btn6, themes, authorize, maps, eve, shedl, ex,
                 surname, surname1, name, name1, father, father1, email, box, pass, pass1 );
         Scene scene = new Scene(pane, 1000, 650); //добавляем Grid в Scene
 
