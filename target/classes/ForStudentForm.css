@@ -70,3 +70,10 @@
         -fx-text-fill: black;
 
  }
+
+   #colors{
+        -fx-pref-width: 20px;
+        -fx-pref-height: 20px;
+        -fx-background-color:"transparent";
+        -fx-border-color: transparent;
+   }

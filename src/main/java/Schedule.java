@@ -223,6 +223,19 @@ public class Schedule {
         grid.add(lbl41, 4, 0);
         grid.add(lbl51, 5, 0);
 
+        grid.setHalignment(lbl1, HPos.CENTER);
+        grid.setHalignment(lbl2, HPos.CENTER);
+        grid.setHalignment(lbl3, HPos.CENTER);
+        grid.setHalignment(lbl4, HPos.CENTER);
+        grid.setHalignment(lbl5, HPos.CENTER);
+        grid.setHalignment(lbl6, HPos.CENTER);
+
+        grid.setHalignment(lbl11, HPos.CENTER);
+        grid.setHalignment(lbl21, HPos.CENTER);
+        grid.setHalignment(lbl31, HPos.CENTER);
+        grid.setHalignment(lbl41, HPos.CENTER);
+        grid.setHalignment(lbl51, HPos.CENTER);
+
 
 
         GridPane grid2 = new GridPane();
@@ -246,7 +259,13 @@ public class Schedule {
         String dat = String.valueOf(date);
         String[] words = dat.split(" ");
         Label fDay = new Label();
+        fDay.setId("text");
         Label sDay = new Label();
+        sDay.setId("text");
+
+        grid2.setHalignment(fDay, HPos.CENTER);
+        grid2.setHalignment(sDay, HPos.CENTER);
+
 
         switch (words[0]){
             case "Mon":{fDay.setText("Понедельник"); sDay.setText("Вторник");break;}
