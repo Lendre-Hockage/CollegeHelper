@@ -29,7 +29,7 @@ public class addSchendule {
 
                 }
             } //вписываем новое
-            Menu.Alert14(); //уведомляем что всё круто
+
         } catch (SQLException throwables) {
             Menu.DatabaseFail(); //если не получилось подключиться, держим в курсе
             throwables.printStackTrace();
