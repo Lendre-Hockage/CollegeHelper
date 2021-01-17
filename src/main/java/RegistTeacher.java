@@ -157,7 +157,7 @@ public class RegistTeacher {
             @Override
             public void handle(ActionEvent event) {
 
-                RegistrCode.RegistrME();
+                RegistrCode.RegistrTeacher();
                 primaryStage.hide();
             }
         });

@@ -232,7 +232,7 @@ public class Menu {
 
         // Header Text: null
         alert.setHeaderText(null);
-        alert.setContentText("в массив переписано");
+        alert.setContentText("какая-то хуйня");
 
         alert.showAndWait();
     }

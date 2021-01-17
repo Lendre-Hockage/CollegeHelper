@@ -89,8 +89,8 @@ public class Schedule {
         btn1.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-//                Authorization.input();
-//                primaryStage.hide();
+               AccountForStudent.WindowStudent();
+               stage.hide();
             }
         });
 
