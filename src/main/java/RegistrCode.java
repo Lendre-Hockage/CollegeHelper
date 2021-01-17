@@ -67,6 +67,7 @@ public class RegistrCode {
                                                 //записываем имя, фамилию, отчество, почту, группу в student_info
                                                 statement.executeUpdate("insert into student_info VALUES ('" + Registration.name1.getText() + "','" + Registration.surname1.getText() + "', '" + Registration.father1.getText() + "', '" + Registration.cmbox.getValue() + "', '" + Registration.email1.getText() + Registration.EventComboBox.getValue() + "'," + newid + ")");
                                                 Menu.Alert5();
+                                                Authorization.input();
                                             }
                                         }
                                     }

@@ -1,0 +1,79 @@
+.root {
+      -fx-background-image: url("SuperadminAccountGREY.png");
+
+ }
+
+  }
+
+ #buttons {
+  -fx-pref-width: 182px;
+  -fx-pref-height: 70px;
+  -fx-background-color:"transparent";
+  -fx-border-color: transparent;
+  -fx-border-width: 0 2px 0 0 ;
+
+
+  }
+
+
+  #labels {
+       -fx-font-size: 17px;
+       -fx-font-family: "Microsoft JhengHei Light";
+       -fx-text-fill: black;
+
+  }
+
+
+ #buttons:hover {
+     -fx-background-color: transparent;
+      -fx-border-color: "black"  ;
+ }
+
+ #field {
+        -fx-pref-width: 280px;
+     -fx-border-color: "transparent" "transparent" "black" "transparent";
+     -fx-background-color: transparent;
+     -fx-font-size: 18px;
+     -fx-font-family: "Microsoft JhengHei Light";
+     -fx-text-fill: black;
+ }
+
+ #field_for_email {
+        -fx-pref-width: 145px;
+     -fx-border-color: "transparent" "transparent" "black" "transparent";
+     -fx-background-color: transparent;
+     -fx-font-size: 18px;
+     -fx-font-family: "Microsoft JhengHei Light";
+     -fx-text-fill: black;
+ }
+
+ #event{
+     -fx-border-color:transparent;
+     -fx-pref-width: 130px;
+     -fx-background-color: "white";
+     -fx-border-width:3;
+ }
+
+ #event .arrow{
+     -fx-background-color:"black";
+ }
+
+ #Label {
+     -fx-font-size: 15px;
+     -fx-font-family: "Microsoft JhengHei Light";
+     -fx-text-fill: "#56514e";
+ }
+
+ #for_fio {
+        -fx-font-size: 15px;
+        -fx-font-family: "Microsoft JhengHei Light";
+        -fx-text-fill: black;
+
+ }
+
+ #colors{
+      -fx-pref-width: 20px;
+      -fx-pref-height: 20px;
+      -fx-background-color:"transparent";
+      -fx-border-color: transparent;
+ }

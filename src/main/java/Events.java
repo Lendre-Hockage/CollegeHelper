@@ -51,8 +51,6 @@ public static TextArea textArea = new TextArea();
         ext.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                AccountForSuperAdmin.WindowAdmin();
-                stage.close();
             }
         });
 

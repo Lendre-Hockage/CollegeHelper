@@ -64,9 +64,16 @@ public class Schedule {
 
     public static void Window () { //Окно расписания
         Stage stage = new Stage();
-        BackgroundImage bgI = new BackgroundImage(new Image("BackForShed.png",1000,650,false,true),
+        BackgroundImage bgI;
+        if (AccountForStudent.scene.getStylesheets().contains("ForStudentForm.css")){
+        bgI = new BackgroundImage(new Image("BackForShed.png",1000,650,false,true),
                 BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
-                BackgroundSize.DEFAULT);
+                BackgroundSize.DEFAULT);}
+        else {
+           bgI = new BackgroundImage(new Image("SheduleBackGREY.png",1000,650,false,true),
+                    BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
+                    BackgroundSize.DEFAULT);}
+
         FlowPane pane = new FlowPane(Orientation.HORIZONTAL, 25, 20);
         FlowPane pane2 = new FlowPane(Orientation.HORIZONTAL, 25, 20);
         pane.setLayoutX(250);
@@ -223,6 +230,19 @@ public class Schedule {
         grid.add(lbl41, 4, 0);
         grid.add(lbl51, 5, 0);
 
+        grid.setHalignment(lbl1, HPos.CENTER);
+        grid.setHalignment(lbl2, HPos.CENTER);
+        grid.setHalignment(lbl3, HPos.CENTER);
+        grid.setHalignment(lbl4, HPos.CENTER);
+        grid.setHalignment(lbl5, HPos.CENTER);
+        grid.setHalignment(lbl6, HPos.CENTER);
+
+        grid.setHalignment(lbl11, HPos.CENTER);
+        grid.setHalignment(lbl21, HPos.CENTER);
+        grid.setHalignment(lbl31, HPos.CENTER);
+        grid.setHalignment(lbl41, HPos.CENTER);
+        grid.setHalignment(lbl51, HPos.CENTER);
+
 
 
         GridPane grid2 = new GridPane();
@@ -246,7 +266,13 @@ public class Schedule {
         String dat = String.valueOf(date);
         String[] words = dat.split(" ");
         Label fDay = new Label();
+        fDay.setId("text");
         Label sDay = new Label();
+        sDay.setId("text");
+
+        grid2.setHalignment(fDay, HPos.CENTER);
+        grid2.setHalignment(sDay, HPos.CENTER);
+
 
         switch (words[0]){
             case "Mon":{fDay.setText("Понедельник"); sDay.setText("Вторник");break;}
@@ -330,24 +356,11 @@ public class Schedule {
                 pane2.getChildren().addAll(grid2);
             }
 
-        Button btn = new Button("+");
-        btn.setId("btn");
-        btn.setLayoutY(550);    // установка положения надписи по оси Y
-        btn.setLayoutX(550);   // установка положения надписи по оси X
-        btn.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                createSchedule();
-                stage.close();
-            }
-        });
-
-
         EventComboBox1.setLayoutX(40);
         EventComboBox1.setLayoutY(245);
         EventComboBox1.setId("event");
 
-        Pane group = new Pane(pane1, pane, pane2, btn, EventComboBox1);
+        Pane group = new Pane(pane1, pane, pane2);
         group.setBackground(new Background(bgI));
         Scene scene = new Scene(group, 1000,650);
         stage.setScene(scene);

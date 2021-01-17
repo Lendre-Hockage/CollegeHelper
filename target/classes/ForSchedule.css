@@ -1,4 +1,3 @@
-
 #buttons {
  -fx-pref-width: 182px;
  -fx-pref-height: 70px;
@@ -46,8 +45,6 @@
 
 
 #event{
-   /* -fx-border-color: ;*/
-
     -fx-pref-width: 90px;
     -fx-background-color: "white";
     -fx-border-width:0;
