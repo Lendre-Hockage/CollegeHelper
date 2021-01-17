@@ -11,6 +11,8 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class AccountForStudent {
+    public static int sw = 1;
+    public static Scene scene;
     public static ObservableList<String> listEvent = FXCollections.observableArrayList("@gmail.com",
             "@yandex.ru",
             "@ya.ru",
@@ -38,8 +40,6 @@ public class AccountForStudent {
 
     private static Stage primaryStage = new Stage();
     public static void WindowStudent(){
-
-
         Image av = new Image("LichKab.png");
         Button btn1 = new Button("", new ImageView(av));
         btn1.setId("buttons");
@@ -230,20 +230,12 @@ public class AccountForStudent {
         Image blue_green = new Image("BlueGreen.png");
         Button btn8 = new Button("", new ImageView(blue_green));
         btn8.setId("colors");
-        btn8.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-            }
-        });
+
 
         Image grey_white = new Image("GreyWhite.png");
         Button btn9 = new Button("", new ImageView(grey_white));
         btn9.setId("colors");
-        btn9.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-            }
-        });
+
 
         HBox themes = new HBox(0);
         themes.getChildren().addAll(btn8, btn9);
@@ -256,13 +248,27 @@ public class AccountForStudent {
 
         Pane pane = new Pane(btn1, btn3, btn4, btn5, btn6, themes, authorize, maps, eve, shedl, ex,
                 surname, surname1, name, name1, father, father1, email, box, group, cmbox, pass, pass1 );
-        Scene scene = new Scene(pane, 1000, 650); //добавляем Grid в Scene
+        scene = new Scene(pane, 1000, 650); //добавляем Grid в Scene
 
         primaryStage.setScene(scene); //добавляем scene в stage
         primaryStage.setTitle("Личный кабинет студента");
-        scene.getStylesheets().add(0, "ForStudentForm.css"); //подключение CSS
+        scene.getStylesheets().add("ForStudentForm.css");//подключение CSS
         primaryStage.show();
 
+        btn8.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                scene.getStylesheets().remove("ForStudentFormGREY.css");
+                scene.getStylesheets().add("ForStudentForm.css");
+            }
+        });
+        btn9.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                scene.getStylesheets().remove("ForStudentForm.css");
+                scene.getStylesheets().add("ForStudentFormGREY.css");
+            }
+        });
 
     }
 }

@@ -64,9 +64,16 @@ public class Schedule {
 
     public static void Window () { //Окно расписания
         Stage stage = new Stage();
-        BackgroundImage bgI = new BackgroundImage(new Image("BackForShed.png",1000,650,false,true),
+        BackgroundImage bgI;
+        if (AccountForStudent.scene.getStylesheets().contains("ForStudentForm.css")){
+        bgI = new BackgroundImage(new Image("BackForShed.png",1000,650,false,true),
                 BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
-                BackgroundSize.DEFAULT);
+                BackgroundSize.DEFAULT);}
+        else {
+           bgI = new BackgroundImage(new Image("SheduleBackGREY.png",1000,650,false,true),
+                    BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
+                    BackgroundSize.DEFAULT);}
+
         FlowPane pane = new FlowPane(Orientation.HORIZONTAL, 25, 20);
         FlowPane pane2 = new FlowPane(Orientation.HORIZONTAL, 25, 20);
         pane.setLayoutX(250);
