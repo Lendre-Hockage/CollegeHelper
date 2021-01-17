@@ -230,7 +230,7 @@ public class Schedule {
         grid.add(lbl41, 4, 0);
         grid.add(lbl51, 5, 0);
 
-        grid.setHalignment(lbl1, HPos.CENTER);
+        grid.setHalignment(lbl1, HPos.RIGHT);
         grid.setHalignment(lbl2, HPos.CENTER);
         grid.setHalignment(lbl3, HPos.CENTER);
         grid.setHalignment(lbl4, HPos.CENTER);
@@ -905,6 +905,8 @@ public class Schedule {
             case "Wed":{fDay.setText("Среда"); sDay.setText("Четверг");break;}
             case "Thu":{fDay.setText("Четверг"); sDay.setText("Пятница");break;}
             case "Fri":{fDay.setText("Пятница"); sDay.setText("Понедельник");break;}
+            case "Sat":{fDay.setText("Выходной"); sDay.setText("Понедельник");break;}
+            case "Sun":{fDay.setText("Выходной"); sDay.setText("Понедельник");break;}
             default:{ Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Эм... Походу считано неправильное время");
                 alert.setContentText("Событие было отправлено следующим группам: ");
@@ -967,8 +969,9 @@ public class Schedule {
         btn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                addSchendule.addLessons();
-                addChanges.addChanges();
+                addSchendule.addLessons(); //добавляем основное расписание
+                addChanges.addChanges(); //добавляем изменения
+                Menu.Alert14(); //уведомляем что всё круто
             }
         });
 
