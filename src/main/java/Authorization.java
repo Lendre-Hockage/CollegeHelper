@@ -22,7 +22,6 @@ public class Authorization {
     public static Stage stage = new Stage();
     public static void input () {
 
-        Stage stage = new Stage();
         GridPane grid = new GridPane();   //создание сетки для разметки формы
         //grid.setGridLinesVisible(true);
         grid.setAlignment(Pos.CENTER);
