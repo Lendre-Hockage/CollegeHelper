@@ -53,6 +53,14 @@ public static TextArea textArea = new TextArea();
         ext.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                switch (AccountForStudent.usertype) {
+                    case 1: AccountForStudent.WindowStudent(); break;
+                    case 2: AccountForTeacher.WindowTeacher(); break;
+                    case 3: AccountForSuperAdmin.WindowAdmin(); break;
+                    default: Menu.Alert18();
+                }
+
+                stage.hide();
             }
         });
 

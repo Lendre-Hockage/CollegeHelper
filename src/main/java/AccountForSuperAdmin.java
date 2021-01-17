@@ -40,7 +40,7 @@ public static Scene scene;
 
     public static void WindowAdmin(){
 
-
+        AccountForStudent.usertype=3;
         Image av = new Image("LichKab.png");
         Button btn1 = new Button("", new ImageView(av));
         btn1.setId("buttons");
