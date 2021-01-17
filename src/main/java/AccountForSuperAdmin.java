@@ -11,7 +11,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class AccountForSuperAdmin {
-
+public static Scene scene;
     public static ObservableList<String> listEvent = FXCollections.observableArrayList("@gmail.com",
             "@yandex.ru",
             "@ya.ru",
@@ -218,20 +218,12 @@ public class AccountForSuperAdmin {
         Image blue_green = new Image("BlueGreen.png");
         Button btn8 = new Button("", new ImageView(blue_green));
         btn8.setId("colors");
-        btn8.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-            }
-        });
+
 
         Image grey_white = new Image("GreyWhite.png");
         Button btn9 = new Button("", new ImageView(grey_white));
         btn9.setId("colors");
-        btn9.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-            }
-        });
+
 
         HBox themes = new HBox(0);
         themes.getChildren().addAll(btn8, btn9);
@@ -242,13 +234,27 @@ public class AccountForSuperAdmin {
 
         Pane pane = new Pane(btn1, btn4, btn5, btn6, btn7, themes, authorize, eve, shedl, ex, reg_teach,
                 surname, surname1, name, name1, father, father1, email, box, pass, pass1);
-        Scene scene = new Scene(pane, 1000, 650); //добавляем Grid в Scene
+        scene = new Scene(pane, 1000, 650); //добавляем Grid в Scene
 
         primaryStage.setScene(scene); //добавляем scene в stage
         primaryStage.setTitle("Личный кабинет Великого Владыки и Надзирателя");
         scene.getStylesheets().add(0, "ForAdminForm.css"); //подключение CSS
         primaryStage.show();
 
+        btn8.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                scene.getStylesheets().remove("ForAdminFormGREY.css");
+                scene.getStylesheets().add("ForAdminForm.css");
+            }
+        });
 
+        btn9.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                scene.getStylesheets().remove("ForAdminForm.css");
+                scene.getStylesheets().add("ForAdminFormGREY.css");
+            }
+        });
     }
 }
