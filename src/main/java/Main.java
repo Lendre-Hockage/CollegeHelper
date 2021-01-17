@@ -19,7 +19,8 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) {
 
-        Transition.trans();
+        /*Transition.trans();*/
+        Maps.Map();
 
     }
 }
