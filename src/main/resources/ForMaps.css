@@ -1,43 +1,78 @@
 .root {
-     -fx-background-image: url("BackForMap.jpeg");
+     -fx-background-image: url("BackForMap.png");
 
 }
 
-#welcome-text{
-    -fx-font-size: 45px;
-    -fx-font-family: "Georgia";
-    -fx-fill: black;
-}
-
-#floors: selected .radio .dot {
-
-     -fx-font-size: 10px;
-     -fx-font-family: "Arial";
-     -fx-text-fill: "#111112";
-     -fx-background-color:"#111112" ;
-     -fx-background-insets:0;
-}
 
 #floors{
- -fx-font-size: 15px;
- -fx-font-family: "Arial";
- -fx-text-fill: "black";
+  -fx-pref-width: 180px;
+  -fx-pref-height: 20px;
+  -fx-border-radius: 6;
+  -fx-background-radius: 6;
+  -fx-background-color:"white";
+  -fx-border-color: transparent;
+      -fx-font-family: "Microsoft JhengHei Light";
+     -fx-font-size: 15;
+     -fx-text-fill: "black";
 }
 
-#buttons {
- -fx-pref-width: 70px;
- -fx-pref-height: 50px;
- -fx-border-radius: 10;
- -fx-background-radius: 10;
- -fx-background-color:"#b6d1fb";
-    -fx-font-size: 20;
-    -fx-text-fill: "white";
+#floors:hover {
+        -fx-background-color: transparent;
+         -fx-border-color: "black" ;
+             -fx-text-fill:"black";
+}
 
- }
+/*#floors:pressed{
+        -fx-background-color: transparent;
+         -fx-border-color: "black" ;
+             -fx-text-fill:"black";
+}*/
 
- #buttons:hover {
-     -fx-background-color: white;
-      -fx-border-color: "#b6d1fb" ;
-          -fx-text-fill:"#b6d1fb";
+#floor {
+    -fx-pref-width: 100px;
+    -fx-pref-height: 20px;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-background-color:"white";
+    -fx-border-color: transparent;
+        -fx-font-family: "Microsoft JhengHei Light";
+       -fx-font-size: 15;
+       -fx-text-fill: "black";
+}
 
- }
+#floor:hover {
+        -fx-background-color: transparent;
+         -fx-border-color: "black" ;
+             -fx-text-fill:"black";
+}
+
+/*#floor:pressed{
+        -fx-background-color: transparent;
+         -fx-border-color: "black" ;
+             -fx-text-fill:"black";
+}*/
+
+  #buttons {
+   -fx-pref-width: 182px;
+   -fx-pref-height: 70px;
+   -fx-background-color:"transparent";
+   -fx-border-color: transparent;
+   -fx-border-width: 0 2px 0 0 ;
+
+
+   }
+
+
+   #labels {
+        -fx-font-size: 17px;
+        -fx-font-family: "Microsoft JhengHei Light";
+        -fx-text-fill: black;
+
+   }
+
+
+  #buttons:hover {
+      -fx-background-color: transparent;
+       -fx-border-color: "black"  ;
+  }
+
