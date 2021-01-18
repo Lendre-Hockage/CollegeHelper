@@ -14,6 +14,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
 
 public class Maps {
@@ -549,7 +552,22 @@ public class Maps {
 
         primaryStage.setScene(scene); //добавляем scene в stage
         primaryStage.setTitle("Схемы этажей");
-        scene.getStylesheets().add(0, "ForMaps.css"); //подключение CSS
+        try(BufferedReader reader = new BufferedReader(new FileReader("src\\main\\resources\\theme.txt")))
+        {
+            String th = reader.readLine();
+
+            if (th.equals("1")){
+                scene.getStylesheets().add("ForMaps.css");
+            }
+            else {
+                scene.getStylesheets().add("ForMapsGREY.css");
+            }
+        }
+        catch (IOException e)
+        {
+            System.out.println(e.getMessage());
+        }
+        //scene.getStylesheets().add(0, "ForMaps.css"); //подключение CSS
         primaryStage.show();
 
     }

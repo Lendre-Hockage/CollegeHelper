@@ -10,6 +10,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+import java.io.*;
+
 public class AccountForStudent {
     public static int usertype = 1;
     public static Scene scene;
@@ -252,21 +254,50 @@ public class AccountForStudent {
 
         primaryStage.setScene(scene); //добавляем scene в stage
         primaryStage.setTitle("Личный кабинет студента");
-        scene.getStylesheets().add("ForStudentForm.css");//подключение CSS
+        try(BufferedReader reader = new BufferedReader(new FileReader("src\\main\\resources\\theme.txt")))
+        {
+            String th = reader.readLine();
+
+            if (th.equals("1")){
+                scene.getStylesheets().add("ForStudentForm.css");
+            }
+            else {
+                scene.getStylesheets().add("ForStudentFormGREY.css");
+            }
+        }
+        catch (IOException e)
+        {
+        System.out.println(e.getMessage());
+        }
+        //scene.getStylesheets().add("ForStudentForm.css");//подключение CSS
         primaryStage.show();
 
         btn8.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                scene.getStylesheets().remove("ForStudentFormGREY.css");
-                scene.getStylesheets().add("ForStudentForm.css");
+                try(FileWriter writer = new FileWriter("src\\main\\resources\\theme.txt", false))
+                {
+                    String th = "1";
+                    writer.write(th);
+                    scene.getStylesheets().remove("ForStudentFormGREY.css");
+                    scene.getStylesheets().add("ForStudentForm.css");
+                } catch (IOException e){
+                    System.out.println(e.getMessage());
+                }
             }
         });
         btn9.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                scene.getStylesheets().remove("ForStudentForm.css");
-                scene.getStylesheets().add("ForStudentFormGREY.css");
+                try(FileWriter writer = new FileWriter("src\\main\\resources\\theme.txt", false))
+                {
+                    String th = "2";
+                    writer.write(th);
+                    scene.getStylesheets().remove("ForStudentForm.css");
+                    scene.getStylesheets().add("ForStudentFormGREY.css");
+                } catch (IOException e){
+                    System.out.println(e.getMessage());
+                }
             }
         });
 

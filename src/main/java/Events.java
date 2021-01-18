@@ -40,12 +40,13 @@ public class Events {
 public static TextArea textArea = new TextArea();
     public static void Window() {
         Pane pane2 = new Pane();
-        FlowPane pane = new FlowPane(Orientation.VERTICAL, 10, 10);
+        HBox pane = new HBox(10);
 
-        scrollPane.setPrefViewportHeight(150);
-        scrollPane.setPrefViewportWidth(900);
-        scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
-        scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+        scrollPane.setPrefViewportHeight(113);
+        scrollPane.setPrefViewportWidth(500);
+//        scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+//        scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+
 
         Image av = new Image("LichKab.png");
         Button btn1 = new Button("", new ImageView(av));
@@ -201,7 +202,9 @@ public static TextArea textArea = new TextArea();
 
         scrollPane.setContent(gridPane);
 
-        pane.getChildren().addAll(EventComboBox, scrollPane, add);
+        pane.getChildren().addAll(EventComboBox, scrollPane);
+        pane.setLayoutX(150);
+        pane.setLayoutY(250);
         pane2.getChildren().addAll(pane, pane1);
 
         Scene scene = new Scene(pane2);

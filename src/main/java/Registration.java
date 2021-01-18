@@ -18,6 +18,10 @@ import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
 public class Registration {
  public static ObservableList<String> listEvent = FXCollections.observableArrayList("@gmail.com",
           "@yandex.ru",
@@ -257,8 +261,23 @@ public class Registration {
             Scene scene = new Scene(without_other_enter, 1000, 650); //добавляем Grid в Scene
 
             primaryStage.setScene(scene); //добавляем scene в stage
-            primaryStage.setTitle("Регистрация"); //название форме (как наказывала Ишкушка)
-            scene.getStylesheets().add(0, "ForRegistration.css"); //подключение CSS
+            primaryStage.setTitle("Регистрация");//название форме (как наказывала Ишкушка)
+          try(BufferedReader reader = new BufferedReader(new FileReader("src\\main\\resources\\theme.txt")))
+          {
+            String th = reader.readLine();
+
+            if (th.equals("1")){
+              scene.getStylesheets().add("ForRegistration.css");
+            }
+            else {
+              scene.getStylesheets().add("ForRegistrationGREY.css");
+            }
+          }
+          catch (IOException e)
+          {
+            System.out.println(e.getMessage());
+          }
+            //scene.getStylesheets().add(0, "ForRegistration.css"); //подключение CSS
             primaryStage.show();
         }
     }
