@@ -238,7 +238,7 @@ public class Registration {
             public void handle(ActionEvent event) {
 
               RegistrCode.RegistrME();
-              primaryStage.hide();
+
             }
           });
 
@@ -262,7 +262,7 @@ public class Registration {
 
             primaryStage.setScene(scene); //добавляем scene в stage
             primaryStage.setTitle("Регистрация");//название форме (как наказывала Ишкушка)
-          try(BufferedReader reader = new BufferedReader(new FileReader("src\\main\\resources\\theme.txt")))
+          try(BufferedReader reader = new BufferedReader(new FileReader("C:\\ThemeFolder\\theme.txt")))
           {
             String th = reader.readLine();
 

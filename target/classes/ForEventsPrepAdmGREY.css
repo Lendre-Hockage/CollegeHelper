@@ -38,3 +38,23 @@
   #event .arrow{
       -fx-background-color:"black";
   }
+
+    #btn {
+     -fx-pref-width: 150px;
+     -fx-pref-height: 30px;
+     -fx-border-radius: 7;
+     -fx-background-radius: 7;
+     -fx-background-color:"white";
+          -fx-font-family: "Microsoft JhengHei Light";
+        -fx-font-size: 15;
+        -fx-text-fill: "black";
+    }
+
+    #btn:hover {
+         -fx-background-color: transparent;
+          -fx-border-color: "black" ;
+              -fx-text-fill:"black";
+
+
+
+    }
