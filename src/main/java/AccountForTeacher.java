@@ -83,7 +83,7 @@ public class AccountForTeacher {
             @Override
             public void handle(ActionEvent actionEvent) {
                 AddEvent.delEv();
-                Events.Window();
+                Events.EventsForPrepAndSuperadm();
                 primaryStage.hide();
             }
         });

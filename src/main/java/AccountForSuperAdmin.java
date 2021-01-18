@@ -70,7 +70,7 @@ public static Scene scene;
             @Override
             public void handle(ActionEvent actionEvent) {
                 AddEvent.delEv();
-                Events.Window();
+                Events.EventsForPrepAndSuperadm();
                 primaryStage.hide();
             }
         });
@@ -220,10 +220,10 @@ public static Scene scene;
         pass1.setLayoutX(580);
         pass1.setLayoutY(475);
 
+
         Image blue_green = new Image("BlueGreen.png");
         Button btn8 = new Button("", new ImageView(blue_green));
         btn8.setId("colors");
-
 
         Image grey_white = new Image("GreyWhite.png");
         Button btn9 = new Button("", new ImageView(grey_white));

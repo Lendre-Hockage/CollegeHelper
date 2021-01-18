@@ -1,0 +1,60 @@
+.root {
+      -fx-background-image: url("BackForAdmPrepEvents.png");
+ }
+
+ #buttons {
+   -fx-pref-width: 182px;
+   -fx-pref-height: 70px;
+   -fx-background-color:"transparent";
+   -fx-border-color: transparent;
+   -fx-border-width: 0 2px 0 0 ;
+
+
+   }
+
+
+   #labels {
+        -fx-font-size: 17px;
+        -fx-font-family: "Microsoft JhengHei Light";
+        -fx-text-fill: black;
+
+   }
+
+
+  #buttons:hover {
+      -fx-background-color: transparent;
+       -fx-border-color: "black"  ;
+  }
+
+  #event{
+      -fx-border-color:transparent;
+      -fx-pref-width: 220px;
+      -fx-background-color: "white";
+      -fx-border-width:3;
+      -fx-font-family: "Microsoft JhengHei Light";
+      -fx-font-size: 13px;
+  }
+
+  #event .arrow{
+      -fx-background-color:"black";
+  }
+
+  #btn {
+   -fx-pref-width: 150px;
+   -fx-pref-height: 30px;
+   -fx-border-radius: 7;
+   -fx-background-radius: 7;
+   -fx-background-color:"white";
+        -fx-font-family: "Microsoft JhengHei Light";
+      -fx-font-size: 15;
+      -fx-text-fill: "black";
+  }
+
+  #btn:hover {
+       -fx-background-color: transparent;
+        -fx-border-color: "black" ;
+            -fx-text-fill:"black";
+
+
+
+  }
