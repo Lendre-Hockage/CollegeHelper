@@ -10,6 +10,11 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class AccountForSuperAdmin {
 public static Scene scene;
     public static ObservableList<String> listEvent = FXCollections.observableArrayList("@gmail.com",
@@ -238,22 +243,51 @@ public static Scene scene;
 
         primaryStage.setScene(scene); //добавляем scene в stage
         primaryStage.setTitle("Личный кабинет Великого Владыки и Надзирателя");
-        scene.getStylesheets().add(0, "ForAdminForm.css"); //подключение CSS
+        try(BufferedReader reader = new BufferedReader(new FileReader("src\\main\\resources\\theme.txt")))
+        {
+            String th = reader.readLine();
+
+            if (th.equals("1")){
+                scene.getStylesheets().add("ForAdminForm.css");
+            }
+            else {
+                scene.getStylesheets().add("ForAdminFormGREY.css");
+            }
+        }
+        catch (IOException e)
+        {
+            System.out.println(e.getMessage());
+        }
+        //scene.getStylesheets().add(0, "ForAdminForm.css"); //подключение CSS
         primaryStage.show();
 
         btn8.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                scene.getStylesheets().remove("ForAdminFormGREY.css");
-                scene.getStylesheets().add("ForAdminForm.css");
+                try(FileWriter writer = new FileWriter("src\\main\\resources\\theme.txt", false))
+                {
+                    String th = "1";
+                    writer.write(th);
+                    scene.getStylesheets().remove("ForAdminFormGREY.css");
+                    scene.getStylesheets().add("ForAdminForm.css");
+                } catch (IOException e){
+                    System.out.println(e.getMessage());
+                }
             }
         });
 
         btn9.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                scene.getStylesheets().remove("ForAdminForm.css");
-                scene.getStylesheets().add("ForAdminFormGREY.css");
+                try(FileWriter writer = new FileWriter("src\\main\\resources\\theme.txt", false))
+                {
+                    String th = "2";
+                    writer.write(th);
+                    scene.getStylesheets().remove("ForAdminForm.css");
+                    scene.getStylesheets().add("ForAdminFormGREY.css");
+                } catch (IOException e){
+                    System.out.println(e.getMessage());
+                }
             }
         });
     }
