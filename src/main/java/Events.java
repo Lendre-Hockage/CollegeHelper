@@ -16,6 +16,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class Events {
+    public static Text someText = new Text(" ");
     //public static TextField date = new TextField();
     public static DatePicker datePicker = new DatePicker();
     public static TextField description =  new TextField();
@@ -33,11 +34,12 @@ public class Events {
     public static Text[] evShow = new Text[500];
     public static Stage stage = new Stage();
     public static GridPane gridPane = new GridPane();
+    public static  ScrollPane scrollPane = new ScrollPane();
 public static TextArea textArea = new TextArea();
     public static void Window() {
         Pane pane2 = new Pane();
         FlowPane pane = new FlowPane(Orientation.VERTICAL, 10, 10);
-        ScrollPane scrollPane = new ScrollPane();
+
         scrollPane.setPrefViewportHeight(150);
         scrollPane.setPrefViewportWidth(900);
         scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
@@ -51,6 +53,14 @@ public static TextArea textArea = new TextArea();
         ext.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                switch (AccountForStudent.usertype) {
+                    case 1: AccountForStudent.WindowStudent(); break;
+                    case 2: AccountForTeacher.WindowTeacher(); break;
+                    case 3: AccountForSuperAdmin.WindowAdmin(); break;
+                    default: Menu.Alert18();
+                }
+
+                stage.hide();
             }
         });
 
@@ -70,18 +80,38 @@ public static TextArea textArea = new TextArea();
         Label lbl = new Label("OK");
 
 
-        EventComboBox.setOnAction(event -> {
+ //так надо. не ломать
+        for (int i=0; i<500; i++) {
+            Text text = new Text();
+            Events.evShow[i] = text;
+        }
+
+        int q=0;
+        int k=1;
+
+        for (int i=1; i<500; i++) {
+            gridPane.add(evShow[i], k, q);
+            k++;
+            if (i%24==0) { q=q+1; k=1;} }
+
+
+
+        EventComboBox.setOnAction(event -> {  gridPane.getChildren().clear(); //очищаем грид от предыдущего
             ShowEvent.show();
+
+           int w=0;
+           int a=1;
+                for (int i=1; i<500; i++) { //отображаем 500 элементов потому что это объём массива
+                    gridPane.add(evShow[i], a, w);
+                    a++;
+                    if (i%24==0) { w=w+1; a=1;} }  //каждые 6 элементов=столбец бд. всего столбцов 4, поэтому
+                                                // каждые 24 элемента надо переносить строку
+
+
         });
 
-      //  Text someText = new Text();
-       // someText.setText("some text\nsome text\nsome text\nsome text\nsome text\nsome text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2some text2\nsome text\nsome text\nsome text\nsome text\nsome text\nsome text\nsome text\n");
-
-      //  Text text2 = new Text("sdghfgjhgfgdf");
 
         gridPane.setVisible(true);
-       // gridPane.add(text2, 0, 0);                                  //Добавили gridPane в ScrollPane, чтобы листалось
-       // gridPane.add(someText, 0, 3);                               //Не отображаются пустые строки
 
         scrollPane.setContent(gridPane);
 

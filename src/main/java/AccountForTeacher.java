@@ -11,6 +11,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class AccountForTeacher {
+
     public static Scene scene;
     public static ObservableList<String> listEvent = FXCollections.observableArrayList("@gmail.com",
             "@yandex.ru",
@@ -39,7 +40,7 @@ public class AccountForTeacher {
     private static Stage primaryStage = new Stage();
 
     public static void WindowTeacher(){
-
+        AccountForStudent.usertype=2;
         Image av = new Image("LichKab.png");
         Button btn1 = new Button("", new ImageView(av));
         btn1.setId("buttons");

@@ -31,7 +31,13 @@ public class Maps {
         btn1.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                AccountForTeacher.WindowTeacher();
+                switch (AccountForStudent.usertype) {
+                    case 1: AccountForStudent.WindowStudent(); break;
+                    case 2: AccountForTeacher.WindowTeacher(); break;
+                    case 3: AccountForSuperAdmin.WindowAdmin(); break;
+                    default: Menu.Alert18();
+                }
+
                 primaryStage.hide();
             }
         });
