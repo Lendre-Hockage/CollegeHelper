@@ -50,9 +50,9 @@ public class AutorizCode {
                                         email = rs.getString(5);
                                     }
                                     check = 4;
-                                    if (type == 1){AccountForStudent.WindowStudent();}
+                                    if (type == 1){AccountForStudent.WindowStudent(); }
                                     else if (type == 2){AccountForTeacher.WindowTeacher();}
-                                    else {AccountForSuperAdmin.WindowAdmin();}
+                                    else {AccountForSuperAdmin.WindowAdmin(); }
                                 } else {
                                     matching = 2; //пароль не совпал
                                     check = 4;

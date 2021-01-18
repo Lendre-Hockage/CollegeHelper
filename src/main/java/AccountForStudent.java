@@ -11,7 +11,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class AccountForStudent {
-    public static int sw = 1;
+    public static int usertype = 1;
     public static Scene scene;
     public static ObservableList<String> listEvent = FXCollections.observableArrayList("@gmail.com",
             "@yandex.ru",
