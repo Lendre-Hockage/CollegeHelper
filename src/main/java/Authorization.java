@@ -14,6 +14,10 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
 public class Authorization {
 
     public static Text txtLog = new Text(), txtPas = new Text();
@@ -112,7 +116,21 @@ public class Authorization {
         Scene scene = new Scene(pane, 1000, 650); //добавляем Grid в Scene
         stage.setScene(scene); //добавляем scene в stage
         stage.setTitle("Авторизация"); //название форме (как наказывала Ишкушка)
-        scene.getStylesheets().add(0, "ForAvtorization.css"); //подключение CSS
+        try(BufferedReader reader = new BufferedReader(new FileReader("src\\main\\resources\\theme.txt")))
+        {
+            String th = reader.readLine();
+
+            if (th.equals("1")){
+                scene.getStylesheets().add("ForAvtorization.css");
+            }
+            else {
+                scene.getStylesheets().add("ForAvtorizationGREY.css");
+            }
+        }
+        catch (IOException e)
+        {
+            System.out.println(e.getMessage());
+        } //подключение CSS
         stage.show();                // отображение окна на экране
     }
 }
