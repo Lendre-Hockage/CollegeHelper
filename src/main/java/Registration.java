@@ -182,7 +182,7 @@ public class Registration {
             public void handle(ActionEvent event) {
 
               RegistrCode.RegistrME();
-              primaryStage.hide();
+
             }
           });
 
