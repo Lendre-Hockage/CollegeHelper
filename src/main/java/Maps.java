@@ -552,7 +552,7 @@ public class Maps {
 
         primaryStage.setScene(scene); //добавляем scene в stage
         primaryStage.setTitle("Схемы этажей");
-        try(BufferedReader reader = new BufferedReader(new FileReader("src\\main\\resources\\theme.txt")))
+        try(BufferedReader reader = new BufferedReader(new FileReader("C:\\ThemeFolder\\theme.txt")))
         {
             String th = reader.readLine();
 
