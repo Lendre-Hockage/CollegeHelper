@@ -243,7 +243,7 @@ public static Scene scene;
 
         primaryStage.setScene(scene); //добавляем scene в stage
         primaryStage.setTitle("Личный кабинет Великого Владыки и Надзирателя");
-        try(BufferedReader reader = new BufferedReader(new FileReader("src\\main\\resources\\theme.txt")))
+        try(BufferedReader reader = new BufferedReader(new FileReader("C:\\ThemeFolder\\theme.txt")))
         {
             String th = reader.readLine();
 
@@ -264,7 +264,7 @@ public static Scene scene;
         btn8.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                try(FileWriter writer = new FileWriter("src\\main\\resources\\theme.txt", false))
+                try(FileWriter writer = new FileWriter("C:\\ThemeFolder\\theme.txt", false))
                 {
                     String th = "1";
                     writer.write(th);
@@ -279,7 +279,7 @@ public static Scene scene;
         btn9.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                try(FileWriter writer = new FileWriter("src\\main\\resources\\theme.txt", false))
+                try(FileWriter writer = new FileWriter("C:\\ThemeFolder\\theme.txt", false))
                 {
                     String th = "2";
                     writer.write(th);
