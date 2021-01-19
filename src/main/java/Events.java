@@ -34,7 +34,6 @@ public class Events {
     public static Stage stage = new Stage();
     public static GridPane gridPane = new GridPane();
     public static  ScrollPane scrollPane = new ScrollPane();
-    public static TextArea textArea = new TextArea();
 
 
 
@@ -438,21 +437,22 @@ public class Events {
         Stage stage = new Stage();
         HBox for_edits = new HBox(10);
 
-        for_edits.getChildren().addAll(CourseBox ,EventComboBox ,box, datePicker, description);
+        for_edits.getChildren().addAll(CourseBox, box, EventComboBox, datePicker, description); //курс, группа, вид соытия, дата, описание
+        CourseBox.setId("course");
+        box.setId("group");
+        EventComboBox.setId("kind");
+        datePicker.setId("date");
+        description.setId("description");
         for_edits.setLayoutX(150);
         for_edits.setLayoutY(270);
 
-        HBox for_labels = new HBox(100);
+
         Label cour = new Label("Курс");
         Label name = new Label("Событие");
         Label gr = new Label("Группа");
         Label date1 = new Label("Дата");
-
         Label description1 =  new Label("Описание");
 
-        for_labels.getChildren().addAll(cour ,name ,gr ,date1 , description1);
-        for_labels.setLayoutX(170);
-        for_labels.setLayoutY(240);
 
         Button add = new Button("Добавить событие");
         add.setLayoutX(730);
@@ -475,11 +475,11 @@ public class Events {
             }
         });
 
-        Pane without_other_enter = new Pane(for_edits, for_labels, add, back);
+        Pane without_other_enter = new Pane(for_edits, add, back);
         Scene scene = new Scene(without_other_enter, 1000, 650); //добавляем Grid в Scene
         stage.setScene(scene); //добавляем scene в stage
-        stage.setTitle("Регистрация"); //название форме (как наказывала Ишкушка)
-        scene.getStylesheets().add(0, "ForRegistration.css"); //подключение CSS
+        stage.setTitle("Добавление новых событий"); //название форме (как наказывала Ишкушка)
+        scene.getStylesheets().add(0, "ForAddEvent.css"); //подключение CSS
         stage.show();
 
     }
