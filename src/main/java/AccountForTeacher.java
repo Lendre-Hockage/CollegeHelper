@@ -55,7 +55,7 @@ public class AccountForTeacher {
             @Override
             public void handle(ActionEvent actionEvent) {
                 AccountForTeacher.WindowTeacher();
-                primaryStage.hide();
+
             }
         });
 
