@@ -24,7 +24,8 @@ public class Authorization {
 
     public static Text txtLog = new Text(), txtPas = new Text();
     public static TextField log= new TextField();
-    public static TextField pas =  new TextField();
+    public static PasswordField pas =  new PasswordField();
+    public static TextField pas1 =  new TextField();
     public static Stage stage = new Stage();
     public static void input () {
 
@@ -76,6 +77,7 @@ public class Authorization {
         grid.add(password_password, 0, 7);//добавляем текст в Grid
 
         //EDIT "ВВОД ПАРОЛЬ"
+        pas1.setId("field");
         pas.setId("field");
         grid.add(pas, 0, 8);
 
@@ -84,26 +86,15 @@ public class Authorization {
         close_eye.setId("eye");
         close_eye.setLayoutX(600);
         close_eye.setLayoutY(445);
-        close_eye.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-
-            }
-        });
 
 
 
         Image open = new Image("OpenEye1.png");
         Button open_eye = new Button("", new ImageView(open));
         open_eye.setId("eye");
-//        open_eye.setLayoutX(600);
-//        open_eye.setLayoutY(447);
-        open_eye.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
+        open_eye.setLayoutX(600);
+        open_eye.setLayoutY(445);
 
-            }
-        });
 
 
         HBox box_for_buttons = new HBox(198);
@@ -138,7 +129,32 @@ public class Authorization {
 
 
 
-        AnchorPane pane = new AnchorPane(grid, reg, close_eye);
+        AnchorPane pane = new AnchorPane(grid, reg, open_eye);
+
+        close_eye.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                pas.setText(pas1.getText());
+                grid.getChildren().remove(pas1);
+                grid.add(pas, 0,8);
+                pane.getChildren().remove(close_eye);
+                pane.getChildren().add(open_eye);
+
+
+            }
+        });
+
+        open_eye.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                pas1.setText(pas.getText());
+                grid.getChildren().remove(pas);
+                grid.add(pas1, 0,8);
+                pane.getChildren().remove(open_eye);
+                pane.getChildren().add(close_eye);
+            }
+        });
+
         Scene scene = new Scene(pane, 1000, 650); //добавляем Grid в Scene
         stage.setScene(scene); //добавляем scene в stage
         stage.setTitle("Авторизация"); //название форме (как наказывала Ишкушка)
