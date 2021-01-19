@@ -51,7 +51,7 @@ public class AccountForStudent {
             @Override
             public void handle(ActionEvent actionEvent) {
                   AccountForStudent.WindowStudent();
-                  primaryStage.hide();
+
             }
         });
 

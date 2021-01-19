@@ -118,7 +118,7 @@ public class Authorization {
             public void handle(ActionEvent event) {
 
                 AutorizCode.AutorizeME();
-
+                stage.close();
             }
         });
 
@@ -132,7 +132,7 @@ public class Authorization {
             @Override
             public void handle(ActionEvent event) {
                 Registration.SReg();
-                stage.hide();
+                stage.close();
             }
         });
 
