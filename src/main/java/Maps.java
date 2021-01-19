@@ -55,7 +55,7 @@ public class Maps {
             @Override
             public void handle(ActionEvent actionEvent) {
                 Maps.Map();
-                primaryStage.hide();
+
             }
         });
 

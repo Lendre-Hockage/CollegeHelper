@@ -93,7 +93,6 @@ public class Events {
             public void handle(ActionEvent actionEvent) {
                 AddEvent.delEv();
                 Events.Window();
-                stage.hide();
             }
         });
 
@@ -291,7 +290,6 @@ public class Events {
             public void handle(ActionEvent actionEvent) {
                 AddEvent.delEv();
                 Events.Window();
-                stage.hide();
             }
         });
 

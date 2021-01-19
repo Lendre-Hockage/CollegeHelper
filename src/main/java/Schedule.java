@@ -133,7 +133,7 @@ public class Schedule {
             @Override
             public void handle(ActionEvent actionEvent) {
                 Schedule.Window();
-                stage.hide();
+
             }
         });
 
