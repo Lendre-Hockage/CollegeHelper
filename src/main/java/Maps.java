@@ -69,7 +69,15 @@ public class Maps {
             @Override
             public void handle(ActionEvent actionEvent) {
                 AddEvent.delEv();
-                Events.Window();
+//                Events.Window();
+//                primaryStage.hide();
+                switch (AccountForStudent.usertype) {
+                    case 1: Events.Window(); break;
+                    case 2: Events.EventsForPrepAndSuperadm(); break;
+                    case 3: Events.EventsForPrepAndSuperadm(); break;
+                    default: Menu.Alert18();
+                }
+
                 primaryStage.hide();
             }
         });
@@ -83,7 +91,13 @@ public class Maps {
         btn5.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                Schedule.shedForPrepod();
+                switch (AccountForStudent.usertype) {
+                    case 1: Schedule.Window(); break;
+                    case 2: Schedule.shedForPrepod(); break;
+                    case 3: Schedule.createSchedule(); break;
+                    default: Menu.Alert18();
+                }
+
                 primaryStage.hide();
             }
         });

@@ -7,6 +7,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
@@ -22,7 +24,7 @@ public class Authorization {
 
     public static Text txtLog = new Text(), txtPas = new Text();
     public static TextField log= new TextField();
-    public static PasswordField pas =  new PasswordField();
+    public static TextField pas =  new TextField();
     public static Stage stage = new Stage();
     public static void input () {
 
@@ -77,10 +79,34 @@ public class Authorization {
         pas.setId("field");
         grid.add(pas, 0, 8);
 
+        Image close = new Image("CloseEye1.png");
+        Button close_eye = new Button("", new ImageView(close));
+        close_eye.setId("eye");
+        close_eye.setLayoutX(600);
+        close_eye.setLayoutY(445);
+        close_eye.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+
+            }
+        });
+
+
+
+        Image open = new Image("OpenEye1.png");
+        Button open_eye = new Button("", new ImageView(open));
+        open_eye.setId("eye");
+//        open_eye.setLayoutX(600);
+//        open_eye.setLayoutY(447);
+        open_eye.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+
+            }
+        });
 
 
         HBox box_for_buttons = new HBox(198);
-        //КНОПКА "ДАЛЕЕ"
         Button btnAuth = new Button("Войти");
         btnAuth.setId("btn");
         box_for_buttons.getChildren().add(btnAuth);
@@ -112,7 +138,7 @@ public class Authorization {
 
 
 
-        AnchorPane pane = new AnchorPane(grid, reg);
+        AnchorPane pane = new AnchorPane(grid, reg, close_eye);
         Scene scene = new Scene(pane, 1000, 650); //добавляем Grid в Scene
         stage.setScene(scene); //добавляем scene в stage
         stage.setTitle("Авторизация"); //название форме (как наказывала Ишкушка)

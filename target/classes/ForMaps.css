@@ -22,11 +22,6 @@
              -fx-text-fill:"black";
 }
 
-/*#floors:pressed{
-        -fx-background-color: transparent;
-         -fx-border-color: "black" ;
-             -fx-text-fill:"black";
-}*/
 
 #floor {
     -fx-pref-width: 100px;
@@ -46,11 +41,6 @@
              -fx-text-fill:"black";
 }
 
-/*#floor:pressed{
-        -fx-background-color: transparent;
-         -fx-border-color: "black" ;
-             -fx-text-fill:"black";
-}*/
 
   #buttons {
    -fx-pref-width: 182px;

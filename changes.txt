@@ -1,0 +1,12 @@
+use sharagahelper;
+create table changeschendule (group_name varchar(5) not null, day_of_week varchar(4) not null, 
+number varchar(1) not null, 
+lesson varchar(50) not null);
+alter table mainschendule modify day_of_week varchar(4) not null;
+
+create table events (id int not null, event_name varchar(30) not null,
+event_desc varchar(1000) not null,
+event_date varchar(10) not null, 
+group_name varchar(10) not null,
+course_name varchar(2) not null,
+primary key (id));
