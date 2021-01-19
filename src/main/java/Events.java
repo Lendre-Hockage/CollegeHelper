@@ -204,6 +204,7 @@ public class Events {
 
         pane.getChildren().addAll(EventComboBox, scrollPane);
         EventComboBox.setId("event");
+        scrollPane.setId("pane");
         pane.setLayoutX(250);
         pane.setLayoutY(240);
         pane2.getChildren().addAll(pane, pane1);
@@ -352,8 +353,8 @@ public class Events {
 
         Button add = new Button("Добавить");
         add.setId("btn");
-        add.setLayoutY(455);    // установка положения надписи по оси Y
-        add.setLayoutX(763);   // установка положения надписи по оси X
+        add.setLayoutY(450);    // установка положения надписи по оси Y
+        add.setLayoutX(768);   // установка положения надписи по оси X
         add.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -400,6 +401,7 @@ public class Events {
 
         pane.getChildren().addAll(EventComboBox, scrollPane);
         EventComboBox.setId("event");
+        scrollPane.setId("pane");
         pane.setLayoutX(250);
         pane.setLayoutY(208);
         pane2.getChildren().addAll(pane, pane1, add);
@@ -468,7 +470,7 @@ public class Events {
         back.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                Window();
+                EventsForPrepAndSuperadm();
                 stage.close();
             }
         });
