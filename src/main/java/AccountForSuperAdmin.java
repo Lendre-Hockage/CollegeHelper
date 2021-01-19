@@ -55,7 +55,7 @@ public static Scene scene;
             @Override
             public void handle(ActionEvent actionEvent) {
                 AccountForSuperAdmin.WindowAdmin();
-                primaryStage.hide();
+
             }
         });
 
