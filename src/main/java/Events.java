@@ -12,6 +12,10 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
 public class Events {
     public static DatePicker datePicker = new DatePicker();
     public static TextField description =  new TextField();
@@ -207,7 +211,22 @@ public class Events {
 
         Scene scene = new Scene(pane2, 1000, 650);
         stage.setTitle("Просмотр событий");
-        scene.getStylesheets().add("ForEventsStudent.css"); //подключение CSS
+        try(BufferedReader reader = new BufferedReader(new FileReader("C:\\ThemeFolder\\theme.txt")))
+        {
+            String th = reader.readLine();
+
+            if (th.equals("1")){
+                scene.getStylesheets().add("ForEventsStudent.css");
+            }
+            else {
+                scene.getStylesheets().add("ForEventsStudentGREY.css");
+            }
+        }
+        catch (IOException e)
+        {
+            System.out.println(e.getMessage());
+        }
+        //scene.getStylesheets().add("ForEventsStudent.css"); //подключение CSS
         stage.setScene(scene);
         stage.show();
     }
@@ -389,7 +408,22 @@ public class Events {
 
         Scene scene = new Scene(pane2, 1000, 650);
         stage.setTitle("Просмотр событий");
-        scene.getStylesheets().add("ForEventsPrepAdm.css"); //подключение CSS
+        try(BufferedReader reader = new BufferedReader(new FileReader("C:\\ThemeFolder\\theme.txt")))
+        {
+            String th = reader.readLine();
+
+            if (th.equals("1")){
+                scene.getStylesheets().add("ForEventsPrepAdm.css");
+            }
+            else {
+                scene.getStylesheets().add("ForEventsPrepAdmGREY.css");
+            }
+        }
+        catch (IOException e)
+        {
+            System.out.println(e.getMessage());
+        }
+        //scene.getStylesheets().add("ForEventsPrepAdm.css"); //подключение CSS
         stage.setScene(scene);
         stage.show();
 
