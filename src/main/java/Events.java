@@ -34,7 +34,6 @@ public class Events {
     public static Stage stage = new Stage();
     public static GridPane gridPane = new GridPane();
     public static  ScrollPane scrollPane = new ScrollPane();
-    public static TextArea textArea = new TextArea();
 
 
 
@@ -204,6 +203,7 @@ public class Events {
 
         pane.getChildren().addAll(EventComboBox, scrollPane);
         EventComboBox.setId("event");
+        scrollPane.setId("pane");
         pane.setLayoutX(250);
         pane.setLayoutY(240);
         pane2.getChildren().addAll(pane, pane1);
@@ -352,8 +352,8 @@ public class Events {
 
         Button add = new Button("Добавить");
         add.setId("btn");
-        add.setLayoutY(455);    // установка положения надписи по оси Y
-        add.setLayoutX(763);   // установка положения надписи по оси X
+        add.setLayoutY(450);    // установка положения надписи по оси Y
+        add.setLayoutX(768);   // установка положения надписи по оси X
         add.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -400,6 +400,7 @@ public class Events {
 
         pane.getChildren().addAll(EventComboBox, scrollPane);
         EventComboBox.setId("event");
+        scrollPane.setId("pane");
         pane.setLayoutX(250);
         pane.setLayoutY(208);
         pane2.getChildren().addAll(pane, pane1, add);
@@ -434,27 +435,50 @@ public class Events {
 
     public static void Add(){
         Stage stage = new Stage();
-        HBox for_edits = new HBox(10);
 
-        for_edits.getChildren().addAll(CourseBox ,EventComboBox ,box, datePicker, description);
-        for_edits.setLayoutX(150);
-        for_edits.setLayoutY(270);
+//(CourseBox, box, EventComboBox, datePicker, description); //курс, группа, вид соытия, дата, описание
+        CourseBox.setId("course");
+        CourseBox.setLayoutX(34);
+        CourseBox.setLayoutY(218);
+        box.setId("group");
+        box.setLayoutX(118);
+        box.setLayoutY(218);
+        EventComboBox.setId("kind");
+        EventComboBox.setLayoutX(256);
+        EventComboBox.setLayoutY(218);
+        datePicker.setId("date");
+        datePicker.setLayoutX(496);
+        datePicker.setLayoutY(218);
+        description.setId("description");
+        description.setLayoutX(734);
+        description.setLayoutY(218);
 
-        HBox for_labels = new HBox(100);
+
         Label cour = new Label("Курс");
+        cour.setLayoutX(48);
+        cour.setLayoutY(184);
         Label name = new Label("Событие");
+        name.setLayoutX(327);
+        name.setLayoutY(184);
         Label gr = new Label("Группа");
+        gr.setLayoutX(148);
+        gr.setLayoutY(184);
         Label date1 = new Label("Дата");
-
+        date1.setLayoutX(581);
+        date1.setLayoutY(184);
         Label description1 =  new Label("Описание");
+        description1.setLayoutX(804);
+        description1.setLayoutY(184);
+        Label welcome_text = new Label("Добавление событий");
+        welcome_text.setId("welcome-text");
+        welcome_text.setLayoutX(330);
+        welcome_text.setLayoutY(109);
 
-        for_labels.getChildren().addAll(cour ,name ,gr ,date1 , description1);
-        for_labels.setLayoutX(170);
-        for_labels.setLayoutY(240);
 
-        Button add = new Button("Добавить событие");
-        add.setLayoutX(730);
-        add.setLayoutY(320);
+        Button add = new Button("Добавить");
+//        add.setId("button");
+        add.setLayoutX(520);
+        add.setLayoutY(540);
         add.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -462,22 +486,23 @@ public class Events {
             }
         });
 
-        Button back = new Button("<-");
-        back.setLayoutX(50);
-        back.setLayoutY(50);
+        Button back = new Button("← Назад");
+//        back.setId("button");
+        back.setLayoutX(350);
+        back.setLayoutY(540);
         back.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                Window();
+                EventsForPrepAndSuperadm();
                 stage.close();
             }
         });
 
-        Pane without_other_enter = new Pane(for_edits, for_labels, add, back);
+        Pane without_other_enter = new Pane(CourseBox, box, EventComboBox, datePicker, description,  add, back, cour, name, gr, date1, description1, welcome_text);
         Scene scene = new Scene(without_other_enter, 1000, 650); //добавляем Grid в Scene
         stage.setScene(scene); //добавляем scene в stage
-        stage.setTitle("Регистрация"); //название форме (как наказывала Ишкушка)
-        scene.getStylesheets().add(0, "ForRegistration.css"); //подключение CSS
+        stage.setTitle("Добавление новых событий"); //название форме (как наказывала Ишкушка)
+        scene.getStylesheets().add(0, "ForAddEvent.css"); //подключение CSS
         stage.show();
 
     }

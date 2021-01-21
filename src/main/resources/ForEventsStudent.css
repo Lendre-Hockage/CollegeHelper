@@ -2,6 +2,7 @@
       -fx-background-image: url("BackForStudentEvents.png");
  }
 
+
  #buttons {
    -fx-pref-width: 182px;
    -fx-pref-height: 70px;
@@ -37,4 +38,65 @@
 
   #event .arrow{
       -fx-background-color:"black";
+  }
+
+
+       .scroll-pane {
+           -fx-background-color: white;
+           -fx-border-radius: 3;
+           -fx-background-radius: 3;
+           -fx-font-family: "Microsoft JhengHei Light";
+           -fx-font-size: 15;
+       }
+
+       .scroll-pane .viewport {
+           -fx-background-color: white;
+           -fx-border-radius: 3;
+           -fx-background-radius: 3;
+              }
+
+
+ .scroll-bar:horizontal, .scroll-bar:vertical{
+     -fx-background-color:white;
+       }
+
+ .increment-button, .decrement-button {
+     -fx-background-color: transparent;
+     -fx-border-color: transparent;
+      }
+
+
+.scroll-bar:vertical *.increment-arrow{
+    -fx-shape: "M 0 0 L 4 8 L 8 0 Z";
+    -fx-background-color: black;
+}
+
+.scroll-bar:vertical *.decrement-arrow{
+    -fx-shape: "M 0 4 L 8 4 L 4 0 Z";
+    -fx-background-color: black;
+}
+
+.scroll-bar:horizontal *.increment-arrow{
+    -fx-shape: "M 0 0 L 4 4 L 0 8 Z";
+    -fx-background-color: black;
+}
+
+.scroll-bar:horizontal *.decrement-arrow{
+    -fx-shape: "M 4 0 L 4 8 L 0 4 Z";
+    -fx-background-color: black;
+}
+
+
+
+
+ .scroll-bar:horizontal .thumb,
+ .scroll-bar:vertical .thumb {
+      -fx-background-color:white;
+      -fx-border-color:"#b3b2b2";
+      -fx-background-radius: 5em;
+      -fx-border-radius: 5em;
+  }
+
+  .scroll-pane > .corner {
+      -fx-background-color: white;
   }
