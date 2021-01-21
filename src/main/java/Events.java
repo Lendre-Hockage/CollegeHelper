@@ -210,6 +210,7 @@ public class Events {
 
         Scene scene = new Scene(pane2, 1000, 650);
         stage.setTitle("Просмотр событий");
+        stage.setResizable(false);
         try(BufferedReader reader = new BufferedReader(new FileReader("C:\\ThemeFolder\\theme.txt")))
         {
             String th = reader.readLine();
@@ -407,6 +408,7 @@ public class Events {
 
         Scene scene = new Scene(pane2, 1000, 650);
         stage.setTitle("Просмотр событий");
+        stage.setResizable(false);
         try(BufferedReader reader = new BufferedReader(new FileReader("C:\\ThemeFolder\\theme.txt")))
         {
             String th = reader.readLine();

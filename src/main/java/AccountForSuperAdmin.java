@@ -243,6 +243,7 @@ public static Scene scene;
 
         primaryStage.setScene(scene); //добавляем scene в stage
         primaryStage.setTitle("Личный кабинет Великого Владыки и Надзирателя");
+        primaryStage.setResizable(false);
         try(BufferedReader reader = new BufferedReader(new FileReader("C:\\ThemeFolder\\theme.txt")))
         {
             String th = reader.readLine();

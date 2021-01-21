@@ -289,6 +289,7 @@ public static PasswordField pass11 = new PasswordField(), pass22 = new PasswordF
 
             primaryStage.setScene(scene); //добавляем scene в stage
             primaryStage.setTitle("Регистрация");//название форме (как наказывала Ишкушка)
+            primaryStage.setResizable(false);
           try(BufferedReader reader = new BufferedReader(new FileReader("C:\\ThemeFolder\\theme.txt")))
           {
             String th = reader.readLine();

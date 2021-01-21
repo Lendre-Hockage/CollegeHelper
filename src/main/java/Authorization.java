@@ -158,6 +158,7 @@ public class Authorization {
         Scene scene = new Scene(pane, 1000, 650); //добавляем Grid в Scene
         stage.setScene(scene); //добавляем scene в stage
         stage.setTitle("Авторизация"); //название форме (как наказывала Ишкушка)
+        stage.setResizable(false);
         try(BufferedReader reader = new BufferedReader(new FileReader("C:\\ThemeFolder\\theme.txt")))
         {
             String th = reader.readLine();
