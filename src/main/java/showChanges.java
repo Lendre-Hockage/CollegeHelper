@@ -29,7 +29,7 @@ import java.sql.*;
                 Statement statement = conn.createStatement(); //штука, которая обрабатывает запросы sql
                 //вынимаем все измения для определённой группы на два дня
                 ResultSet resultSet = statement.executeQuery
-                        ("select * from changeschendule where group_name='"+ Schedule.EventComboBox1.getValue() +
+                        ("select * from changeschendule where group_name='"+ AutorizCode.group_name +
                                 "'and day_of_week='" +Schedule.words[0]+ "' or day_of_week='" + next_day + "'");
                 int q=0; //счётчик полей
                 while(resultSet.next()&&q<12) {
