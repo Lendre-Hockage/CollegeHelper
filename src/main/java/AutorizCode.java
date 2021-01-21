@@ -76,8 +76,8 @@ public class AutorizCode {
                 }
             switch (matching) {
                 case 1: /*Menu.Alert1();*/Authorization.log.clear();Authorization.pas.clear(); break; //всё верно
-                case 2: Menu.Alert8();Authorization.pas.clear(); break;  //пароль неверный
-                case 0: Menu.Alert2();Authorization.log.clear(); break;  //логина нет
+                case 2: Menu.Alert8();Authorization.pas.clear(); Authorization.log.clear(); break;  //пароль неверный
+                case 0: Menu.Alert2();Authorization.log.clear(); Authorization.pas.clear(); break;  //логина нет
 
             }
 
