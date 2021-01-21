@@ -41,14 +41,25 @@ public class AutorizCode {
                                 if (CurrentPassword.equals(NowPass)) { //сравниваем пароли
                                     matching = 1; //логин и пароль совпали с записанными
                                     Statement state = conn.createStatement();
-                                    ResultSet rs = state.executeQuery("SELECT name, surname, second_name, group_name, email from student_info where id=" + id);
-                                    while (rs.next()) {
-                                        name = rs.getString(1);
-                                        surname = rs.getString(2);
-                                        second_name = rs.getString(3);
-                                        group_name = rs.getString(4);
-                                        email = rs.getString(5);
+                                    ResultSet rs;
+                                    if (type==1) {
+                                    rs = state.executeQuery("SELECT name, surname, second_name, group_name, email from student_info where id=" + id);
+                                        while (rs.next()) {
+                                            name = rs.getString(1);
+                                            surname = rs.getString(2);
+                                            second_name = rs.getString(3);
+                                            group_name = rs.getString(4);
+                                            email = rs.getString(5);
+                                        } }
+                                    else {rs = state.executeQuery("SELECT name, surname, second_name, email from prepods_info where id=" + id);
+                                        while (rs.next()) {
+                                            name = rs.getString(1);
+                                            surname = rs.getString(2);
+                                            second_name = rs.getString(3);
+                                            email = rs.getString(4);
+                                        }
                                     }
+
                                     check = 4;
                                     if (type == 1){AccountForStudent.WindowStudent();
                                     Authorization.stage.close();}
