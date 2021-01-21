@@ -7,6 +7,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
@@ -14,11 +16,16 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
 public class Authorization {
 
     public static Text txtLog = new Text(), txtPas = new Text();
     public static TextField log= new TextField();
     public static PasswordField pas =  new PasswordField();
+    public static TextField pas1 =  new TextField();
     public static Stage stage = new Stage();
     public static void input () {
 
@@ -70,13 +77,27 @@ public class Authorization {
         grid.add(password_password, 0, 7);//добавляем текст в Grid
 
         //EDIT "ВВОД ПАРОЛЬ"
+        pas1.setId("field");
         pas.setId("field");
         grid.add(pas, 0, 8);
+
+        Image close = new Image("CloseEye1.png");
+        Button close_eye = new Button("", new ImageView(close));
+        close_eye.setId("eye");
+        close_eye.setLayoutX(600);
+        close_eye.setLayoutY(445);
+
+
+
+        Image open = new Image("OpenEye1.png");
+        Button open_eye = new Button("", new ImageView(open));
+        open_eye.setId("eye");
+        open_eye.setLayoutX(600);
+        open_eye.setLayoutY(445);
 
 
 
         HBox box_for_buttons = new HBox(198);
-        //КНОПКА "ДАЛЕЕ"
         Button btnAuth = new Button("Войти");
         btnAuth.setId("btn");
         box_for_buttons.getChildren().add(btnAuth);
@@ -88,7 +109,6 @@ public class Authorization {
             public void handle(ActionEvent event) {
 
                 AutorizCode.AutorizeME();
-                stage.hide();
             }
         });
 
@@ -102,17 +122,57 @@ public class Authorization {
             @Override
             public void handle(ActionEvent event) {
                 Registration.SReg();
-                stage.hide();
+                stage.close();
             }
         });
 
 
 
-        AnchorPane pane = new AnchorPane(grid, reg);
+        AnchorPane pane = new AnchorPane(grid, reg, open_eye);
+
+        close_eye.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                pas.setText(pas1.getText());
+                grid.getChildren().remove(pas1);
+                grid.add(pas, 0,8);
+                pane.getChildren().remove(close_eye);
+                pane.getChildren().add(open_eye);
+
+
+            }
+        });
+
+        open_eye.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                pas1.setText(pas.getText());
+                grid.getChildren().remove(pas);
+                grid.add(pas1, 0,8);
+                pane.getChildren().remove(open_eye);
+                pane.getChildren().add(close_eye);
+            }
+        });
+
         Scene scene = new Scene(pane, 1000, 650); //добавляем Grid в Scene
         stage.setScene(scene); //добавляем scene в stage
         stage.setTitle("Авторизация"); //название форме (как наказывала Ишкушка)
-        scene.getStylesheets().add(0, "ForAvtorization.css"); //подключение CSS
+        stage.setResizable(false);
+        try(BufferedReader reader = new BufferedReader(new FileReader("C:\\ThemeFolder\\theme.txt")))
+        {
+            String th = reader.readLine();
+
+            if (th.equals("1")){
+                scene.getStylesheets().add("ForAvtorization.css");
+            }
+            else {
+                scene.getStylesheets().add("ForAvtorizationGREY.css");
+            }
+        }
+        catch (IOException e)
+        {
+            System.out.println(e.getMessage());
+        } //подключение CSS
         stage.show();                // отображение окна на экране
     }
 }

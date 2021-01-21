@@ -11,10 +11,16 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class Registration {
  public static ObservableList<String> listEvent = FXCollections.observableArrayList("@gmail.com",
@@ -35,16 +41,16 @@ public class Registration {
   public static ComboBox<String> EventComboBox = new ComboBox<String>(listEvent);
   public static ComboBox<String> cmbox = new ComboBox<String>(Schedule.listEvent);
   public static TextField log1 = new TextField(),
-          pass1  = new PasswordField(),
-          pass2 = new PasswordField(),
+          pass1  = new TextField(),
+          pass2 = new TextField(),
           name1 = new TextField(),
           surname1 = new TextField(),
           father1 = new TextField(),
           group1 = new TextField(),
           email1 = new TextField();
+public static PasswordField pass11 = new PasswordField(), pass22 = new PasswordField();
 
-
-        private static Stage primaryStage = new Stage();
+        public static Stage primaryStage = new Stage();
         public static void SReg() {
             GridPane grid = new GridPane();   //создание сетки для разметки формы
          //   grid.setGridLinesVisible(true);
@@ -156,7 +162,25 @@ public class Registration {
 
           //EDIT "ПАРОЛЬ"
           pass1.setId("field");
-          grid.add(pass1, 1, 7);
+          pass11.setId("field");
+          grid.add(pass11, 1, 7);
+
+          Image close = new Image("CloseEye1.png");
+          Button close_eye = new Button("", new ImageView(close));
+          close_eye.setId("eye");
+          close_eye.setLayoutX(790);
+          close_eye.setLayoutY(410);
+
+
+
+
+          Image open = new Image("OpenEye1.png");
+          Button open_eye = new Button("", new ImageView(open));
+          open_eye.setId("eye");
+          open_eye.setLayoutX(790);
+          open_eye.setLayoutY(410);
+
+
 
           //LABEL "ПАРОЛЬ ПОВТОР"
           Label pass_pov = new Label("Повторите пароль:");
@@ -165,7 +189,25 @@ public class Registration {
 
           //EDIT "ПАРОЛЬ ПОВТОР"
           pass2.setId("field");
-          grid.add(pass2, 1, 10);
+          pass22.setId("field");
+          grid.add(pass22, 1, 10);
+
+          Image close1 = new Image("CloseEye1.png");
+          Button close_eye1 = new Button("", new ImageView(close));
+          close_eye1.setId("eye");
+          close_eye1.setLayoutX(790);
+          close_eye1.setLayoutY(490);
+
+
+
+
+          Image open1 = new Image("OpenEye1.png");
+          Button open_eye1 = new Button("", new ImageView(open1));
+          open_eye1.setId("eye");
+          open_eye1.setLayoutX(790);
+          open_eye1.setLayoutY(490);
+
+
 
 
           //КНОПУЛЕЧКА "→"
@@ -178,7 +220,7 @@ public class Registration {
             public void handle(ActionEvent event) {
 
               RegistrCode.RegistrME();
-              primaryStage.hide();
+
             }
           });
 
@@ -197,12 +239,73 @@ public class Registration {
           });
 
 
-            Pane without_other_enter = new Pane(grid, re, arrow, av);
+            Pane without_other_enter = new Pane(grid, re, arrow, av, open_eye, open_eye1);
+
+          close_eye.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+              pass11.setText(pass1.getText());
+              grid.getChildren().remove(pass1);
+              grid.add(pass11, 1,7);
+              without_other_enter.getChildren().remove(close_eye);
+              without_other_enter.getChildren().add(open_eye);
+            }
+          });
+
+          open_eye.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+              pass1.setText(pass11.getText());
+              grid.getChildren().remove(pass11);
+              grid.add(pass1, 1,7);
+              without_other_enter.getChildren().remove(open_eye);
+              without_other_enter.getChildren().add(close_eye);
+            }
+          });
+
+          close_eye1.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+              pass22.setText(pass2.getText());
+              grid.getChildren().remove(pass2);
+              grid.add(pass22, 1,10);
+              without_other_enter.getChildren().remove(close_eye1);
+              without_other_enter.getChildren().add(open_eye1);
+            }
+          });
+
+          open_eye1.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+              pass2.setText(pass22.getText());
+              grid.getChildren().remove(pass22);
+              grid.add(pass2, 1,10);
+              without_other_enter.getChildren().remove(open_eye1);
+              without_other_enter.getChildren().add(close_eye1);
+            }
+          });
+
             Scene scene = new Scene(without_other_enter, 1000, 650); //добавляем Grid в Scene
 
             primaryStage.setScene(scene); //добавляем scene в stage
-            primaryStage.setTitle("Регистрация"); //название форме (как наказывала Ишкушка)
-            scene.getStylesheets().add(0, "ForRegistration.css"); //подключение CSS
+            primaryStage.setTitle("Регистрация");//название форме (как наказывала Ишкушка)
+            primaryStage.setResizable(false);
+          try(BufferedReader reader = new BufferedReader(new FileReader("C:\\ThemeFolder\\theme.txt")))
+          {
+            String th = reader.readLine();
+
+            if (th.equals("1")){
+              scene.getStylesheets().add("ForRegistration.css");
+            }
+            else {
+              scene.getStylesheets().add("ForRegistrationGREY.css");
+            }
+          }
+          catch (IOException e)
+          {
+            System.out.println(e.getMessage());
+          }
+            //scene.getStylesheets().add(0, "ForRegistration.css"); //подключение CSS
             primaryStage.show();
         }
     }

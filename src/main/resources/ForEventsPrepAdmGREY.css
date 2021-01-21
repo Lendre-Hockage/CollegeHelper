@@ -1,0 +1,102 @@
+.root {
+      -fx-background-image: url("BackForAdmPrepEventsGREY.png");
+ }
+
+
+ #buttons {
+   -fx-pref-width: 182px;
+   -fx-pref-height: 70px;
+   -fx-background-color:"transparent";
+   -fx-border-color: transparent;
+   -fx-border-width: 0 2px 0 0 ;
+
+
+   }
+
+
+   #labels {
+        -fx-font-size: 17px;
+        -fx-font-family: "Microsoft JhengHei Light";
+        -fx-text-fill: black;
+
+   }
+
+
+  #buttons:hover {
+      -fx-background-color: transparent;
+       -fx-border-color: "black"  ;
+  }
+
+  #event{
+      -fx-border-color:transparent;
+      -fx-pref-width: 220px;
+      -fx-background-color: "white";
+      -fx-border-width:3;
+      -fx-font-family: "Microsoft JhengHei Light";
+      -fx-font-size: 13px;
+  }
+
+  #event .arrow{
+      -fx-background-color:"black";
+  }
+
+  #btn {
+   -fx-pref-width: 150px;
+   -fx-pref-height: 40px;
+   -fx-border-radius: 5;
+   -fx-background-radius: 5;
+   -fx-background-color:"white";
+        -fx-font-family: "Microsoft JhengHei Light";
+      -fx-font-size: 18;
+      -fx-text-fill: "black";
+  }
+
+  #btn:hover {
+       -fx-background-color: transparent;
+        -fx-border-color: "black" ;
+            -fx-text-fill:"black";
+
+
+
+  }
+
+       .scroll-pane {
+           -fx-background-color: white;
+           -fx-border-radius: 3;
+           -fx-background-radius: 3;
+       }
+
+       .scroll-pane .viewport {
+           -fx-background-color: white;
+           -fx-border-radius: 3;
+           -fx-background-radius: 3;
+              }
+
+
+ .scroll-bar:horizontal, .scroll-bar:vertical{
+     -fx-background-color:white;
+       }
+
+ .increment-button, .decrement-button {
+     -fx-background-color: transparent;
+     -fx-border-color: transparent;
+      }
+
+.increment-arrow {
+    -fx-shape: "M 0 0 L 4 8 L 8 0 Z";
+    -fx-background-color: black;
+}
+
+.decrement-arrow {
+    -fx-shape: "M 0 4 L 8 4 L 4 0 Z";
+    -fx-background-color: black;
+}
+
+
+ .scroll-bar:horizontal .thumb,
+ .scroll-bar:vertical .thumb {
+      -fx-background-color:white;
+      -fx-border-color:"#b3b2b2";
+      -fx-background-radius: 5em;
+      -fx-border-radius: 5em;
+  }

@@ -73,3 +73,9 @@
     -fx-border-color: "black" "black" "black" "black";
         -fx-text-fill: "black";
 }
+
+#eye {
+
+ -fx-background-color:"transparent";
+
+}

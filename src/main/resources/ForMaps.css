@@ -7,8 +7,8 @@
 #floors{
   -fx-pref-width: 180px;
   -fx-pref-height: 20px;
-  -fx-border-radius: 6;
-  -fx-background-radius: 6;
+  -fx-border-radius: 5;
+  -fx-background-radius: 5;
   -fx-background-color:"white";
   -fx-border-color: transparent;
       -fx-font-family: "Microsoft JhengHei Light";
@@ -22,17 +22,12 @@
              -fx-text-fill:"black";
 }
 
-/*#floors:pressed{
-        -fx-background-color: transparent;
-         -fx-border-color: "black" ;
-             -fx-text-fill:"black";
-}*/
 
 #floor {
     -fx-pref-width: 100px;
     -fx-pref-height: 20px;
-    -fx-border-radius: 6;
-    -fx-background-radius: 6;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
     -fx-background-color:"white";
     -fx-border-color: transparent;
         -fx-font-family: "Microsoft JhengHei Light";
@@ -46,11 +41,6 @@
              -fx-text-fill:"black";
 }
 
-/*#floor:pressed{
-        -fx-background-color: transparent;
-         -fx-border-color: "black" ;
-             -fx-text-fill:"black";
-}*/
 
   #buttons {
    -fx-pref-width: 182px;

@@ -14,6 +14,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
 
 public class Maps {
@@ -52,7 +55,7 @@ public class Maps {
             @Override
             public void handle(ActionEvent actionEvent) {
                 Maps.Map();
-                primaryStage.hide();
+
             }
         });
 
@@ -66,7 +69,15 @@ public class Maps {
             @Override
             public void handle(ActionEvent actionEvent) {
                 AddEvent.delEv();
-                Events.Window();
+//                Events.Window();
+//                primaryStage.hide();
+                switch (AccountForStudent.usertype) {
+                    case 1: Events.Window(); break;
+                    case 2: Events.EventsForPrepAndSuperadm(); break;
+                    case 3: Events.EventsForPrepAndSuperadm(); break;
+                    default: Menu.Alert18();
+                }
+
                 primaryStage.hide();
             }
         });
@@ -80,7 +91,13 @@ public class Maps {
         btn5.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                Schedule.shedForPrepod();
+                switch (AccountForStudent.usertype) {
+                    case 1: Schedule.Window(); break;
+                    case 2: Schedule.shedForPrepod(); break;
+                    case 3: Schedule.createSchedule(); break;
+                    default: Menu.Alert18();
+                }
+
                 primaryStage.hide();
             }
         });
@@ -549,7 +566,23 @@ public class Maps {
 
         primaryStage.setScene(scene); //добавляем scene в stage
         primaryStage.setTitle("Схемы этажей");
-        scene.getStylesheets().add(0, "ForMaps.css"); //подключение CSS
+        primaryStage.setResizable(false);
+        try(BufferedReader reader = new BufferedReader(new FileReader("C:\\ThemeFolder\\theme.txt")))
+        {
+            String th = reader.readLine();
+
+            if (th.equals("1")){
+                scene.getStylesheets().add("ForMaps.css");
+            }
+            else {
+                scene.getStylesheets().add("ForMapsGREY.css");
+            }
+        }
+        catch (IOException e)
+        {
+            System.out.println(e.getMessage());
+        }
+        //scene.getStylesheets().add(0, "ForMaps.css"); //подключение CSS
         primaryStage.show();
 
     }

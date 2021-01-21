@@ -66,20 +66,20 @@ public class Schedule {
         Stage stage = new Stage();
         BackgroundImage bgI;
         if (AccountForStudent.scene.getStylesheets().contains("ForStudentForm.css")){
-        bgI = new BackgroundImage(new Image("BackForShed.png",1000,650,false,true),
+        bgI = new BackgroundImage(new Image("BackSheduleForStudent.png",1000,650,false,true),
                 BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
                 BackgroundSize.DEFAULT);}
         else {
-           bgI = new BackgroundImage(new Image("SheduleBackGREY.png",1000,650,false,true),
+           bgI = new BackgroundImage(new Image("BackSheduleForStudentGREY.png",1000,650,false,true),
                     BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
                     BackgroundSize.DEFAULT);}
 
         FlowPane pane = new FlowPane(Orientation.HORIZONTAL, 25, 20);
         FlowPane pane2 = new FlowPane(Orientation.HORIZONTAL, 25, 20);
         pane.setLayoutX(250);
-        pane.setLayoutY(45);
-        pane2.setLayoutX(375);
-        pane2.setLayoutY(355);
+        pane.setLayoutY(110);
+        pane2.setLayoutX(250);
+        pane2.setLayoutY(415);
 
         Image av = new Image("LichKab.png");
         Button btn1 = new Button("", new ImageView(av));
@@ -133,7 +133,7 @@ public class Schedule {
             @Override
             public void handle(ActionEvent actionEvent) {
                 Schedule.Window();
-                stage.hide();
+
             }
         });
 
@@ -230,7 +230,7 @@ public class Schedule {
         grid.add(lbl41, 4, 0);
         grid.add(lbl51, 5, 0);
 
-        grid.setHalignment(lbl1, HPos.RIGHT);
+        grid.setHalignment(lbl1, HPos.CENTER);
         grid.setHalignment(lbl2, HPos.CENTER);
         grid.setHalignment(lbl3, HPos.CENTER);
         grid.setHalignment(lbl4, HPos.CENTER);
@@ -364,6 +364,7 @@ public class Schedule {
         group.setBackground(new Background(bgI));
         Scene scene = new Scene(group, 1000,650);
         stage.setScene(scene);
+        stage.setResizable(false);
         scene.getStylesheets().add(0, "ForSchedule.css");
         stage.show();
 
@@ -371,9 +372,15 @@ public class Schedule {
 
     public static void shedForPrepod(){
         Stage stage = new Stage();
-        BackgroundImage bgI = new BackgroundImage(new Image("BackForShedWithText.png",1000,650,false,true),
-                BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
-                BackgroundSize.DEFAULT);
+        BackgroundImage bgI;
+        if (AccountForTeacher.scene.getStylesheets().contains("ForTeacherForm.css")){
+            bgI = new BackgroundImage(new Image("BackForShedWithText.png",1000,650,false,true),
+                    BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
+                    BackgroundSize.DEFAULT);}
+        else {
+            bgI = new BackgroundImage(new Image("SheduleBackGREY.png",1000,650,false,true),
+                    BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
+                    BackgroundSize.DEFAULT);}
         FlowPane pane = new FlowPane(Orientation.HORIZONTAL, 25, 20);
         FlowPane pane2 = new FlowPane(Orientation.HORIZONTAL, 25, 20);
         pane.setLayoutX(250);
@@ -391,8 +398,8 @@ public class Schedule {
         btn1.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-//                Authorization.input();
-//                primaryStage.hide();
+                AccountForTeacher.WindowTeacher();
+                stage.hide();
             }
         });
 
@@ -420,7 +427,7 @@ public class Schedule {
             @Override
             public void handle(ActionEvent actionEvent) {
                 AddEvent.delEv();
-                Events.Window();
+                Events.EventsForPrepAndSuperadm();
                 stage.hide();
             }
         });
@@ -626,6 +633,7 @@ public class Schedule {
         group.setBackground(new Background(bgI));
         Scene scene = new Scene(group, 1000,650);
         stage.setScene(scene);
+        stage.setResizable(false);
         scene.getStylesheets().add(0, "ForSchedule.css");
         stage.show();
     }
@@ -689,9 +697,16 @@ public class Schedule {
 
     public static void createSchedule(){
         Stage stage = new Stage();
-        BackgroundImage bgI = new BackgroundImage(new Image("BackForShedWithText.png",1000,650,false,true),
-                BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
-                BackgroundSize.DEFAULT);
+        BackgroundImage bgI;
+        if (AccountForSuperAdmin.scene.getStylesheets().contains("ForAdminForm.css")){
+            bgI = new BackgroundImage(new Image("BackForShedWithText.png",1000,650,false,true),
+                    BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
+                    BackgroundSize.DEFAULT);}
+        else {
+            bgI = new BackgroundImage(new Image("SheduleBackGREY.png",1000,650,false,true),
+                    BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
+                    BackgroundSize.DEFAULT);}
+
         FlowPane pane = new FlowPane(Orientation.HORIZONTAL, 25, 20);
         FlowPane pane2 = new FlowPane(Orientation.HORIZONTAL, 25, 20);
         pane.setLayoutX(250);
@@ -723,7 +738,7 @@ public class Schedule {
             @Override
             public void handle(ActionEvent actionEvent) {
                 AddEvent.delEv();
-                Events.Window();
+                Events.EventsForPrepAndSuperadm();
                 stage.hide();
             }
         });
@@ -981,6 +996,7 @@ public class Schedule {
         Scene scene = new Scene(root, 1000, 650); //добавляем Grid в Scene
         scene.getStylesheets().add("ForSchedule.css"); //подключение CSS
         stage.setScene(scene); //добавляем scene в stage
+        stage.setResizable(false);
         stage.show();
 
     }

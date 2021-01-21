@@ -1,0 +1,136 @@
+.root {
+      -fx-background-image: url("AddEvent.png");
+ }
+
+#welcome-text {
+    -fx-font-size: 32px;
+    -fx-font-family: "Microsoft JhengHei Light";
+    -fx-fill: black;
+}
+
+ #course{
+     -fx-border-color:transparent;
+     -fx-pref-width: 65px;
+     -fx-background-color: "white";
+     -fx-border-width:3;
+     -fx-font-size: 13px;
+     -fx-font-family: "Microsoft JhengHei Light";
+     -fx-text-fill: black;
+ }
+
+
+ #course .arrow{
+    -fx-background-color:"black";
+}
+
+ #group{
+     -fx-border-color:transparent;
+     -fx-pref-width: 120px;
+     -fx-background-color: "white";
+     -fx-border-width:3;
+     -fx-font-size: 13px;
+     -fx-font-family: "Microsoft JhengHei Light";
+     -fx-text-fill: black;
+
+ }
+
+ #group .arrow{
+    -fx-background-color:"black";
+}
+
+ #kind{
+     -fx-border-color:transparent;
+     -fx-pref-width: 220px;
+     -fx-background-color: "white";
+     -fx-border-width:3;
+     -fx-font-size: 13px;
+     -fx-font-family: "Microsoft JhengHei Light";
+     -fx-text-fill: black;
+ }
+
+ #kind .arrow{
+     -fx-background-color:"black";
+ }
+
+ #date{
+     -fx-border-color:transparent;
+     -fx-pref-width: 220px;
+     -fx-background-color: "white";
+     -fx-border-width:3;
+     -fx-font-size: 13px;
+     -fx-font-family: "Microsoft JhengHei Light";
+     -fx-text-fill: black;
+ }
+
+.date-picker .text-field {
+    -fx-background-color: transparent ;
+    -fx-border-color: transparent ;
+     -fx-font-size: 13px;
+     -fx-font-family: "Microsoft JhengHei Light";
+     -fx-text-fill: black;
+}
+
+.date-picker-popup > .month-year-pane {
+    -fx-background-color: white ;
+}
+
+.date-picker-popup > .calendar-grid .day-cell:hover {
+    -fx-background-color: black;
+    -fx-text-fill: white;
+}
+
+
+.date-picker-popup > .calendar-grid .cell-today {
+     -fx-border-color:black;
+}
+
+.calendar-cell-inactive {
+    -fx-text-fill: grey;
+}
+
+.date-picker > .arrow-button {
+    -fx-background-image: url("/icons/calendar.png"); /* Url of the icon */
+    -fx-background-color: white ;
+    -fx-background-size: 60% 60%; /* Can be `cover` or `100% 100%` ect. */
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center center; /* Put the icon in the center */
+}
+
+.date-picker > .arrow-button:hover{
+    -fx-background-color: transparent ;
+    -fx-border-color: black ;
+}
+
+ #description{
+     -fx-pref-height: 36px;
+     -fx-pref-width: 232px;
+     -fx-font-size: 13px;
+     -fx-font-family: "Microsoft JhengHei Light";
+     -fx-text-fill: black;
+ }
+
+
+.label{
+     -fx-font-size: 18px;
+     -fx-font-family: "Microsoft JhengHei Light";
+     -fx-text-fill: black;
+ }
+
+.button{
+    -fx-pref-width: 130px;
+    -fx-pref-height: 40px;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-background-color:"white";
+    -fx-font-family: "Microsoft JhengHei Light";
+    -fx-font-size: 15;
+    -fx-text-fill: "black";
+}
+
+.button:hover {
+      -fx-background-color: transparent;
+      -fx-border-color: "black" ;
+      -fx-text-fill:"black";
+
+  }
+

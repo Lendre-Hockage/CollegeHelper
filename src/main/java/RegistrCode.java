@@ -147,6 +147,7 @@ public class RegistrCode {
                                                 statement.executeUpdate("insert into prepods_info VALUES ('" + RegistTeacher.name1.getText() + "','" + RegistTeacher.surname1.getText() + "', '" + RegistTeacher.father1.getText() + "', '" + RegistTeacher.email1.getText() + RegistTeacher.EventComboBox.getValue() + "'," + newid + ")");
                                                 Menu.Alert5();
                                                 Authorization.input();
+                                                Registration.primaryStage.close();
                                             }
                                         }
                                     }
