@@ -501,8 +501,23 @@ public class Events {
         Pane without_other_enter = new Pane(CourseBox, box, EventComboBox, datePicker, description,  add, back, cour, name, gr, date1, description1, welcome_text);
         Scene scene = new Scene(without_other_enter, 1000, 650); //добавляем Grid в Scene
         stage.setScene(scene); //добавляем scene в stage
-        stage.setTitle("Добавление новых событий"); //название форме (как наказывала Ишкушка)
-        scene.getStylesheets().add(0, "ForAddEvent.css"); //подключение CSS
+        stage.setTitle("Добавление новых событий");//название форме (как наказывала Ишкушка)
+        try(BufferedReader reader = new BufferedReader(new FileReader("C:\\ThemeFolder\\theme.txt")))
+        {
+            String th = reader.readLine();
+
+            if (th.equals("1")){
+                scene.getStylesheets().add("ForAddEvent.css");
+            }
+            else {
+                scene.getStylesheets().add("ForAddEventGREY.css");
+            }
+        }
+        catch (IOException e)
+        {
+            System.out.println(e.getMessage());
+        }
+        //scene.getStylesheets().add(0, "ForAddEvent.css"); //подключение CSS
         stage.show();
 
     }
