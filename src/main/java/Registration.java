@@ -50,7 +50,7 @@ public class Registration {
           email1 = new TextField();
 public static PasswordField pass11 = new PasswordField(), pass22 = new PasswordField();
 
-        private static Stage primaryStage = new Stage();
+        public static Stage primaryStage = new Stage();
         public static void SReg() {
             GridPane grid = new GridPane();   //создание сетки для разметки формы
          //   grid.setGridLinesVisible(true);
