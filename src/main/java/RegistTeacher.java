@@ -187,6 +187,8 @@ public class RegistTeacher {
 
         primaryStage.setScene(scene); //добавляем scene в stage
         primaryStage.setTitle("Регистрация преподавателя"); //название форме (как наказывала Ишкушка)
+        primaryStage.setResizable(false);
+        scene.getStylesheets().add(0, "ForRegistration.css"); //подключение CSS
         try(BufferedReader reader = new BufferedReader(new FileReader("C:\\ThemeFolder\\theme.txt")))
         {
             String th = reader.readLine();

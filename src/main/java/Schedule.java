@@ -364,6 +364,7 @@ public class Schedule {
         group.setBackground(new Background(bgI));
         Scene scene = new Scene(group, 1000,650);
         stage.setScene(scene);
+        stage.setResizable(false);
         scene.getStylesheets().add(0, "ForSchedule.css");
         stage.show();
 
@@ -626,6 +627,7 @@ public class Schedule {
         group.setBackground(new Background(bgI));
         Scene scene = new Scene(group, 1000,650);
         stage.setScene(scene);
+        stage.setResizable(false);
         scene.getStylesheets().add(0, "ForSchedule.css");
         stage.show();
     }
@@ -988,6 +990,7 @@ public class Schedule {
         Scene scene = new Scene(root, 1000, 650); //добавляем Grid в Scene
         scene.getStylesheets().add("ForSchedule.css"); //подключение CSS
         stage.setScene(scene); //добавляем scene в stage
+        stage.setResizable(false);
         stage.show();
 
     }

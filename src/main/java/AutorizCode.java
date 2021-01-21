@@ -50,9 +50,12 @@ public class AutorizCode {
                                         email = rs.getString(5);
                                     }
                                     check = 4;
-                                    if (type == 1){AccountForStudent.WindowStudent(); }
-                                    else if (type == 2){AccountForTeacher.WindowTeacher();}
-                                    else {AccountForSuperAdmin.WindowAdmin(); }
+                                    if (type == 1){AccountForStudent.WindowStudent();
+                                    Authorization.stage.close();}
+                                    else if (type == 2){AccountForTeacher.WindowTeacher();
+                                    Authorization.stage.close();}
+                                    else {AccountForSuperAdmin.WindowAdmin();
+                                    Authorization.stage.close();}
                                 } else {
                                     matching = 2; //пароль не совпал
                                     check = 4;
@@ -73,8 +76,8 @@ public class AutorizCode {
                 }
             switch (matching) {
                 case 1: /*Menu.Alert1();*/Authorization.log.clear();Authorization.pas.clear(); break; //всё верно
-                case 2: Menu.Alert8();Authorization.pas.clear(); break;  //пароль неверный
-                case 0: Menu.Alert2();Authorization.log.clear(); break;  //логина нет
+                case 2: Menu.Alert8();Authorization.pas.clear(); Authorization.log.clear(); break;  //пароль неверный
+                case 0: Menu.Alert2();Authorization.log.clear(); Authorization.pas.clear(); break;  //логина нет
 
             }
 
