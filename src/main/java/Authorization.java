@@ -109,7 +109,6 @@ public class Authorization {
             public void handle(ActionEvent event) {
 
                 AutorizCode.AutorizeME();
-                stage.close();
             }
         });
 

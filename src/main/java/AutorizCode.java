@@ -50,9 +50,12 @@ public class AutorizCode {
                                         email = rs.getString(5);
                                     }
                                     check = 4;
-                                    if (type == 1){AccountForStudent.WindowStudent(); }
-                                    else if (type == 2){AccountForTeacher.WindowTeacher();}
-                                    else {AccountForSuperAdmin.WindowAdmin(); }
+                                    if (type == 1){AccountForStudent.WindowStudent();
+                                    Authorization.stage.close();}
+                                    else if (type == 2){AccountForTeacher.WindowTeacher();
+                                    Authorization.stage.close();}
+                                    else {AccountForSuperAdmin.WindowAdmin();
+                                    Authorization.stage.close();}
                                 } else {
                                     matching = 2; //пароль не совпал
                                     check = 4;
