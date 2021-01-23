@@ -364,6 +364,7 @@ public class Schedule {
         group.setBackground(new Background(bgI));
         Scene scene = new Scene(group, 1000,650);
         stage.setScene(scene);
+        stage.setTitle("Просмотр расписания");
         stage.setResizable(false);
         scene.getStylesheets().add(0, "ForSchedule.css");
         stage.show();
@@ -372,7 +373,7 @@ public class Schedule {
 
     public static void shedForPrepod(){
         Stage stage = new Stage();
-        BackgroundImage bgI = new BackgroundImage(new Image("BackForShedWithText.png",1000,650,false,true),
+        BackgroundImage bgI = new BackgroundImage(new Image("SheduleBackGREY.png",1000,650,false,true),
                 BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
                 BackgroundSize.DEFAULT);
         FlowPane pane = new FlowPane(Orientation.HORIZONTAL, 25, 20);
@@ -627,6 +628,7 @@ public class Schedule {
         group.setBackground(new Background(bgI));
         Scene scene = new Scene(group, 1000,650);
         stage.setScene(scene);
+        stage.setTitle("Просмотр расписания");
         stage.setResizable(false);
         scene.getStylesheets().add(0, "ForSchedule.css");
         stage.show();
@@ -989,6 +991,7 @@ public class Schedule {
         root.setBackground(new Background(bgI));
         Scene scene = new Scene(root, 1000, 650); //добавляем Grid в Scene
         scene.getStylesheets().add("ForSchedule.css"); //подключение CSS
+        stage.setTitle("Внесение изменений в расписание");
         stage.setScene(scene); //добавляем scene в stage
         stage.setResizable(false);
         stage.show();
