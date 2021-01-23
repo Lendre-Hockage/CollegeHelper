@@ -373,9 +373,15 @@ public class Schedule {
 
     public static void shedForPrepod(){
         Stage stage = new Stage();
-        BackgroundImage bgI = new BackgroundImage(new Image("SheduleBackGREY.png",1000,650,false,true),
-                BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
-                BackgroundSize.DEFAULT);
+        BackgroundImage bgI;
+        if (AccountForTeacher.scene.getStylesheets().contains("ForTeacherForm.css")){
+            bgI = new BackgroundImage(new Image("BackForShedWithText.png",1000,650,false,true),
+                    BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
+                    BackgroundSize.DEFAULT);}
+        else {
+            bgI = new BackgroundImage(new Image("SheduleBackGREY.png",1000,650,false,true),
+                    BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
+                    BackgroundSize.DEFAULT);}
         FlowPane pane = new FlowPane(Orientation.HORIZONTAL, 25, 20);
         FlowPane pane2 = new FlowPane(Orientation.HORIZONTAL, 25, 20);
         pane.setLayoutX(250);
@@ -619,12 +625,8 @@ public class Schedule {
         EventComboBox1.setLayoutY(62);
         EventComboBox1.setId("event");
 
-        Label group_for_changes_shed = new Label( "ГРУППА");
-        group_for_changes_shed.setId("for_group");
-        group_for_changes_shed.setLayoutY(362);
-        group_for_changes_shed.setLayoutX(762);
 
-        Pane group = new Pane(pane1, pane, pane2, EventComboBox1, group_for_changes_shed);
+        Pane group = new Pane(pane1, pane, pane2, EventComboBox1);
         group.setBackground(new Background(bgI));
         Scene scene = new Scene(group, 1000,650);
         stage.setScene(scene);
@@ -965,11 +967,6 @@ public class Schedule {
         EventComboBox.setLayoutY(62);
         EventComboBox.setId("event");
 
-        Label group_for_changes_shed = new Label( "ГРУППА");
-        group_for_changes_shed.setId("for_group");
-        group_for_changes_shed.setLayoutY(362);
-        group_for_changes_shed.setLayoutX(762);
-
 
 
         Button btn = new Button("Сохранить");
@@ -986,7 +983,7 @@ public class Schedule {
             }
         });
 
-        Pane root = new Pane(pane2, pane,pane1, EventComboBox, btn, group_for_changes_shed);
+        Pane root = new Pane(pane2, pane,pane1, EventComboBox, btn);
 
         root.setBackground(new Background(bgI));
         Scene scene = new Scene(root, 1000, 650); //добавляем Grid в Scene

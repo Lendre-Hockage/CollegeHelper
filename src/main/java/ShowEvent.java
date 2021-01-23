@@ -13,7 +13,7 @@ public class ShowEvent {
 
         try (Connection conn = DriverManager.getConnection(AutorizCode.url, AutorizCode.root, AutorizCode.password)) { //подключаемся к бд
             Statement statement = conn.createStatement(); //запрос sql
-            ResultSet resultSet = statement.executeQuery("select * from events where event_name='"+Events.EventComboBox.getValue()+"'");
+            ResultSet resultSet = statement.executeQuery("select * from events where event_name='"+Events.EventComboBox.getValue()+"' and group_name='"+ AutorizCode.group_name +"'");
             int q=0;
 
                     while (resultSet.next()) { //пока не закончится результ сэт
