@@ -236,5 +236,17 @@ public class Menu {
 
         alert.showAndWait();
     }
+
+    public static void Alert19() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Test Connection");
+
+        // Header Text: null
+        alert.setHeaderText(null);
+        alert.setContentText("1:" + Registration.pass1.getText() + " \n 11:" + Registration.pass11.getText() +
+                "\n 2:" + Registration.pass2.getText() + "\n 22:" + Registration.pass22.getText());
+
+        alert.showAndWait();
+    }
 }
 
