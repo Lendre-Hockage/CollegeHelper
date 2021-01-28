@@ -41,7 +41,7 @@ public class RegistTeacher {
             email1 = new TextField();
 
 
-    private static Stage primaryStage = new Stage();
+    public static Stage primaryStage = new Stage();
     public static void RegistT() {
         GridPane grid = new GridPane();   //создание сетки для разметки формы
         //   grid.setGridLinesVisible(true);

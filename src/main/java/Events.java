@@ -48,108 +48,10 @@ public class Events {
         scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
 
 
-        Image av = new Image("LichKab.png");
-        Button btn1 = new Button("", new ImageView(av));
-        btn1.setId("buttons");
-        btn1.setLayoutX(0);
-        btn1.setLayoutY(20);
-        btn1.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                switch (AccountForStudent.usertype) {
-                    case 1: AccountForStudent.WindowStudent(); break;
-                    case 2: AccountForTeacher.WindowTeacher(); break;
-                    case 3: AccountForSuperAdmin.WindowAdmin(); break;
-                    default: Menu.Alert18();
-                }
+        StandartMenu.showMenu();
 
-                stage.hide();
-            }
-        });
-
-
-        Image map = new Image("Map.png");
-        Button btn3 = new Button("", new ImageView(map));
-        btn3.setId("buttons");
-        btn3.setLayoutX(0);
-        btn3.setLayoutY(137);
-        btn3.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                Maps.Map();
-                stage.hide();
-            }
-        });
-
-
-        Image ev = new Image("Ev.png");
-        Button btn4 = new Button("", new ImageView(ev));
-        btn4.setId("buttons");
-        btn4.setLayoutX(0);
-        btn4.setLayoutY(254);
-        btn4.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                AddEvent.delEv();
-                Events.Window();
-            }
-        });
-
-
-        Image shed = new Image("Shed.png");
-        Button btn5 = new Button("", new ImageView(shed));
-        btn5.setId("buttons");
-        btn5.setLayoutX(0);
-        btn5.setLayoutY(371);
-        btn5.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                Schedule.Window();
-                stage.hide();
-            }
-        });
-
-        Image exit = new Image("Exit.png");
-        Button btn6 = new Button("", new ImageView(exit));
-        btn6.setId("buttons");
-        btn6.setLayoutX(0);
-        btn6.setLayoutY(538);
-        btn6.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                Authorization.input();
-                stage.hide();
-            }
-        });
-
-        Label ex = new Label("Выход");
-        ex.setId("labels");
-        ex.setLayoutX(65);
-        ex.setLayoutY(599);
-
-
-        Label authorize = new Label("Личный кабинет");
-        authorize.setId("labels");
-        authorize.setLayoutX(25);
-        authorize.setLayoutY(83);
-
-        Label maps = new Label("Карта корпусов");
-        maps.setId("labels");
-        maps.setLayoutX(30);
-        maps.setLayoutY(197);
-
-        Label eve = new Label("События");
-        eve.setId("labels");
-        eve.setLayoutX(53);
-        eve.setLayoutY(315);
-
-        Label shedl = new Label("Расписание");
-        shedl.setId("labels");
-        shedl.setLayoutX(40);
-        shedl.setLayoutY(432);
-
-
-        Pane pane1 = new Pane(btn1, btn3, btn4, btn5, btn6, authorize, maps, eve, shedl, ex);
+        Pane pane1 = new Pane(StandartMenu.btn1, StandartMenu.btn3, StandartMenu.btn5, StandartMenu.btn4,  StandartMenu.btn6,
+                StandartMenu.authorize, StandartMenu.eve, StandartMenu.ex, StandartMenu.shedl, StandartMenu.maps);
 
 
 //        Button add = new Button("Добавить");
@@ -240,6 +142,7 @@ public class Events {
     public static void EventsForPrepAndSuperadm() {
         Pane pane2 = new Pane();
         HBox pane = new HBox(10);
+        Pane pane1;
 
         scrollPane.setPrefViewportHeight(213);
         scrollPane.setPrefViewportWidth(420);
@@ -247,109 +150,14 @@ public class Events {
         scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
 
 
-        Image av = new Image("LichKab.png");
-        Button btn1 = new Button("", new ImageView(av));
-        btn1.setId("buttons");
-        btn1.setLayoutX(0);
-        btn1.setLayoutY(20);
-        btn1.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                switch (AccountForStudent.usertype) {
-                    case 1: AccountForStudent.WindowStudent(); break;
-                    case 2: AccountForTeacher.WindowTeacher(); break;
-                    case 3: AccountForSuperAdmin.WindowAdmin(); break;
-                    default: Menu.Alert18();
-                }
+       StandartMenu.showMenu();
 
-                stage.hide();
-            }
-        });
-
-
-        Image map = new Image("Map.png");
-        Button btn3 = new Button("", new ImageView(map));
-        btn3.setId("buttons");
-        btn3.setLayoutX(0);
-        btn3.setLayoutY(137);
-        btn3.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                Maps.Map();
-                stage.hide();
-            }
-        });
-
-
-        Image ev = new Image("Ev.png");
-        Button btn4 = new Button("", new ImageView(ev));
-        btn4.setId("buttons");
-        btn4.setLayoutX(0);
-        btn4.setLayoutY(254);
-        btn4.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                AddEvent.delEv();
-                Events.Window();
-            }
-        });
-
-
-        Image shed = new Image("Shed.png");
-        Button btn5 = new Button("", new ImageView(shed));
-        btn5.setId("buttons");
-        btn5.setLayoutX(0);
-        btn5.setLayoutY(371);
-        btn5.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                Schedule.shedForPrepod();
-                stage.hide();
-            }
-        });
-
-        Image exit = new Image("Exit.png");
-        Button btn6 = new Button("", new ImageView(exit));
-        btn6.setId("buttons");
-        btn6.setLayoutX(0);
-        btn6.setLayoutY(538);
-        btn6.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                Authorization.input();
-                stage.hide();
-            }
-        });
-
-        Label ex = new Label("Выход");
-        ex.setId("labels");
-        ex.setLayoutX(65);
-        ex.setLayoutY(599);
-
-
-        Label authorize = new Label("Личный кабинет");
-        authorize.setId("labels");
-        authorize.setLayoutX(25);
-        authorize.setLayoutY(83);
-
-        Label maps = new Label("Карта корпусов");
-        maps.setId("labels");
-        maps.setLayoutX(30);
-        maps.setLayoutY(197);
-
-        Label eve = new Label("События");
-        eve.setId("labels");
-        eve.setLayoutX(53);
-        eve.setLayoutY(315);
-
-        Label shedl = new Label("Расписание");
-        shedl.setId("labels");
-        shedl.setLayoutX(40);
-        shedl.setLayoutY(432);
-
-
-        Pane pane1 = new Pane(btn1, btn3, btn4, btn5, btn6, authorize, maps, eve, shedl, ex);
-
+       if (AccountForStudent.usertype==2) {
+        pane1 = new Pane(StandartMenu.btn1, StandartMenu.btn3, StandartMenu.btn5, StandartMenu.btn4,  StandartMenu.btn6,
+                StandartMenu.authorize, StandartMenu.eve, StandartMenu.ex, StandartMenu.shedl, StandartMenu.maps); }
+       else
+       {  pane1 = new Pane(StandartMenu.btn1,  StandartMenu.btn5, StandartMenu.btn4,  StandartMenu.btn6, StandartMenu.btn7,
+                   StandartMenu.authorize, StandartMenu.eve, StandartMenu.ex, StandartMenu.shedl,  StandartMenu.reg_teach); }
 
         Button add = new Button("Добавить");
         add.setId("btn");
