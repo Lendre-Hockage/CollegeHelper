@@ -2,7 +2,7 @@ import java.sql.*;
 
 public class RegistrCode {
 
-    public static String NewLogin = "", NewPassword = "", hash = "";
+    public static String NewLogin = "", NewPassword = "", hash = "", NewPassword2="";
     public static int id=0; //тут всё очевидно
     public static void RegistrME() {
         NewLogin = Registration.log1.getText();
@@ -43,7 +43,10 @@ public class RegistrCode {
                                     Menu.Alert10();
                                     Registration.log1.clear();
                                 } else { //если написан логин с пробелами, выгоняем
-                                    NewPassword = Registration.pass1.getText(); //читаем пароль
+                                    if (Registration.isOpen2==1  ) {
+                                    NewPassword = Registration.pass1.getText(); }
+                                    else {NewPassword = Registration.pass11.getText(); }
+                                    //читаем пароль
                                     hash = byteArrayToHexString(RegistrCode.computeHash(NewPassword));
                                     if (NewPassword.trim().equals("")) {
                                         Menu.Alert6();
@@ -53,13 +56,23 @@ public class RegistrCode {
                                             Menu.Alert11();
                                             Registration.pass1.clear();
                                         } else {//если пароль с пробелами, выгоняем
+                                            if (Registration.isOpen2==1  ) {
                                             if (NewPassword.equals(Registration.pass2.getText()) == false) {//если пароль не совпадает
                                                 Menu.Alert3();
                                                 Registration.pass1.clear();
                                                 Registration.pass2.clear();
                                             } else {
                                                 newid = id;
-                                                newid++;
+                                                newid++; } }
+                                            else {
+                                                if (NewPassword.equals(Registration.pass22.getText()) == false) {//если пароль не совпадает
+                                                    Menu.Alert3();
+                                                    Registration.pass1.clear();
+                                                    Registration.pass2.clear();
+                                                } else {
+                                                    newid = id;
+                                                    newid++;
+                                                } }
 
 
                                                 //записываем id, логин, пароль и тип (1 - студент) в users_info
@@ -68,7 +81,7 @@ public class RegistrCode {
                                                 statement.executeUpdate("insert into student_info VALUES ('" + Registration.name1.getText() + "','" + Registration.surname1.getText() + "', '" + Registration.father1.getText() + "', '" + Registration.cmbox.getValue() + "', '" + Registration.email1.getText() + Registration.EventComboBox.getValue() + "'," + newid + ")");
                                                 Menu.Alert5();
                                                 Authorization.input();
-                                            }
+
                                         }
                                     }
                                 }

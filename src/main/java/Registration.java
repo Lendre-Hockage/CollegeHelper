@@ -49,6 +49,7 @@ public class Registration {
           group1 = new TextField(),
           email1 = new TextField();
 public static PasswordField pass11 = new PasswordField(), pass22 = new PasswordField();
+public static int isOpen = 0, isOpen2 = 0; //0 если пароль точками, 1 если видно
 
         public static Stage primaryStage = new Stage();
         public static void SReg() {
@@ -221,6 +222,7 @@ public static PasswordField pass11 = new PasswordField(), pass22 = new PasswordF
 
               RegistrCode.RegistrME();
 
+
             }
           });
 
@@ -244,7 +246,9 @@ public static PasswordField pass11 = new PasswordField(), pass22 = new PasswordF
           close_eye.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+              isOpen = 0;
               pass11.setText(pass1.getText());
+              pass1.setText(pass11.getText());
               grid.getChildren().remove(pass1);
               grid.add(pass11, 1,7);
               without_other_enter.getChildren().remove(close_eye);
@@ -255,7 +259,9 @@ public static PasswordField pass11 = new PasswordField(), pass22 = new PasswordF
           open_eye.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+              isOpen = 1;
               pass1.setText(pass11.getText());
+              pass11.setText(pass1.getText());
               grid.getChildren().remove(pass11);
               grid.add(pass1, 1,7);
               without_other_enter.getChildren().remove(open_eye);
@@ -266,7 +272,9 @@ public static PasswordField pass11 = new PasswordField(), pass22 = new PasswordF
           close_eye1.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+              isOpen2 = 0;
               pass22.setText(pass2.getText());
+              pass2.setText(pass22.getText());
               grid.getChildren().remove(pass2);
               grid.add(pass22, 1,10);
               without_other_enter.getChildren().remove(close_eye1);
@@ -277,7 +285,9 @@ public static PasswordField pass11 = new PasswordField(), pass22 = new PasswordF
           open_eye1.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+              isOpen2 = 1;
               pass2.setText(pass22.getText());
+              pass22.setText(pass2.getText());
               grid.getChildren().remove(pass22);
               grid.add(pass2, 1,10);
               without_other_enter.getChildren().remove(open_eye1);
