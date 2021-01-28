@@ -1,3 +1,4 @@
+import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
 import java.sql.*;
@@ -49,6 +50,52 @@ import java.sql.*;
                 e.printStackTrace();
             }
 
+
+        }
+
+        public static void showChangesAdmin() {
+
+            for (int i=0; i<12; i++) {
+                TextField text = new TextField(" ");
+                Schedule.txt1[i] = text;
+            }
+
+
+            String next_day="";
+
+            switch (Schedule.words[0]) {
+
+                case "Mon": next_day="Tue"; break;
+                case "Tue":next_day="Wed"; break;
+                case "Wed":next_day="Thu"; break;
+                case "Thu":next_day="Fri"; break;
+                case "Fri":next_day="Mon"; break;
+
+            }
+
+            try (Connection conn = DriverManager.getConnection(AutorizCode.url, AutorizCode.root, AutorizCode.password)) { //подключаемся к бд
+                Statement statement = conn.createStatement(); //штука, которая обрабатывает запросы sql
+                //вынимаем все измения для определённой группы на два дня
+                ResultSet resultSet = statement.executeQuery
+                        ("select * from changeschendule where group_name='"+ Schedule.EventComboBox.getValue() +
+                                "'and day_of_week='" +Schedule.words[0]+ "' or day_of_week='" + next_day + "'");
+                int q=0; //счётчик полей
+                while(resultSet.next()&&q<12) {
+
+                    TextField text = new TextField(resultSet.getString(4));
+                    Schedule.txt1[q]=text;
+
+                    q++;
+
+                }
+
+
+            } catch (SQLException throwables) {
+                Menu.DatabaseFail(); //если не получилось подключиться, держим в курсе
+                throwables.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
         }
 

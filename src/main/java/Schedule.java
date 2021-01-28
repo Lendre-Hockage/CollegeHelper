@@ -616,6 +616,7 @@ public class Schedule {
                     BackgroundSize.DEFAULT);}
 
         FlowPane pane = new FlowPane(Orientation.HORIZONTAL, 25, 20);
+
         FlowPane pane2 = new FlowPane(Orientation.HORIZONTAL, 25, 20);
         pane.setLayoutX(250);
         pane.setLayoutY(110);
@@ -776,6 +777,9 @@ public class Schedule {
             }
         }
 
+
+
+
         grid.setHalignment(lb1, HPos.CENTER);
         grid.setHalignment(lb2, HPos.CENTER);
         grid.setHalignment(lb3, HPos.CENTER);
@@ -813,6 +817,43 @@ public class Schedule {
                 P++;
             }
         }
+
+
+        EventComboBox.setOnAction(event -> {
+
+            showScendule.showLessonsAdmin();
+
+            int s=0;
+
+            for (int q=1; q<6; q++){
+                for (int j=1; j<7; j++) {
+                    txt[s].setId("edit");
+                    grid.add(txt[s], q, j);
+                    s++;
+                }
+            }
+
+
+
+            pane.getChildren().clear();
+            pane.getChildren().addAll(grid);
+
+            showChanges.showChangesAdmin();
+
+            int v=0;
+
+            for (int q=1; q<4; q+=2){
+                for (int j=1; j<7; j++) {
+                    txt1[v].setId("edit");
+                    grid2.add(txt1[v], q, j);
+                    v++;
+                }
+            }
+
+
+
+
+        });
 
         Date date = new Date();
         String dat = String.valueOf(date);
@@ -898,7 +939,7 @@ public class Schedule {
             }
         });
 
-        Pane root = new Pane(pane2, pane,pane1, EventComboBox, btn);
+        Pane root = new Pane(pane2, pane, pane1, EventComboBox, btn);
 
         root.setBackground(new Background(bgI));
         Scene scene = new Scene(root, 1000, 650); //добавляем Grid в Scene
