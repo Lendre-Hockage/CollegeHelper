@@ -29,6 +29,7 @@ public class StandartMenu {
                 Events.stage.close();
                 Maps.primaryStage.close();
 
+
                 if (AccountForStudent.usertype==1)
                 AccountForStudent.WindowStudent();
                 else AccountForTeacher.WindowTeacher();
