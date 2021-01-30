@@ -9,8 +9,6 @@ public class addChanges {
 
     public static void addChanges() {
 
-        //проверка надо ли удалять расписание
-        if (Schedule.words[0].equals("Mon")==false) { Schedule.monday_check=1; }
 
         if (Schedule.EventComboBox.getValue()==null) {Menu.Alert15();}
 
@@ -18,17 +16,6 @@ public class addChanges {
 
             try (Connection conn = DriverManager.getConnection(AutorizCode.url, AutorizCode.root, AutorizCode.password)) { //подключаемся к бд
                 Statement statement = conn.createStatement(); //штука, которая обрабатывает запросы sql
-
-
-
-                if (Schedule.words[0].equals("Mon") && Schedule.monday_check==0) {
-                    //если сегодня понедельник,
-                    // удаляем изменения за прошлую неделю у всех групп,
-                    //  если они ещё не были удалены (т.е monday_check==0)
-                statement.executeUpdate("delete from changeschendule");
-                    Schedule.monday_check=1;
-                }
-
 
 
                 int q=0; //счётчик текстфилдов
@@ -44,6 +31,10 @@ public class addChanges {
                     case "Fri":next_day="Mon"; break;
 
                 }
+
+                statement.executeUpdate("delete from changeschendule where group_name = '"
+                        + Schedule.EventComboBox.getValue() + "' and day_of_week='" + Schedule.words[0] + "' or day_of_week='" +
+                        next_day + "'"); //удаляем предыдущее
 
                 for (int i=1; i<3; i++) { //счётчик дней недели
                     for (int j = 1; j < 7; j++) { //счётчик пар
