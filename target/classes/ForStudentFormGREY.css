@@ -3,6 +3,20 @@
 
  }
 
+ #bu {
+  -fx-pref-width: 139px;
+  -fx-pref-height: 139px;
+  -fx-border-radius: 100;
+  -fx-background-radius: 100;
+  -fx-background-color:"white";
+
+  }
+
+  #bu:hover{
+   -fx-background-color:"transparent";
+   -fx-border-color: black;
+  }
+
   }
 
  #buttons {
@@ -31,15 +45,6 @@
 
  #field {
         -fx-pref-width: 280px;
-     -fx-border-color: "transparent" "transparent" "black" "transparent";
-     -fx-background-color: transparent;
-     -fx-font-size: 18px;
-     -fx-font-family: "Microsoft JhengHei Light";
-     -fx-text-fill: black;
- }
-
- #field_for_email {
-        -fx-pref-width: 145px;
      -fx-border-color: "transparent" "transparent" "black" "transparent";
      -fx-background-color: transparent;
      -fx-font-size: 18px;
@@ -77,3 +82,10 @@
         -fx-background-color:"transparent";
         -fx-border-color: transparent;
    }
+
+       #ed {
+        -fx-pref-width: 271px;
+        -fx-pref-height: 25px;
+        -fx-background-color:"transparent";
+        -fx-border-color: transparent;
+        }

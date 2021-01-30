@@ -37,7 +37,6 @@ public class RegistTeacher {
             name1 = new TextField(),
             surname1 = new TextField(),
             father1 = new TextField(),
-            group1 = new TextField(),
             email1 = new TextField();
 
 

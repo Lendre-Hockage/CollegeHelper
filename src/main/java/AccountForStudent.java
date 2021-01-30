@@ -32,18 +32,32 @@ public class AccountForStudent {
             "@internet.ru");
     public static ComboBox<String> EventComboBox = new ComboBox<String>(listEvent);
     public static ComboBox<String> cmbox = new ComboBox<String>(Schedule.listEvent1);
-    public static TextField
-            pass1  = new PasswordField(),
-            name1 = new TextField(),
-            surname1 = new TextField(),
-            father1 = new TextField(),
-            email1 = new TextField();
+    public static Label
+            pass1  = new Label(),
+            name1 = new Label(),
+            surname1 = new Label(),
+            father1 = new Label(),
+            email1 = new Label(),
+            group2 = new Label();
 
 
     public static Stage primaryStage = new Stage();
     public static void WindowStudent(){
         AccountForStudent.usertype=1;
         StandartMenu.showMenu();
+
+        Image ph = new Image("Plus.png");
+        Button photo = new Button("", new ImageView(ph));
+        photo.setId("bu");
+        photo.setLayoutX(326);
+        photo.setLayoutY(99);
+        photo.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+
+            }
+        });
+
 
         //LABEL "ФАМИЛИЯ"
         Label surname = new Label("Фамилия:");
@@ -62,12 +76,12 @@ public class AccountForStudent {
         Label name = new Label("Имя:");
         name.setId("Label");
         name.setLayoutX(580);
-        name.setLayoutY(165);
+        name.setLayoutY(180);
 
         //EDIT "ВВОД ИМЯ"
         name1.setId("field");
         name1.setLayoutX(580);
-        name1.setLayoutY(185);
+        name1.setLayoutY(200);
         name1.setText(AutorizCode.name);
 
 
@@ -77,13 +91,13 @@ public class AccountForStudent {
         Label father = new Label("Отчество:");
         father.setId("Label");
         father.setLayoutX(580);
-        father.setLayoutY(250);
+        father.setLayoutY(280);
 
 
         //EDIT "ВВОД ОТЧЕСТВО"
         father1.setId("field");
         father1.setLayoutX(580);
-        father1.setLayoutY(270);
+        father1.setLayoutY(300);
         father1.setText(AutorizCode.second_name);
 
 
@@ -93,13 +107,13 @@ public class AccountForStudent {
         Label group = new Label("Группа:");
         group.setId("Label");
         group.setLayoutX(580);
-        group.setLayoutY(335);
+        group.setLayoutY(380);
 
 
         //EDIT "ГРУППА"
-        cmbox.setId("event");
-        cmbox.setLayoutX(580);
-        cmbox.setLayoutY(365);
+        group2.setId("field");
+        group2.setLayoutX(580);
+        group2.setLayoutY(400);
 
 
 
@@ -108,32 +122,16 @@ public class AccountForStudent {
         Label email = new Label("Электронная почта:");
         email.setId("Label");
         email.setLayoutX(580);
-        email.setLayoutY(430);
+        email.setLayoutY(480);
 
 
         //EDIT "EMAIL"
-        email1.setId("field_for_email");
-        HBox box = new HBox(5);
-        box.getChildren().addAll(email1, EventComboBox);
-        EventComboBox.setId("event");
-        box.setLayoutX(580);
-        box.setLayoutY(450);
+        email1.setId("field");
+        email1.setLayoutX(580);
+        email1.setLayoutY(500);
 
 
-
-
-        //LABEL "ПАРОЛЬ"
-        Label pass = new Label("Пароль:");
-        pass.setId("Label");
-        pass.setLayoutX(580);
-        pass.setLayoutY(515);
-
-
-
-        //EDIT "ПАРОЛЬ"
-        pass1.setId("field");
-        pass1.setLayoutX(580);
-        pass1.setLayoutY(535);
+        //БЛОК НАСТРОЙКИ
 
         Image blue_green = new Image("BlueGreen.png");
         Button btn8 = new Button("", new ImageView(blue_green));
@@ -150,13 +148,26 @@ public class AccountForStudent {
         themes.setLayoutX(432);
         themes.setLayoutY(425);
 
+        Button edit = new Button("");
+        edit.setId("ed");
+        edit.setLayoutX(260);
+        edit.setLayoutY(472);
+        edit.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                EditData.EditStudent();
+                primaryStage.hide();
+
+            }
+        });
+
 
 
 
 
         Pane pane = new Pane(StandartMenu.btn1, StandartMenu.btn3, StandartMenu.btn5, StandartMenu.btn4,  StandartMenu.btn6,
                 StandartMenu.authorize, StandartMenu.eve, StandartMenu.ex, StandartMenu.shedl, StandartMenu.maps,
-                themes, surname, surname1, name, name1, father, father1, email, box, group, cmbox, pass, pass1 );
+                photo, themes, surname, surname1, name, name1, father, father1, email, email1, group, group2, edit);
 
         scene = new Scene(pane, 1000, 650); //добавляем Grid в Scene
 
