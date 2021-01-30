@@ -20,126 +20,14 @@ import java.io.IOException;
 
 
 public class Maps {
-    private static Stage primaryStage = new Stage();
+    public static Stage primaryStage = new Stage();
 
     public static void Map() {
         Pane pane = new Pane();
+        Pane pane1;
 
 
-        Image av = new Image("LichKab.png");
-        Button btn1 = new Button("", new ImageView(av));
-        btn1.setId("buttons");
-        btn1.setLayoutX(0);
-        btn1.setLayoutY(20);
-        btn1.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                switch (AccountForStudent.usertype) {
-                    case 1: AccountForStudent.WindowStudent(); break;
-                    case 2: AccountForTeacher.WindowTeacher(); break;
-                    case 3: AccountForSuperAdmin.WindowAdmin(); break;
-                    default: Menu.Alert18();
-                }
-
-                primaryStage.hide();
-            }
-        });
-
-
-        Image map = new Image("Map.png");
-        Button btn3 = new Button("", new ImageView(map));
-        btn3.setId("buttons");
-        btn3.setLayoutX(0);
-        btn3.setLayoutY(137);
-        btn3.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                Maps.Map();
-
-            }
-        });
-
-
-        Image ev = new Image("Ev.png");
-        Button btn4 = new Button("", new ImageView(ev));
-        btn4.setId("buttons");
-        btn4.setLayoutX(0);
-        btn4.setLayoutY(254);
-        btn4.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                AddEvent.delEv();
-//                Events.Window();
-//                primaryStage.hide();
-                switch (AccountForStudent.usertype) {
-                    case 1: Events.Window(); break;
-                    case 2: Events.EventsForPrepAndSuperadm(); break;
-                    case 3: Events.EventsForPrepAndSuperadm(); break;
-                    default: Menu.Alert18();
-                }
-
-                primaryStage.hide();
-            }
-        });
-
-
-        Image shed = new Image("Shed.png");
-        Button btn5 = new Button("", new ImageView(shed));
-        btn5.setId("buttons");
-        btn5.setLayoutX(0);
-        btn5.setLayoutY(371);
-        btn5.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                switch (AccountForStudent.usertype) {
-                    case 1: Schedule.Window(); break;
-                    case 2: Schedule.shedForPrepod(); break;
-                    case 3: Schedule.createSchedule(); break;
-                    default: Menu.Alert18();
-                }
-
-                primaryStage.hide();
-            }
-        });
-
-        Image exit = new Image("Exit.png");
-        Button btn6 = new Button("", new ImageView(exit));
-        btn6.setId("buttons");
-        btn6.setLayoutX(0);
-        btn6.setLayoutY(538);
-        btn6.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                Authorization.input();
-                primaryStage.hide();
-            }
-        });
-
-        Label ex = new Label("Выход");
-        ex.setId("labels");
-        ex.setLayoutX(65);
-        ex.setLayoutY(599);
-
-
-        Label authorize = new Label("Личный кабинет");
-        authorize.setId("labels");
-        authorize.setLayoutX(25);
-        authorize.setLayoutY(83);
-
-        Label maps = new Label("Карта корпусов");
-        maps.setId("labels");
-        maps.setLayoutX(30);
-        maps.setLayoutY(197);
-
-        Label eve = new Label("События");
-        eve.setId("labels");
-        eve.setLayoutX(53);
-        eve.setLayoutY(315);
-
-        Label shedl = new Label("Расписание");
-        shedl.setId("labels");
-        shedl.setLayoutX(40);
-        shedl.setLayoutY(432);
+        StandartMenu.showMenu();
 
 
 ///////////////КОРПУСА////////////////////////////
@@ -560,7 +448,12 @@ public class Maps {
         });
 
 
-        Pane pane1 = new Pane(pane, btn1, btn3, btn4, btn5, btn6, ex, authorize, maps, eve, shedl);
+        if (AccountForStudent.usertype<3) {
+            pane1 = new Pane(pane, StandartMenu.btn1, StandartMenu.btn3, StandartMenu.btn5, StandartMenu.btn4,  StandartMenu.btn6,
+                    StandartMenu.authorize, StandartMenu.eve, StandartMenu.ex, StandartMenu.shedl, StandartMenu.maps); }
+        else
+        {  pane1 = new Pane(pane, StandartMenu.btn1,  StandartMenu.btn5, StandartMenu.btn4,  StandartMenu.btn6, StandartMenu.btn7,
+                StandartMenu.authorize, StandartMenu.eve, StandartMenu.ex, StandartMenu.shedl,  StandartMenu.reg_teach); }
 
         Scene scene = new Scene(pane1,1000, 650); //добавляем Grid в Scene
 

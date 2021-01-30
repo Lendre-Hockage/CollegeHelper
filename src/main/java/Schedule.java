@@ -58,12 +58,11 @@ public class Schedule {
     public static String dat = String.valueOf(date);
     public static String[] words = dat.split(" ");
 
-    //проверка на понедельник для изменений
-    public static int monday_check;
 
+    public  static Stage stage = new Stage();
 
     public static void Window () { //Окно расписания
-        Stage stage = new Stage();
+
         BackgroundImage bgI;
         if (AccountForStudent.scene.getStylesheets().contains("ForStudentForm.css")){
         bgI = new BackgroundImage(new Image("BackSheduleForStudent.png",1000,650,false,true),
@@ -81,103 +80,10 @@ public class Schedule {
         pane2.setLayoutX(250);
         pane2.setLayoutY(415);
 
-        Image av = new Image("LichKab.png");
-        Button btn1 = new Button("", new ImageView(av));
-        btn1.setId("buttons");
-        btn1.setLayoutX(0);
-        btn1.setLayoutY(20);
-        btn1.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-               AccountForStudent.WindowStudent();
-               stage.hide();
-            }
-        });
+        StandartMenu.showMenu();
 
-
-        Image map = new Image("Map.png");
-        Button btn3 = new Button("", new ImageView(map));
-        btn3.setId("buttons");
-        btn3.setLayoutX(0);
-        btn3.setLayoutY(137);
-        btn3.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                Maps.Map();
-                stage.hide();
-            }
-        });
-
-
-        Image ev = new Image("Ev.png");
-        Button btn4 = new Button("", new ImageView(ev));
-        btn4.setId("buttons");
-        btn4.setLayoutX(0);
-        btn4.setLayoutY(254);
-        btn4.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                AddEvent.delEv();
-                Events.Window();
-                stage.hide();
-            }
-        });
-
-
-        Image shed = new Image("Shed.png");
-        Button btn5 = new Button("", new ImageView(shed));
-        btn5.setId("buttons");
-        btn5.setLayoutX(0);
-        btn5.setLayoutY(371);
-        btn5.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                Schedule.Window();
-
-            }
-        });
-
-        Image exit = new Image("Exit.png");
-        Button btn6 = new Button("", new ImageView(exit));
-        btn6.setId("buttons");
-        btn6.setLayoutX(0);
-        btn6.setLayoutY(538);
-        btn6.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                Authorization.input();
-                stage.hide();
-            }
-        });
-
-        Label ex = new Label("Выход");
-        ex.setId("labels");
-        ex.setLayoutX(65);
-        ex.setLayoutY(599);
-
-
-        Label authorize = new Label("Личный кабинет");
-        authorize.setId("labels");
-        authorize.setLayoutX(25);
-        authorize.setLayoutY(83);
-
-        Label maps = new Label("Карта корпусов");
-        maps.setId("labels");
-        maps.setLayoutX(30);
-        maps.setLayoutY(197);
-
-        Label eve = new Label("События");
-        eve.setId("labels");
-        eve.setLayoutX(53);
-        eve.setLayoutY(315);
-
-        Label shedl = new Label("Расписание");
-        shedl.setId("labels");
-        shedl.setLayoutX(40);
-        shedl.setLayoutY(432);
-
-
-        Pane pane1 = new Pane(btn1, btn3, btn4, btn5, btn6, authorize, maps, eve, shedl, ex);
+        Pane pane1 = new Pane(StandartMenu.btn1, StandartMenu.btn3, StandartMenu.btn5, StandartMenu.btn4,  StandartMenu.btn6,
+                StandartMenu.authorize, StandartMenu.eve, StandartMenu.ex, StandartMenu.shedl, StandartMenu.maps);
 
 
         GridPane grid = new GridPane();
@@ -364,6 +270,7 @@ public class Schedule {
         group.setBackground(new Background(bgI));
         Scene scene = new Scene(group, 1000,650);
         stage.setScene(scene);
+        stage.setTitle("Просмотр расписания");
         stage.setResizable(false);
         scene.getStylesheets().add(0, "ForSchedule.css");
         stage.show();
@@ -390,101 +297,16 @@ public class Schedule {
 
 
 
-        Image av = new Image("LichKab.png");
-        Button btn1 = new Button("", new ImageView(av));
-        btn1.setId("buttons");
-        btn1.setLayoutX(0);
-        btn1.setLayoutY(20);
-        btn1.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                AccountForTeacher.WindowTeacher();
-                stage.hide();
-            }
-        });
+       StandartMenu.showMenu();
 
+       Pane pane1;
 
-        Image map = new Image("Map.png");
-        Button btn3 = new Button("", new ImageView(map));
-        btn3.setId("buttons");
-        btn3.setLayoutX(0);
-        btn3.setLayoutY(137);
-        btn3.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                Maps.Map();
-                stage.hide();
-            }
-        });
-
-
-        Image ev = new Image("Ev.png");
-        Button btn4 = new Button("", new ImageView(ev));
-        btn4.setId("buttons");
-        btn4.setLayoutX(0);
-        btn4.setLayoutY(254);
-        btn4.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                AddEvent.delEv();
-                Events.EventsForPrepAndSuperadm();
-                stage.hide();
-            }
-        });
-
-
-        Image shed = new Image("Shed.png");
-        Button btn5 = new Button("", new ImageView(shed));
-        btn5.setId("buttons");
-        btn5.setLayoutX(0);
-        btn5.setLayoutY(371);
-        btn5.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                Schedule.Window();
-                stage.hide();
-            }
-        });
-
-        Image exit = new Image("Exit.png");
-        Button btn6 = new Button("", new ImageView(exit));
-        btn6.setId("buttons");
-        btn6.setLayoutX(0);
-        btn6.setLayoutY(538);
-        btn6.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                Authorization.input();
-                stage.hide();
-            }
-        });
-
-        Label ex = new Label("Выход");
-        ex.setId("labels");
-        ex.setLayoutX(65);
-        ex.setLayoutY(599);
-
-        Label authorize = new Label("Личный кабинет");
-        authorize.setId("labels");
-        authorize.setLayoutX(25);
-        authorize.setLayoutY(83);
-
-        Label maps = new Label("Карта корпусов");
-        maps.setId("labels");
-        maps.setLayoutX(30);
-        maps.setLayoutY(197);
-
-        Label eve = new Label("События");
-        eve.setId("labels");
-        eve.setLayoutX(53);
-        eve.setLayoutY(315);
-
-        Label shedl = new Label("Расписание");
-        shedl.setId("labels");
-        shedl.setLayoutX(40);
-        shedl.setLayoutY(432);
-
-        Pane pane1 = new Pane(btn1, btn3, btn4, btn5, btn6, authorize, maps, eve, shedl, ex);
+        if (AccountForStudent.usertype<3) {
+            pane1 = new Pane(pane, StandartMenu.btn1, StandartMenu.btn3, StandartMenu.btn5, StandartMenu.btn4,  StandartMenu.btn6,
+                    StandartMenu.authorize, StandartMenu.eve, StandartMenu.ex, StandartMenu.shedl, StandartMenu.maps); }
+        else
+        {  pane1 = new Pane(pane, StandartMenu.btn1,  StandartMenu.btn5, StandartMenu.btn4,  StandartMenu.btn6, StandartMenu.btn7,
+                StandartMenu.authorize, StandartMenu.eve, StandartMenu.ex, StandartMenu.shedl,  StandartMenu.reg_teach); }
 
         GridPane grid = new GridPane();
         grid.setLayoutX(50);
@@ -624,15 +446,12 @@ public class Schedule {
         EventComboBox1.setLayoutY(62);
         EventComboBox1.setId("event");
 
-        Label group_for_changes_shed = new Label( "ГРУППА");
-        group_for_changes_shed.setId("for_group");
-        group_for_changes_shed.setLayoutY(362);
-        group_for_changes_shed.setLayoutX(762);
 
-        Pane group = new Pane(pane1, pane, pane2, EventComboBox1, group_for_changes_shed);
+        Pane group = new Pane(pane1, pane, pane2, EventComboBox1);
         group.setBackground(new Background(bgI));
         Scene scene = new Scene(group, 1000,650);
         stage.setScene(scene);
+        stage.setTitle("Просмотр расписания");
         stage.setResizable(false);
         scene.getStylesheets().add(0, "ForSchedule.css");
         stage.show();
@@ -708,112 +527,24 @@ public class Schedule {
                     BackgroundSize.DEFAULT);}
 
         FlowPane pane = new FlowPane(Orientation.HORIZONTAL, 25, 20);
+
         FlowPane pane2 = new FlowPane(Orientation.HORIZONTAL, 25, 20);
         pane.setLayoutX(250);
         pane.setLayoutY(110);
         pane2.setLayoutX(250);
         pane2.setLayoutY(415);
 
-        Image av = new Image("LichKab.png");
-        Button btn1 = new Button("", new ImageView(av));
-        btn1.setId("buttons");
-        btn1.setLayoutX(0);
-        btn1.setLayoutY(20);
-        btn1.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                AccountForSuperAdmin.WindowAdmin();
-                stage.hide();
-            }
-        });
+        StandartMenu.showMenu();
+
+        Pane pane1;
 
 
-
-        Image ev = new Image("Ev.png");
-        Button btn4 = new Button("", new ImageView(ev));
-        btn4.setId("buttons");
-        btn4.setLayoutX(0);
-        btn4.setLayoutY(140);
-        btn4.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                AddEvent.delEv();
-                Events.EventsForPrepAndSuperadm();
-                stage.hide();
-            }
-        });
-
-
-        Image shed = new Image("Shed.png");
-        Button btn5 = new Button("", new ImageView(shed));
-        btn5.setId("buttons");
-        btn5.setLayoutX(0);
-        btn5.setLayoutY(260);
-        btn5.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                Schedule.createSchedule();
-                stage.hide();
-            }
-        });
-
-        Image reg_t = new Image("Reg.png");
-        Button btn7 = new Button("", new ImageView(reg_t));
-        btn7.setId("buttons");
-        btn7.setLayoutX(0);
-        btn7.setLayoutY(380);
-        btn7.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                RegistTeacher.RegistT();
-                stage.hide();
-            }
-        });
-
-        Image exit = new Image("Exit.png");
-        Button btn6 = new Button("", new ImageView(exit));
-        btn6.setId("buttons");
-        btn6.setLayoutX(0);
-        btn6.setLayoutY(537);
-        btn6.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                Authorization.input();
-                stage.hide();
-            }
-        });
-
-
-
-
-        Label authorize = new Label("Личный кабинет");
-        authorize.setId("labels");
-        authorize.setLayoutX(25);
-        authorize.setLayoutY(83);
-
-
-        Label eve = new Label("Редакировать\n    события");
-        eve.setId("labels");
-        eve.setLayoutX(37);
-        eve.setLayoutY(203);
-
-        Label shedl = new Label("Редакировать\n расписание");
-        shedl.setId("labels");
-        shedl.setLayoutX(35);
-        shedl.setLayoutY(323);
-
-        Label reg_teach = new Label("  Регистрация\nпреподавателя");
-        reg_teach.setId("labels");
-        reg_teach.setLayoutX(30);
-        reg_teach.setLayoutY(443);
-
-        Label ex = new Label("Выход");
-        ex.setId("labels");
-        ex.setLayoutX(65);
-        ex.setLayoutY(600);
-
-
-        Pane pane1 = new Pane(btn1, btn4, btn5, btn6, btn7, authorize,  eve, shedl, reg_teach, ex);
+        if (AccountForStudent.usertype<3) {
+            pane1 = new Pane(pane, StandartMenu.btn1, StandartMenu.btn3, StandartMenu.btn5, StandartMenu.btn4,  StandartMenu.btn6,
+                    StandartMenu.authorize, StandartMenu.eve, StandartMenu.ex, StandartMenu.shedl, StandartMenu.maps); }
+        else
+        {  pane1 = new Pane(pane, StandartMenu.btn1,  StandartMenu.btn5, StandartMenu.btn4,  StandartMenu.btn6, StandartMenu.btn7,
+                StandartMenu.authorize, StandartMenu.eve, StandartMenu.ex, StandartMenu.shedl,  StandartMenu.reg_teach); }
 
 
         GridPane grid = new GridPane();
@@ -868,6 +599,9 @@ public class Schedule {
             }
         }
 
+
+
+
         grid.setHalignment(lb1, HPos.CENTER);
         grid.setHalignment(lb2, HPos.CENTER);
         grid.setHalignment(lb3, HPos.CENTER);
@@ -905,6 +639,43 @@ public class Schedule {
                 P++;
             }
         }
+
+
+        EventComboBox.setOnAction(event -> {
+
+            showScendule.showLessonsAdmin();
+
+            int s=0;
+
+            for (int q=1; q<6; q++){
+                for (int j=1; j<7; j++) {
+                    txt[s].setId("edit");
+                    grid.add(txt[s], q, j);
+                    s++;
+                }
+            }
+
+
+
+            pane.getChildren().clear();
+            pane.getChildren().addAll(grid);
+
+            showChanges.showChangesAdmin();
+
+            int v=0;
+
+            for (int q=1; q<4; q+=2){
+                for (int j=1; j<7; j++) {
+                    txt1[v].setId("edit");
+                    grid2.add(txt1[v], q, j);
+                    v++;
+                }
+            }
+
+
+
+
+        });
 
         Date date = new Date();
         String dat = String.valueOf(date);
@@ -969,11 +740,6 @@ public class Schedule {
         EventComboBox.setLayoutY(62);
         EventComboBox.setId("event");
 
-        Label group_for_changes_shed = new Label( "ГРУППА");
-        group_for_changes_shed.setId("for_group");
-        group_for_changes_shed.setLayoutY(362);
-        group_for_changes_shed.setLayoutX(762);
-
 
 
         Button btn = new Button("Сохранить");
@@ -990,11 +756,15 @@ public class Schedule {
             }
         });
 
-        Pane root = new Pane(pane2, pane,pane1, EventComboBox, btn, group_for_changes_shed);
+
+        Pane root = new Pane(pane2, pane,pane1, EventComboBox, btn);
+
+
 
         root.setBackground(new Background(bgI));
         Scene scene = new Scene(root, 1000, 650); //добавляем Grid в Scene
         scene.getStylesheets().add("ForSchedule.css"); //подключение CSS
+        stage.setTitle("Внесение изменений в расписание");
         stage.setScene(scene); //добавляем scene в stage
         stage.setResizable(false);
         stage.show();

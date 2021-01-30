@@ -3,6 +3,20 @@
 
  }
 
+  #bu {
+    -fx-pref-width: 139px;
+    -fx-pref-height: 139px;
+    -fx-border-radius: 100;
+    -fx-background-radius: 100;
+    -fx-background-color:"white";
+
+    }
+
+    #bu:hover{
+     -fx-background-color:"transparent";
+     -fx-border-color: black;
+    }
+
   }
 
  #buttons {
@@ -77,3 +91,10 @@
        -fx-background-color:"transparent";
        -fx-border-color: transparent;
   }
+
+     #ed {
+       -fx-pref-width: 271px;
+       -fx-pref-height: 25px;
+       -fx-background-color:"transparent";
+       -fx-border-color: transparent;
+       }

@@ -37,11 +37,10 @@ public class RegistTeacher {
             name1 = new TextField(),
             surname1 = new TextField(),
             father1 = new TextField(),
-            group1 = new TextField(),
             email1 = new TextField();
 
 
-    private static Stage primaryStage = new Stage();
+    public static Stage primaryStage = new Stage();
     public static void RegistT() {
         GridPane grid = new GridPane();   //создание сетки для разметки формы
         //   grid.setGridLinesVisible(true);
