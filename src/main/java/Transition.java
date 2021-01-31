@@ -61,31 +61,34 @@ public class Transition {
                 String th = reader.readLine();
 
                 int space;
-                if (th ==null){
-                    Menu.Alert18();
-                }
-                for (int i=0; i<2; i++) {
-                    space =  th.indexOf(" "); //ищем первый пробел в строке
-                    switch (i) {
-                        case 0: //если это первая итерация,
-                            CurrentLogin = th.substring(0, space); //записываем в текущий логин строку от начала до пробела
-                            break;
-                        case 1: //если это вторая итерация,
-                            CurrentPassword = th.substring(0, space);
-                            CurrentPassword=RegistrCode.byteArrayToHexString(RegistrCode.computeHash(CurrentPassword));//записываем в текущий пароль строку от начала до пробела
-                            break;
+                if (th == null) {
+                    Authorization.input();                                                //Открываем форму после паузы
+                    stage.hide();
+                } else {
+                    for (int i = 0; i < 2; i++) {
+                        space = th.indexOf(" "); //ищем первый пробел в строке
+                        switch (i) {
+                            case 0: //если это первая итерация,
+                                CurrentLogin = th.substring(0, space); //записываем в текущий логин строку от начала до пробела
+                                break;
+                            case 1: //если это вторая итерация,
+                                CurrentPassword = th.substring(0, space);
+                                CurrentPassword = RegistrCode.byteArrayToHexString(RegistrCode.computeHash(CurrentPassword));//записываем в текущий пароль строку от начала до пробела
+                                break;
+                        }
+
                     }
+                    //добавить сравненние с бд
 
                 }
-                //добавить сравненние с бд
+            }
+            catch(IOException ex)
+                {
+                    System.out.println(ex.getMessage());
+                } catch(Exception exception){
+                    exception.printStackTrace();
+                }
 
-            }
-            catch (IOException ex)
-            {
-                System.out.println(ex.getMessage());
-            } catch (Exception exception) {
-                exception.printStackTrace();
-            }
 
         });
         wait.play();
