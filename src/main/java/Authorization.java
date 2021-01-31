@@ -12,13 +12,14 @@ import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
 public class Authorization {
-
+    public static CheckBox remember = new CheckBox("Запомнить меня");
     public static Text txtLog = new Text(), txtPas = new Text();
     public static TextField log= new TextField();
     public static PasswordField pas =  new PasswordField();
@@ -153,7 +154,7 @@ public class Authorization {
             }
         });
 
-        CheckBox remember = new CheckBox("Запомнить введённые данные");
+
         grid.add(remember, 0, 10);
 
         Scene scene = new Scene(pane, 1000, 650); //добавляем Grid в Scene
@@ -175,6 +176,14 @@ public class Authorization {
         {
             System.out.println(e.getMessage());
         } //подключение CSS
-        stage.show();                // отображение окна на экране
+        stage.show();
+        if (remember.isSelected()){
+        }
+        stage.setOnShowing(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent windowEvent) {
+
+            }
+        });// отображение окна на экране
     }
 }

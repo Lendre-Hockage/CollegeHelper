@@ -114,7 +114,7 @@ public class AccountForStudent {
         group2.setId("field");
         group2.setLayoutX(580);
         group2.setLayoutY(400);
-
+        group2.setText(AutorizCode.group_name);
 
 
 
@@ -129,7 +129,7 @@ public class AccountForStudent {
         email1.setId("field");
         email1.setLayoutX(580);
         email1.setLayoutY(500);
-
+        email1.setText(AutorizCode.email);
 
         //БЛОК НАСТРОЙКИ
 

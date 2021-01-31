@@ -12,6 +12,10 @@ import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import org.w3c.dom.Text;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
 public class EditData {
     public static Scene scene;
     public static ObservableList<String> listEvent = FXCollections.observableArrayList("@gmail.com",
@@ -278,7 +282,22 @@ public class EditData {
         });
 
         Scene scene = new Scene(without_other_enter, 1000, 650); //добавляем Grid в Scene
-        scene.getStylesheets().add("ForEditLichkiGREY.css");
+        try(BufferedReader reader = new BufferedReader(new FileReader("C:\\ThemeFolder\\theme.txt")))
+        {
+            String th = reader.readLine();
+
+            if (th.equals("1")){
+                scene.getStylesheets().add("ForEditLichki.css");
+            }
+            else {
+                scene.getStylesheets().add("ForEditLichkiGREY.css");
+            }
+        }
+        catch (IOException e)
+        {
+            System.out.println(e.getMessage());
+        } //подключение CSS
+        //scene.getStylesheets().add("ForEditLichkiGREY.css");
         primaryStage.setScene(scene); //добавляем scene в stage
         primaryStage.setTitle("Изменение данных в личном кабинете студента");//название форме (как наказывала Ишкушка)
         primaryStage.setResizable(false);
@@ -505,7 +524,21 @@ public static void EditPrepAndSup(){
     });
 
     Scene scene = new Scene(without_other_enter, 1000, 650); //добавляем Grid в Scene
-    scene.getStylesheets().add("ForEditLichkiGREY.css");
+    try(BufferedReader reader = new BufferedReader(new FileReader("C:\\ThemeFolder\\theme.txt")))
+    {
+        String th = reader.readLine();
+
+        if (th.equals("1")){
+            scene.getStylesheets().add("ForEditLichki.css");
+        }
+        else {
+            scene.getStylesheets().add("ForEditLichkiGREY.css");
+        }
+    }
+    catch (IOException e)
+    {
+        System.out.println(e.getMessage());
+    }
     primaryStage.setScene(scene); //добавляем scene в stage
     primaryStage.setTitle("Изменение данных в личном кабинете...."); //название форме (как наказывала Ишкушка)
     primaryStage.setResizable(false);
