@@ -46,7 +46,7 @@ public class RegistTeacher {
         //   grid.setGridLinesVisible(true);
         grid.setAlignment(Pos.CENTER);
         grid.setHgap(70);
-        grid.setPadding(new Insets(220, 167, 0, 167));
+        grid.setPadding(new Insets(220, 167, 0, 167)); //если есть пароль, то 220, если нет, то 250
 
         grid.getColumnConstraints().add(new ColumnConstraints(300));
         grid.getColumnConstraints().add(new ColumnConstraints(300));
@@ -110,45 +110,50 @@ public class RegistTeacher {
         grid.add(father1, 0, 7);
 
 
+        //ДОБАВИТЬ СУПЕР-АДМИНА
+        CheckBox remember = new CheckBox("Сделать супер-администратором");
+        grid.add(remember, 1, 9); //если пароли убрать, то 1 и 6, если нет, то 1 и 9
+
+
         //LABEL "EMAIL"
         Label email = new Label("Электронная почта:");
         email.setId("Label");
-        grid.add(email, 1, 0);
+        grid.add(email, 0, 9);//если пароли убрать, то 1 и 0, если нет, то 0 и 9
 
         //EDIT "EMAIL"
         email1.setId("field");
         HBox box = new HBox(5);
         box.getChildren().addAll(email1, EventComboBox);
         EventComboBox.setId("event");
-        grid.add(box,1,1);
+        grid.add(box,0,10);//если пароли убрать, то 1 и 1, если нет, то 0 и 10
 
 
         //LABEL "ЛОГИН"
         Label log = new Label("Логин:");
         log.setId("Label");
-        grid.add(log, 1, 3);
+        grid.add(log, 1, 0);//если пароли убрать, то 1 и 3, если нет, то 1 и 0
 
         //EDIT "ЛОГИН"
         log1.setId("field");
-        grid.add(log1, 1, 4);
+        grid.add(log1, 1, 1);//если пароли убрать, то 1 и 4, если нет, то 1 и 1
 
         //LABEL "ПАРОЛЬ"
         Label pass = new Label("Пароль:");
         pass.setId("Label");
-        grid.add(pass, 1, 6);
+        grid.add(pass, 1, 3);
 
         //EDIT "ПАРОЛЬ"
         pass1.setId("field");
-        grid.add(pass1, 1, 7);
+        grid.add(pass1, 1, 4);
 
         //LABEL "ПАРОЛЬ ПОВТОР"
         Label pass_pov = new Label("Повторите пароль:");
         pass_pov.setId("Label");
-        grid.add(pass_pov, 1, 9);
+        grid.add(pass_pov, 1, 6);
 
         //EDIT "ПАРОЛЬ ПОВТОР"
         pass2.setId("field");
-        grid.add(pass2, 1, 10);
+        grid.add(pass2, 1, 7);
 
 
         //КНОПУЛЕЧКА "→"
@@ -159,7 +164,6 @@ public class RegistTeacher {
         arrow.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-
                 RegistrCode.RegistrTeacher();
             }
         });
