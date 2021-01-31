@@ -1,3 +1,7 @@
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.sql.*;
 
 public class AutorizCode {
@@ -61,6 +65,39 @@ public class AutorizCode {
                                     }
 
                                     check = 4;
+                                    if (Authorization.remember.isSelected()){
+                                        if(Files.isRegularFile(Path.of("C:\\ThemeFolder\\Auth.txt")) ==true){
+                                            try(FileWriter writer = new FileWriter("C:\\ThemeFolder\\Auth.txt", false))
+                                            {
+                                                String th = Authorization.log.getText()+ " "+ Authorization.pas.getText();
+                                                writer.write(th);
+
+                                            } catch (IOException ex){
+                                                System.out.println(ex.getMessage());
+                                            }
+                                        }
+                                        else {
+                                            Files.createFile(Path.of("C:\\ThemeFolder\\Auth.txt"));
+                                            try(FileWriter writer = new FileWriter("C:\\ThemeFolder\\Auth.txt", false))
+                                            {
+                                                String th = Authorization.log.getText()+ " "+ Authorization.pas.getText();
+                                                writer.write(th);
+
+                                            } catch (IOException ex){
+                                                System.out.println(ex.getMessage());
+                                            }
+                                        }
+                                    }
+                                    else {
+                                        try(FileWriter writer = new FileWriter("C:\\ThemeFolder\\Auth.txt", false))
+                                        {
+                                            String th ="";
+                                            writer.write(th);
+
+                                        } catch (IOException ex){
+                                            System.out.println(ex.getMessage());
+                                        }
+                                    }
                                     if (type == 1){AccountForStudent.WindowStudent();
                                     Authorization.stage.close();}
                                     else if (type == 2){AccountForTeacher.WindowTeacher();
