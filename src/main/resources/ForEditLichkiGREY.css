@@ -58,18 +58,6 @@
      -fx-background-color: black;
  }
 
- .scroll-bar:horizontal *.increment-arrow{
-     -fx-shape: "M 0 0 L 4 4 L 0 8 Z";
-     -fx-background-color: black;
- }
-
- .scroll-bar:horizontal *.decrement-arrow{
-     -fx-shape: "M 4 0 L 4 8 L 0 4 Z";
-     -fx-background-color: black;
- }
-
-
-
 
   .scroll-bar:horizontal .thumb,
   .scroll-bar:vertical .thumb {
@@ -79,9 +67,6 @@
        -fx-border-radius: 5em;
    }
 
-   .scroll-pane > .corner {
-       -fx-background-color: white;
-   }
 
 
 #field {

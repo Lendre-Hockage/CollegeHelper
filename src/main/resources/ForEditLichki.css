@@ -34,51 +34,30 @@
 
  }
 
-  /*   .combo-box-base .list-cell {
-            -fx-background-color: white;
-                      -fx-text-fill:"black";
-            -fx-border-radius: 3;
-            -fx-background-radius: 3;
-               }
-
+.combo-box-popup .list-view .list-cell:hover {
+    -fx-background-color: black;
+    -fx-text-fill: white;
+}
 
   .scroll-bar:horizontal, .scroll-bar:vertical{
       -fx-background-color:white;
-                -fx-text-fill:"black";
         }
 
   .increment-button, .decrement-button {
       -fx-background-color: transparent;
       -fx-border-color: transparent;
-                -fx-text-fill:"black";
        }
 
 
  .scroll-bar:vertical *.increment-arrow{
      -fx-shape: "M 0 0 L 4 8 L 8 0 Z";
      -fx-background-color: black;
-               -fx-text-fill:"black";
  }
 
  .scroll-bar:vertical *.decrement-arrow{
      -fx-shape: "M 0 4 L 8 4 L 4 0 Z";
      -fx-background-color: black;
-               -fx-text-fill:"black";
  }
-
- .scroll-bar:horizontal *.increment-arrow{
-     -fx-shape: "M 0 0 L 4 4 L 0 8 Z";
-     -fx-background-color: black;
-               -fx-text-fill:"black";
- }
-
- .scroll-bar:horizontal *.decrement-arrow{
-     -fx-shape: "M 4 0 L 4 8 L 0 4 Z";
-     -fx-background-color: black;
-               -fx-text-fill:"black";
- }
-
-
 
 
   .scroll-bar:horizontal .thumb,
@@ -87,9 +66,8 @@
        -fx-border-color:"#b3b2b2";
        -fx-background-radius: 5em;
        -fx-border-radius: 5em;
-                 -fx-text-fill:"black";
    }
-*/
+
 
 
 

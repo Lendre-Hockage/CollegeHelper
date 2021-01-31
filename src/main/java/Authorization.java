@@ -3,10 +3,7 @@ import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
@@ -32,7 +29,7 @@ public class Authorization {
         GridPane grid = new GridPane();   //создание сетки для разметки формы
         //grid.setGridLinesVisible(true);
         grid.setAlignment(Pos.CENTER);
-        grid.setPadding(new Insets(188, 250, 60, 348));
+        grid.setPadding(new Insets(160, 250, 60, 348));
 
 
 
@@ -52,7 +49,9 @@ public class Authorization {
         grid.getRowConstraints().add(new RowConstraints(10));
 
         grid.getRowConstraints().add(new RowConstraints(30));
-        grid.getRowConstraints().add(new RowConstraints(50));//Кнопка
+        grid.getRowConstraints().add(new RowConstraints(20));
+        grid.getRowConstraints().add(new RowConstraints(50));
+
 
         //LABEL "РЕГИСТРАЦИЯ"
         Label rega = new Label("Авторизация");
@@ -85,7 +84,7 @@ public class Authorization {
         Button close_eye = new Button("", new ImageView(close));
         close_eye.setId("eye");
         close_eye.setLayoutX(600);
-        close_eye.setLayoutY(445);
+        close_eye.setLayoutY(422);
 
 
 
@@ -93,7 +92,7 @@ public class Authorization {
         Button open_eye = new Button("", new ImageView(open));
         open_eye.setId("eye");
         open_eye.setLayoutX(600);
-        open_eye.setLayoutY(445);
+        open_eye.setLayoutY(422);
 
 
 
@@ -102,7 +101,7 @@ public class Authorization {
         btnAuth.setId("btn");
         box_for_buttons.getChildren().add(btnAuth);
         box_for_buttons.setAlignment(Pos.CENTER);
-        grid.add(box_for_buttons, 0, 11);
+        grid.add(box_for_buttons, 0, 12);
 
         btnAuth.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -153,6 +152,9 @@ public class Authorization {
                 pane.getChildren().add(close_eye);
             }
         });
+
+        CheckBox remember = new CheckBox("Запомнить введённые данные");
+        grid.add(remember, 0, 10);
 
         Scene scene = new Scene(pane, 1000, 650); //добавляем Grid в Scene
         stage.setScene(scene); //добавляем scene в stage
